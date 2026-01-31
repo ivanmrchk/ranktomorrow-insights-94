@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Type, 
@@ -7,14 +7,14 @@ import {
   Star,
   Copy,
   Check,
-  Info,
   Zap,
   Target,
   MousePointerClick,
   TrendingUp,
   Clock,
   Search,
-  BadgeCheck
+  BadgeCheck,
+  Link2
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -29,6 +29,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
@@ -39,7 +40,43 @@ interface GeneratedTitle {
   isRecommended?: boolean;
   hasKeyword: boolean;
   intent: "informational" | "commercial" | "transactional";
+  slug: string;
 }
+
+// Stop words to remove from slugs
+const STOP_WORDS = new Set([
+  'a', 'an', 'the', 'for', 'to', 'in', 'of', 'and', 'or', 'is', 'are', 
+  'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 
+  'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might',
+  'must', 'shall', 'can', 'need', 'dare', 'ought', 'used', 'with',
+  'from', 'by', 'at', 'on', 'your', 'our', 'my', 'their', 'its',
+  'this', 'that', 'these', 'those', 'what', 'which', 'who', 'whom',
+  'how', 'why', 'when', 'where'
+]);
+
+// Generate SEO-friendly URL slug from title
+const generateSlug = (title: string): string => {
+  return title
+    .toLowerCase()
+    // Remove years (4-digit numbers)
+    .replace(/\b20\d{2}\b/g, '')
+    // Remove numbers at the start (like "7 Best" -> "Best")
+    .replace(/^\d+\s+/g, '')
+    // Remove special characters except spaces and hyphens
+    .replace(/[^\w\s-]/g, '')
+    // Split into words
+    .split(/\s+/)
+    // Remove stop words
+    .filter(word => word && !STOP_WORDS.has(word))
+    // Join with hyphens
+    .join('-')
+    // Remove multiple consecutive hyphens
+    .replace(/-+/g, '-')
+    // Remove leading/trailing hyphens
+    .replace(/^-+|-+$/g, '')
+    // Limit length for cleaner URLs
+    .slice(0, 60);
+};
 
 // Demo titles for "keyword research tools"
 const demoTitles: GeneratedTitle[] = [
@@ -49,60 +86,70 @@ const demoTitles: GeneratedTitle[] = [
     hasKeyword: true,
     intent: "informational",
     isRecommended: true,
+    slug: "best-keyword-research-tools-seo",
   },
   {
     title: "Keyword Research Tools: Find Profitable SEO Keywords Fast",
     charCount: 57,
     hasKeyword: true,
     intent: "commercial",
+    slug: "keyword-research-tools-find-profitable-seo-keywords-fast",
   },
   {
     title: "Top SEO Keyword Research Tools for Better Rankings",
     charCount: 50,
     hasKeyword: true,
     intent: "informational",
+    slug: "top-seo-keyword-research-tools-better-rankings",
   },
   {
     title: "How to Choose the Best Keyword Research Tools",
     charCount: 46,
     hasKeyword: true,
     intent: "informational",
+    slug: "choose-best-keyword-research-tools",
   },
   {
     title: "10 Keyword Research Tools Every SEO Should Use",
     charCount: 47,
     hasKeyword: true,
     intent: "informational",
+    slug: "keyword-research-tools-every-seo-use",
   },
   {
     title: "Free vs Paid Keyword Research Tools: Complete Comparison",
     charCount: 56,
     hasKeyword: true,
     intent: "commercial",
+    slug: "free-vs-paid-keyword-research-tools-comparison",
   },
   {
     title: "Master Keyword Research: Tools, Tips & Strategies",
     charCount: 50,
     hasKeyword: true,
     intent: "informational",
+    slug: "master-keyword-research-tools-tips-strategies",
   },
   {
     title: "Keyword Research Tools That Actually Improve Rankings",
     charCount: 53,
     hasKeyword: true,
     intent: "commercial",
+    slug: "keyword-research-tools-actually-improve-rankings",
   },
   {
     title: "The Ultimate Guide to Using Keyword Research Tools",
     charCount: 51,
     hasKeyword: true,
     intent: "informational",
+    slug: "ultimate-guide-using-keyword-research-tools",
   },
   {
     title: "Keyword Research Tools: From Beginner to Pro",
     charCount: 45,
     hasKeyword: true,
     intent: "informational",
+    slug: "keyword-research-tools-beginner-pro",
   },
 ];
 
@@ -126,6 +173,7 @@ const generateTitlesFromKeyword = (primaryKeyword: string): GeneratedTitle[] => 
     hasKeyword: true,
     intent: item.intent,
     isRecommended: index === 0,
+    slug: generateSlug(item.template),
   }));
 };
 
@@ -137,6 +185,8 @@ const SeoTitleGenerator = () => {
   const [generatedTitles, setGeneratedTitles] = useState<GeneratedTitle[]>(demoTitles);
   const [isGenerating, setIsGenerating] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [copiedSlugIndex, setCopiedSlugIndex] = useState<number | null>(null);
+  const [generateSlugEnabled, setGenerateSlugEnabled] = useState(true);
   const [isDemo, setIsDemo] = useState(true);
   const { toast } = useToast();
 
@@ -168,12 +218,32 @@ const SeoTitleGenerator = () => {
     });
   };
 
-  const copyToClipboard = (title: string, index: number) => {
-    navigator.clipboard.writeText(title);
+  const copyToClipboard = (text: string, index: number, type: 'title' | 'slug') => {
+    navigator.clipboard.writeText(text);
+    if (type === 'title') {
+      setCopiedIndex(index);
+      toast({
+        title: "Title copied!",
+        description: "SEO title copied to clipboard.",
+      });
+      setTimeout(() => setCopiedIndex(null), 2000);
+    } else {
+      setCopiedSlugIndex(index);
+      toast({
+        title: "Slug copied!",
+        description: "URL slug copied to clipboard.",
+      });
+      setTimeout(() => setCopiedSlugIndex(null), 2000);
+    }
+  };
+
+  const copyBoth = (title: string, slug: string, index: number) => {
+    const combined = `Title: ${title}\nSlug: ${slug}`;
+    navigator.clipboard.writeText(combined);
     setCopiedIndex(index);
     toast({
       title: "Copied!",
-      description: "Title copied to clipboard.",
+      description: "Title and slug copied to clipboard.",
     });
     setTimeout(() => setCopiedIndex(null), 2000);
   };
@@ -296,6 +366,22 @@ const SeoTitleGenerator = () => {
                       </div>
                     </div>
 
+                    {/* URL Slug Option */}
+                    <div className="flex items-center space-x-3 pt-2">
+                      <Checkbox
+                        id="generateSlug"
+                        checked={generateSlugEnabled}
+                        onCheckedChange={(checked) => setGenerateSlugEnabled(checked === true)}
+                      />
+                      <Label 
+                        htmlFor="generateSlug" 
+                        className="text-foreground font-medium cursor-pointer flex items-center gap-2"
+                      >
+                        <Link2 className="w-4 h-4 text-accent" />
+                        Generate SEO-friendly URL slug
+                      </Label>
+                    </div>
+
                     <Button
                       type="submit"
                       size="lg"
@@ -362,11 +448,56 @@ const SeoTitleGenerator = () => {
                       )}
                       
                       <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <p className="text-foreground font-medium leading-relaxed">
-                            {item.title}
-                          </p>
-                          <div className="flex flex-wrap items-center gap-2 mt-3">
+                        <div className="flex-1 space-y-3">
+                          {/* Title with copy button */}
+                          <div className="flex items-start gap-2 group/title">
+                            <p className="text-foreground font-medium leading-relaxed flex-1">
+                              {item.title}
+                            </p>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => copyToClipboard(item.title, index, 'title')}
+                              className="opacity-0 group-hover/title:opacity-100 transition-opacity h-7 px-2"
+                              title="Copy title"
+                            >
+                              {copiedIndex === index ? (
+                                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                              ) : (
+                                <Copy className="w-3.5 h-3.5" />
+                              )}
+                            </Button>
+                          </div>
+
+                          {/* URL Slug */}
+                          {generateSlugEnabled && (
+                            <div className="flex items-center gap-2 group/slug">
+                              <Link2 className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
+                              <code className={`text-sm font-mono px-2 py-1 rounded flex-1 ${
+                                item.isRecommended 
+                                  ? "bg-accent/10 text-accent" 
+                                  : "bg-muted/50 text-muted-foreground"
+                              }`}>
+                                /{item.slug}
+                              </code>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => copyToClipboard(item.slug, index, 'slug')}
+                                className="opacity-0 group-hover/slug:opacity-100 transition-opacity h-7 px-2"
+                                title="Copy slug"
+                              >
+                                {copiedSlugIndex === index ? (
+                                  <Check className="w-3.5 h-3.5 text-emerald-600" />
+                                ) : (
+                                  <Copy className="w-3.5 h-3.5" />
+                                )}
+                              </Button>
+                            </div>
+                          )}
+
+                          {/* Tags */}
+                          <div className="flex flex-wrap items-center gap-2">
                             <span className={`inline-flex items-center text-xs font-medium px-2 py-0.5 rounded ${
                               item.charCount <= 60 
                                 ? "bg-emerald-500/10 text-emerald-600" 
@@ -391,22 +522,57 @@ const SeoTitleGenerator = () => {
                           </div>
                         </div>
                         
+                        {/* Copy Both Button */}
                         <Button
-                          variant="ghost"
+                          variant="outline"
                           size="sm"
-                          onClick={() => copyToClipboard(item.title, index)}
-                          className="opacity-0 group-hover:opacity-100 transition-opacity"
+                          onClick={() => copyBoth(item.title, item.slug, index)}
+                          className="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                          title="Copy title and slug"
                         >
-                          {copiedIndex === index ? (
-                            <Check className="w-4 h-4 text-emerald-600" />
-                          ) : (
-                            <Copy className="w-4 h-4" />
-                          )}
+                          <Copy className="w-4 h-4 mr-1.5" />
+                          Copy All
                         </Button>
                       </div>
 
                       {item.isRecommended && (
-                        <div className="mt-4 pt-4 border-t border-accent/20">
+                        <div className="mt-4 pt-4 border-t border-accent/20 space-y-4">
+                          {/* Highlighted Slug for Recommended */}
+                          {generateSlugEnabled && (
+                            <div className="bg-accent/5 rounded-lg p-4 border border-accent/20">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                  <Link2 className="w-4 h-4 text-accent" />
+                                  <span className="text-sm font-medium text-foreground">Recommended URL Slug</span>
+                                </div>
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={() => copyToClipboard(item.slug, index, 'slug')}
+                                  className="h-7"
+                                >
+                                  {copiedSlugIndex === index ? (
+                                    <>
+                                      <Check className="w-3.5 h-3.5 text-emerald-600 mr-1" />
+                                      Copied
+                                    </>
+                                  ) : (
+                                    <>
+                                      <Copy className="w-3.5 h-3.5 mr-1" />
+                                      Copy
+                                    </>
+                                  )}
+                                </Button>
+                              </div>
+                              <code className="block mt-2 text-base font-mono text-accent bg-accent/10 px-3 py-2 rounded">
+                                /{item.slug}
+                              </code>
+                              <p className="text-xs text-muted-foreground mt-2">
+                                Ready to paste into WordPress, Webflow, or any CMS
+                              </p>
+                            </div>
+                          )}
+
                           <div className="bg-background/50 rounded-lg p-4">
                             <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-3">
                               <BadgeCheck className="w-4 h-4 text-accent" />
