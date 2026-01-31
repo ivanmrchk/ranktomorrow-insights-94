@@ -15,8 +15,8 @@ const footerLinks = {
   ],
   company: [
     { label: "About", href: "#" },
+    { label: "Editorial Team", href: "/static/editorial-team.html" },
     { label: "Contact", href: "#" },
-    { label: "Careers", href: "#" },
     { label: "Press", href: "#" },
   ],
   legal: [
