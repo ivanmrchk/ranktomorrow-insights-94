@@ -82,30 +82,30 @@ const itemVariants = {
 
 export const FeaturedContent = () => {
   return (
-    <section className="py-20 md:py-28 lg:py-32 relative bg-secondary/30">
+    <section className="py-16 md:py-20 lg:py-24 relative bg-secondary/30">
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-40">
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
+          backgroundSize: '32px 32px'
         }} />
       </div>
       
       <div className="container-custom relative z-10">
-        {/* Section Header */}
+        {/* Section Header - Compact */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-14 md:mb-20"
+          className="mb-10 md:mb-12"
         >
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
             <div>
-              <span className="inline-block text-accent text-sm font-semibold uppercase tracking-wider mb-3">
+              <span className="inline-block text-accent text-xs font-semibold uppercase tracking-wider mb-2">
                 Featured Insights
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
                 Latest from the <span className="gradient-text">Blog</span>
               </h2>
             </div>
@@ -117,33 +117,24 @@ export const FeaturedContent = () => {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
-          <p className="text-muted-foreground mt-4 max-w-2xl text-lg">
-            Deep dives into SEO, AI, and growth strategies backed by real data and proven results.
-          </p>
         </motion.div>
 
-        {/* Articles Grid - Editorial Layout */}
+        {/* Articles Grid - Balanced Layout */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
         >
           {articles.map((article, index) => (
             <motion.article
               key={index}
               variants={itemVariants}
-              className={`group relative bg-card rounded-2xl border border-border overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-border/50 hover:border-accent/30 hover:-translate-y-1 ${
-                index === 0 ? "md:col-span-2 lg:col-span-2 lg:row-span-2" : ""
-              }`}
+              className="group relative bg-card rounded-xl border border-border overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-border/40 hover:border-accent/20 hover:-translate-y-0.5"
             >
-              {/* Abstract Thumbnail Background */}
-              <div 
-                className={`relative overflow-hidden ${
-                  index === 0 ? "h-48 md:h-64 lg:h-80" : "h-36 md:h-44"
-                }`}
-              >
+              {/* Abstract Thumbnail Background - Consistent Height */}
+              <div className="relative h-32 md:h-36 overflow-hidden">
                 {/* Gradient base */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${article.gradient}`} />
                 
@@ -154,49 +145,45 @@ export const FeaturedContent = () => {
                 />
                 
                 {/* Grid/tech pattern */}
-                <div className="absolute inset-0 opacity-30" style={{
-                  backgroundImage: `linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
-                                    linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px)`,
-                  backgroundSize: index === 0 ? '60px 60px' : '40px 40px'
+                <div className="absolute inset-0 opacity-25" style={{
+                  backgroundImage: `linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+                                    linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px)`,
+                  backgroundSize: '32px 32px'
                 }} />
                 
                 {/* Floating decorative elements */}
-                <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-gradient-to-br from-white/20 to-transparent blur-xl" />
-                <div className="absolute bottom-6 left-6 w-16 h-16 rounded-full bg-gradient-to-tr from-white/15 to-transparent blur-lg" />
+                <div className="absolute top-3 right-3 w-14 h-14 rounded-full bg-gradient-to-br from-white/15 to-transparent blur-lg" />
+                <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full bg-gradient-to-tr from-white/10 to-transparent blur-md" />
                 
                 {/* Category label */}
-                <div className="absolute top-4 left-4">
-                  <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-semibold ${article.categoryColor} backdrop-blur-sm`}>
+                <div className="absolute top-3 left-3">
+                  <span className={`inline-block px-2.5 py-1 rounded-full text-[11px] font-semibold ${article.categoryColor} backdrop-blur-sm`}>
                     {article.category}
                   </span>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className={`p-5 md:p-6 ${index === 0 ? "lg:p-8" : ""}`}>
+              {/* Content - Compact */}
+              <div className="p-4 md:p-5">
                 {/* Title */}
-                <h3 className={`font-bold text-foreground group-hover:text-accent transition-colors leading-snug mb-3 ${
-                  index === 0 ? "text-xl md:text-2xl lg:text-3xl" : "text-lg md:text-xl"
-                }`}>
+                <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors leading-snug mb-2 text-base md:text-lg line-clamp-2">
                   {article.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className={`text-muted-foreground mb-5 leading-relaxed ${
-                  index === 0 ? "text-base line-clamp-3" : "text-sm line-clamp-2"
-                }`}>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
                   {article.excerpt}
                 </p>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                  <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4" />
+                <div className="flex items-center justify-between pt-3 border-t border-border/40">
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Clock className="w-3.5 h-3.5" />
                     {article.readTime}
                   </span>
-                  <span className="flex items-center gap-1.5 text-sm font-medium text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="flex items-center gap-1 text-xs font-medium text-accent opacity-0 group-hover:opacity-100 transition-opacity">
                     Read more
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               </div>
