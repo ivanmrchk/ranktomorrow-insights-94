@@ -25,7 +25,7 @@ const tools = [
     name: "Meta Description Writer",
     description: "Craft compelling meta descriptions that boost your click-through rates.",
     usage: "1,800+ daily uses",
-    href: "/tools",
+    href: "/tools/meta-description-generator",
   },
   {
     icon: Layers,
