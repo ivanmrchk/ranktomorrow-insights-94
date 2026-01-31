@@ -8,7 +8,7 @@ const topicItems = [
   { label: "Keyword Research", href: "/topics/keyword-research" },
   { label: "AI & Automation", href: "/topics/ai-automation" },
   { label: "Content Marketing", href: "/topics/content-marketing" },
-  { label: "Google Search", href: "#" },
+  { label: "Google Search", href: "/topics/google-search" },
 ];
 
 const navItems = [
