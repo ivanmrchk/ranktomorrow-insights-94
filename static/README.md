@@ -2,6 +2,8 @@
 
 A production-ready static website for RankTomorrow, built with pure HTML, SCSS, and vanilla JavaScript.
 
+**No React, no Vite, no Node required in production.** Just open `index.html` in any browser.
+
 ## 📁 Folder Structure
 
 ```
@@ -12,6 +14,11 @@ static/
 ├── tools.html              # Tools listing page
 ├── recommended-tools.html  # Recommended software page
 ├── search.html             # Search results page
+├── 404.html                # Custom 404 error page
+├── privacy-policy.html     # Privacy policy
+├── cookie-policy.html      # Cookie policy
+├── editorial.html          # Editorial team page
+├── ai-automation-articles.html  # AI automation articles hub
 │
 ├── articles/               # Article pages
 │   └── ai-content-optimization.html
@@ -51,7 +58,9 @@ static/
 │   │   ├── _modal.scss
 │   │   ├── _accordion.scss
 │   │   ├── _forms.scss
-│   │   └── _ads.scss
+│   │   ├── _cookie-consent.scss
+│   │   ├── _ads.scss
+│   │   └── _content-block.scss
 │   └── pages/
 │       └── _article.scss
 │
@@ -59,7 +68,8 @@ static/
 │   └── main.css            # Compiled from SCSS
 │
 ├── js/                     # JavaScript files
-│   └── main.js             # Main JS functionality
+│   ├── main.js             # Main JS functionality
+│   └── cookie-consent.js   # GDPR cookie consent
 │
 └── assets/                 # Static assets
     ├── images/
@@ -68,6 +78,27 @@ static/
     │   └── placeholder-3.svg
     └── favicon.ico
 ```
+
+## 🚀 Usage
+
+### Opening Locally (File System)
+Simply open `static/index.html` in any web browser. All links use relative paths, so navigation works without a server.
+
+### Running with a Local Server
+For full functionality (e.g., form submissions, search), use a local server:
+
+```bash
+# Using Python
+cd static && python -m http.server 8000
+
+# Using Node.js
+npx serve static
+
+# Using PHP
+cd static && php -S localhost:8000
+```
+
+Then visit `http://localhost:8000`
 
 ## 🛠 Building CSS from SCSS
 
@@ -95,11 +126,11 @@ npx sass scss/main.scss css/main.css --watch
 ## 🎨 Design System
 
 ### Colors (HSL)
-- **Accent**: `hsl(217, 91%, 50%)` - Primary blue
-- **Highlight**: `hsl(280, 80%, 55%)` - Purple accent
+- **Accent**: `hsl(174, 72%, 40%)` - Teal
+- **Highlight**: `hsl(262, 83%, 58%)` - Purple
 - **Background**: `hsl(0, 0%, 100%)` - White
-- **Secondary**: `hsl(240, 4.8%, 95.9%)` - Light gray
-- **Foreground**: `hsl(240, 10%, 3.9%)` - Near black
+- **Secondary**: `hsl(220, 14%, 96%)` - Light gray
+- **Foreground**: `hsl(222, 47%, 11%)` - Deep navy
 
 ### Typography
 - **Sans-serif**: Inter
@@ -136,13 +167,15 @@ Simply upload the entire `static/` folder to any static host:
 - Vercel
 - GitHub Pages
 - AWS S3
+- Cloudflare Pages
 - Traditional web hosting
 
-### WordPress Integration
-1. Create a WordPress theme
-2. Convert HTML to PHP templates
-3. Move `css/`, `js/`, and `assets/` to theme directory
-4. Update asset paths with `<?php echo get_template_directory_uri(); ?>`
+### 404 Page Configuration
+Configure your host to serve `404.html` for missing pages:
+- **Netlify**: Automatic
+- **Vercel**: Create `vercel.json` with rewrites
+- **Apache**: Create `.htaccess` with `ErrorDocument 404 /404.html`
+- **Nginx**: Add `error_page 404 /404.html;` to config
 
 ## ♿ Accessibility
 
@@ -181,6 +214,21 @@ Simply upload the entire `static/` folder to any static host:
 - Smooth scroll for anchor links
 - Copy to clipboard utility
 - Toast notifications
+- GDPR cookie consent banner
+
+## 🔗 Route Structure
+
+| URL Path | Static File |
+|----------|-------------|
+| `/` | `index.html` |
+| `/blog` | `blog.html` |
+| `/about` | `about.html` |
+| `/tools` | `tools.html` |
+| `/tools/seo-title-generator` | `tools/seo-title-generator.html` |
+| `/topics/seo-strategy` | `topics/seo-strategy.html` |
+| `/privacy-policy` | `privacy-policy.html` |
+| `/cookie-policy` | `cookie-policy.html` |
+| `/editorial` | `editorial.html` |
 
 ## 📄 License
 
