@@ -46,7 +46,7 @@ const tools = [
     name: "Rich Snippet & Schema Generator",
     description: "Generate JSON-LD schema to help your pages appear as rich results in Google.",
     usage: "780+ daily uses",
-    href: "/tools",
+    href: "/tools/rich-snippet-generator",
   },
   {
     icon: Network,
