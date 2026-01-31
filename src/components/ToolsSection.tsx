@@ -4,6 +4,7 @@ import {
   AlignLeft, 
   Layers, 
   List,
+  Network,
   FileJson,
   ArrowRight,
   Sparkles
@@ -40,6 +41,12 @@ const tools = [
     name: "Rich Snippet & Schema Generator",
     description: "Generate JSON-LD schema to help your pages appear as rich results in Google.",
     usage: "780+ daily uses",
+  },
+  {
+    icon: Network,
+    name: "SEO Keyword Seed Generator",
+    description: "Generate keyword seed ideas to kickstart your keyword research in tools like Google Keyword Planner.",
+    usage: "620+ daily uses",
   },
 ];
 

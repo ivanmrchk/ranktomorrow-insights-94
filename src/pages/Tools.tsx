@@ -5,6 +5,7 @@ import {
   List, 
   Layers, 
   FileJson,
+  Network,
   ArrowRight,
   Sparkles,
   Zap,
@@ -53,6 +54,12 @@ const tools = [
     icon: FileJson,
     name: "Rich Snippet & Schema Generator",
     description: "Generate JSON-LD schema to help your pages appear as rich results in Google.",
+    href: "#",
+  },
+  {
+    icon: Network,
+    name: "SEO Keyword Seed Generator",
+    description: "Generate keyword seed ideas to kickstart your keyword research in tools like Google Keyword Planner.",
     href: "#",
   },
 ];
