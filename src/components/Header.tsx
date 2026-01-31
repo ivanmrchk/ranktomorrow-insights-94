@@ -14,10 +14,10 @@ const topicItems = [
 ];
 
 const navItems = [
-  { label: "Blog", href: "#" },
+  { label: "Blog", href: "/blog" },
   { label: "Topics", href: "#", hasDropdown: true },
-  { label: "Tools", href: "/tools" },
-  { label: "Recommended Tools", href: "/recommended-tools" },
+  { label: "SEO Tools", href: "/tools" },
+  { label: "Software", href: "/recommended-tools" },
   { label: "About", href: "/about" },
 ];
 
