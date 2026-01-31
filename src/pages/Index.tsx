@@ -14,9 +14,9 @@ const Index = () => {
       <main>
         <HeroSection />
         <FeaturedContent />
+        <ToolsSection />
         <TopicalPillars />
         <TrustSection />
-        <ToolsSection />
         <EmailCapture />
       </main>
       <Footer />
