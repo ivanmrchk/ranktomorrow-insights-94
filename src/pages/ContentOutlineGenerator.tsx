@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   List, 
   ArrowRight, 
@@ -13,8 +13,8 @@ import {
   FileText,
   Hash,
   MessageCircleQuestion,
-  ChevronRight,
-  Lightbulb
+  ChevronDown,
+  Tag
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -36,7 +36,7 @@ import { Badge } from "@/components/ui/badge";
 interface OutlineSection {
   type: "h1" | "h2" | "h3" | "intro" | "faq" | "conclusion";
   text: string;
-  notes?: string;
+  suggestedKeywords?: string[];
   keywordPlacement?: boolean;
 }
 
@@ -56,125 +56,126 @@ const demoOutline: GeneratedOutline = {
       type: "h1",
       text: "10 Best Email Marketing Software in 2025 (Compared)",
       keywordPlacement: true,
+      suggestedKeywords: ["email marketing software", "best email marketing tools", "email marketing platforms", "marketing automation software"],
     },
     {
       type: "intro",
       text: "Introduction",
-      notes: "Hook the reader with a stat about email marketing ROI. Introduce the problem (choosing the right tool) and preview what the article covers. Include primary keyword in first 100 words.",
       keywordPlacement: true,
+      suggestedKeywords: ["email marketing ROI", "email campaign tools", "email marketing solutions", "marketing software comparison"],
     },
     {
       type: "h2",
       text: "What to Look for in Email Marketing Software",
-      notes: "Cover key features: automation, templates, deliverability, integrations, pricing. This section builds topical authority.",
+      suggestedKeywords: ["email marketing features", "marketing tool requirements", "email platform capabilities", "software evaluation criteria", "email marketing checklist"],
     },
     {
       type: "h3",
       text: "Automation & Workflows",
-      notes: "Explain why automation matters for scaling campaigns.",
+      suggestedKeywords: ["email automation", "drip campaigns", "autoresponders", "workflow triggers", "marketing automation", "automated sequences"],
     },
     {
       type: "h3",
       text: "Deliverability & Reputation",
-      notes: "Discuss inbox placement rates and sender reputation.",
+      suggestedKeywords: ["email deliverability", "inbox placement rate", "sender reputation", "spam score", "email authentication", "DKIM SPF"],
     },
     {
       type: "h3",
       text: "Integrations & API",
-      notes: "Cover CRM, ecommerce, and third-party tool integrations.",
+      suggestedKeywords: ["CRM integration", "ecommerce integration", "API access", "Zapier connection", "third-party integrations", "webhook support"],
     },
     {
       type: "h2",
       text: "The 10 Best Email Marketing Software Platforms",
       keywordPlacement: true,
-      notes: "Main listicle section. Each tool gets its own H3.",
+      suggestedKeywords: ["top email marketing tools", "best email platforms", "email software comparison", "marketing platform reviews", "email tool rankings"],
     },
     {
       type: "h3",
       text: "1. Mailchimp — Best for Beginners",
-      notes: "Cover features, pricing, pros/cons. Include screenshot or feature table.",
+      suggestedKeywords: ["Mailchimp review", "Mailchimp pricing", "Mailchimp features", "Mailchimp alternatives", "beginner email marketing"],
     },
     {
       type: "h3",
       text: "2. ConvertKit — Best for Creators",
-      notes: "Focus on creator-specific features like landing pages and digital products.",
+      suggestedKeywords: ["ConvertKit review", "ConvertKit for creators", "creator email marketing", "newsletter for bloggers", "ConvertKit pricing"],
     },
     {
       type: "h3",
       text: "3. ActiveCampaign — Best for Automation",
-      notes: "Highlight advanced automation workflows and CRM features.",
+      suggestedKeywords: ["ActiveCampaign review", "ActiveCampaign automation", "advanced email workflows", "CRM email marketing", "ActiveCampaign pricing"],
     },
     {
       type: "h3",
       text: "4. Klaviyo — Best for Ecommerce",
-      notes: "Emphasize Shopify integration and revenue tracking.",
+      suggestedKeywords: ["Klaviyo review", "Klaviyo Shopify", "ecommerce email marketing", "Klaviyo vs Mailchimp", "revenue tracking email"],
     },
     {
       type: "h3",
       text: "5. Brevo (Sendinblue) — Best Budget Option",
-      notes: "Focus on pricing structure and value for small businesses.",
+      suggestedKeywords: ["Brevo review", "Sendinblue pricing", "affordable email marketing", "budget email tools", "Brevo vs Mailchimp"],
     },
     {
       type: "h3",
       text: "6. HubSpot — Best All-in-One Solution",
-      notes: "Cover the full marketing suite and CRM integration.",
+      suggestedKeywords: ["HubSpot email marketing", "HubSpot CRM", "all-in-one marketing platform", "HubSpot pricing", "marketing hub features"],
     },
     {
       type: "h3",
       text: "7. Drip — Best for DTC Brands",
-      notes: "Highlight ecommerce workflows and customer data platform.",
+      suggestedKeywords: ["Drip email marketing", "DTC email strategy", "ecommerce automation", "customer data platform", "Drip pricing"],
     },
     {
       type: "h3",
       text: "8. MailerLite — Best for Simplicity",
-      notes: "Cover ease of use and generous free tier.",
+      suggestedKeywords: ["MailerLite review", "simple email marketing", "MailerLite free plan", "easy email tool", "MailerLite pricing"],
     },
     {
       type: "h3",
       text: "9. AWeber — Best for Established Marketers",
-      notes: "Discuss reliability and traditional email marketing features.",
+      suggestedKeywords: ["AWeber review", "AWeber features", "traditional email marketing", "AWeber pricing", "AWeber vs ConvertKit"],
     },
     {
       type: "h3",
       text: "10. GetResponse — Best for Webinars",
-      notes: "Highlight unique webinar and funnel features.",
+      suggestedKeywords: ["GetResponse review", "GetResponse webinars", "email marketing webinar", "GetResponse pricing", "conversion funnels"],
     },
     {
       type: "h2",
       text: "Email Marketing Software Comparison Table",
-      notes: "Create a comparison table with key features, pricing, and ratings. Highly shareable format.",
+      suggestedKeywords: ["email software comparison chart", "feature comparison table", "pricing comparison", "email tool ratings", "side-by-side comparison"],
     },
     {
       type: "h2",
       text: "How to Choose the Right Email Marketing Software",
       keywordPlacement: true,
-      notes: "Decision framework based on business size, budget, and use case.",
+      suggestedKeywords: ["choosing email software", "email marketing decision guide", "which email tool", "email platform selection", "software buying guide"],
     },
     {
       type: "h3",
       text: "For Small Businesses & Startups",
-      notes: "Recommend budget-friendly options with growth potential.",
+      suggestedKeywords: ["small business email marketing", "startup email tools", "affordable marketing software", "SMB email solutions", "budget-friendly email"],
     },
     {
       type: "h3",
       text: "For Ecommerce & DTC Brands",
-      notes: "Focus on revenue attribution and integration needs.",
+      suggestedKeywords: ["ecommerce email marketing", "DTC email strategy", "Shopify email integration", "revenue attribution", "product recommendation emails"],
     },
     {
       type: "h3",
       text: "For Creators & Solopreneurs",
-      notes: "Highlight ease of use and audience-building features.",
+      suggestedKeywords: ["creator email marketing", "solopreneur tools", "newsletter platforms", "audience building", "creator economy email"],
     },
     {
       type: "h2",
       text: "Frequently Asked Questions",
-      notes: "FAQ schema opportunity. Target featured snippets.",
+      suggestedKeywords: ["email marketing FAQ", "email software questions", "common email marketing questions", "email tool FAQ"],
     },
     {
       type: "conclusion",
       text: "Conclusion: Which Email Marketing Software Should You Choose?",
-      notes: "Summarize top picks by use case. Include final CTA. Reinforce primary keyword.",
       keywordPlacement: true,
+      suggestedKeywords: ["best email marketing choice", "email software recommendation", "final verdict email tools", "email marketing summary"],
     },
   ],
   faqQuestions: [
@@ -196,19 +197,19 @@ const generateOutlineFromInputs = (
                     targetLength === "medium" ? "1,500–2,500 words" : "3,000+ words";
   
   const sections: OutlineSection[] = [
-    { type: "h1", text: title, keywordPlacement: true },
-    { type: "intro", text: "Introduction", notes: `Hook the reader and introduce ${keyword}. Include primary keyword in first 100 words.`, keywordPlacement: true },
-    { type: "h2", text: `What is ${keyword}?`, notes: "Define the topic and establish context for readers." },
-    { type: "h2", text: `Why ${keyword} Matters`, notes: "Explain the importance and benefits." },
-    { type: "h3", text: "Key Benefits", notes: "List 3-5 main benefits with brief explanations." },
-    { type: "h3", text: "Common Challenges", notes: "Address pain points your audience faces." },
-    { type: "h2", text: `How to ${contentType === "tutorial" ? "Use" : "Choose"} ${keyword}`, keywordPlacement: true, notes: "Actionable guidance for the reader." },
-    { type: "h3", text: "Step 1: Assess Your Needs", notes: "Help readers understand their requirements." },
-    { type: "h3", text: "Step 2: Compare Options", notes: "Provide a framework for evaluation." },
-    { type: "h3", text: "Step 3: Make Your Decision", notes: "Guide readers to take action." },
-    { type: "h2", text: `Best Practices for ${keyword}`, notes: "Expert tips and recommendations." },
-    { type: "h2", text: "Frequently Asked Questions", notes: "FAQ schema opportunity for featured snippets." },
-    { type: "conclusion", text: "Conclusion", notes: `Summarize key points and reinforce ${keyword}. Include a clear CTA.`, keywordPlacement: true },
+    { type: "h1", text: title, keywordPlacement: true, suggestedKeywords: [keyword, `best ${keyword}`, `${keyword} guide`, `${keyword} tips`] },
+    { type: "intro", text: "Introduction", keywordPlacement: true, suggestedKeywords: [`${keyword} overview`, `${keyword} basics`, `understanding ${keyword}`, `${keyword} introduction`] },
+    { type: "h2", text: `What is ${keyword}?`, suggestedKeywords: [`${keyword} definition`, `${keyword} meaning`, `${keyword} explained`, `what does ${keyword} mean`] },
+    { type: "h2", text: `Why ${keyword} Matters`, suggestedKeywords: [`${keyword} benefits`, `${keyword} importance`, `why use ${keyword}`, `${keyword} advantages`] },
+    { type: "h3", text: "Key Benefits", suggestedKeywords: [`${keyword} pros`, `${keyword} features`, `${keyword} value`, `top benefits`] },
+    { type: "h3", text: "Common Challenges", suggestedKeywords: [`${keyword} problems`, `${keyword} issues`, `${keyword} difficulties`, `${keyword} cons`] },
+    { type: "h2", text: `How to ${contentType === "tutorial" ? "Use" : "Choose"} ${keyword}`, keywordPlacement: true, suggestedKeywords: [`${keyword} tutorial`, `${keyword} guide`, `${keyword} how to`, `step by step ${keyword}`] },
+    { type: "h3", text: "Step 1: Assess Your Needs", suggestedKeywords: [`${keyword} requirements`, `${keyword} checklist`, `${keyword} planning`, `needs assessment`] },
+    { type: "h3", text: "Step 2: Compare Options", suggestedKeywords: [`${keyword} comparison`, `${keyword} alternatives`, `${keyword} options`, `compare ${keyword}`] },
+    { type: "h3", text: "Step 3: Make Your Decision", suggestedKeywords: [`choosing ${keyword}`, `${keyword} selection`, `${keyword} decision`, `best ${keyword} choice`] },
+    { type: "h2", text: `Best Practices for ${keyword}`, suggestedKeywords: [`${keyword} tips`, `${keyword} strategies`, `${keyword} best practices`, `${keyword} recommendations`] },
+    { type: "h2", text: "Frequently Asked Questions", suggestedKeywords: [`${keyword} FAQ`, `${keyword} questions`, `common ${keyword} questions`, `${keyword} answers`] },
+    { type: "conclusion", text: "Conclusion", keywordPlacement: true, suggestedKeywords: [`${keyword} summary`, `${keyword} takeaways`, `final thoughts ${keyword}`, `${keyword} recap`] },
   ];
 
   return {
@@ -235,8 +236,21 @@ const ContentOutlineGenerator = () => {
   const [generatedOutline, setGeneratedOutline] = useState<GeneratedOutline | null>(demoOutline);
   const [isGenerating, setIsGenerating] = useState(false);
   const [copiedSection, setCopiedSection] = useState<number | null>(null);
+  const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set());
   const [isDemo, setIsDemo] = useState(true);
   const { toast } = useToast();
+
+  const toggleSection = (index: number) => {
+    setExpandedSections(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
+  };
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -269,10 +283,13 @@ const ContentOutlineGenerator = () => {
     if (!generatedOutline) return;
     
     const outlineText = generatedOutline.sections.map(section => {
-      const prefix = section.type === "h1" ? "# " : 
-                     section.type === "h2" ? "## " : 
-                     section.type === "h3" ? "### " : "";
-      return `${prefix}${section.text}${section.notes ? `\n   Notes: ${section.notes}` : ""}`;
+      const prefix = section.type === "h1" ? "# H1: " : 
+                     section.type === "h2" ? "## H2: " : 
+                     section.type === "h3" ? "### H3: " : "";
+      const keywordsText = section.suggestedKeywords?.length 
+        ? `\n   Suggested keywords: ${section.suggestedKeywords.join(", ")}` 
+        : "";
+      return `${prefix}${section.text}${keywordsText}`;
     }).join("\n\n");
     
     const faqText = generatedOutline.faqQuestions.length > 0 
@@ -299,35 +316,35 @@ const ContentOutlineGenerator = () => {
   const getSectionStyle = (type: OutlineSection["type"]) => {
     switch (type) {
       case "h1":
-        return "text-xl font-bold text-foreground pl-0";
+        return "text-xl font-bold text-foreground";
       case "h2":
-        return "text-lg font-semibold text-foreground pl-0";
+        return "text-lg font-semibold text-foreground";
       case "h3":
-        return "text-base font-medium text-foreground pl-6";
+        return "text-base font-medium text-foreground ml-6";
       case "intro":
       case "conclusion":
-        return "text-base font-medium text-foreground pl-0 italic";
+        return "text-base font-medium text-foreground italic";
       case "faq":
-        return "text-base font-medium text-foreground pl-0";
+        return "text-base font-medium text-foreground";
       default:
         return "text-foreground";
     }
   };
 
-  const getSectionIcon = (type: OutlineSection["type"]) => {
+  const getHeadingLabel = (type: OutlineSection["type"]) => {
     switch (type) {
       case "h1":
-        return <Hash className="w-4 h-4 text-accent" />;
+        return "H1";
       case "h2":
-        return <ChevronRight className="w-4 h-4 text-accent" />;
+        return "H2";
       case "h3":
-        return <ChevronRight className="w-3 h-3 text-muted-foreground" />;
+        return "H3";
       case "intro":
-        return <FileText className="w-4 h-4 text-accent" />;
+        return "Intro";
       case "conclusion":
-        return <Target className="w-4 h-4 text-accent" />;
+        return "End";
       case "faq":
-        return <MessageCircleQuestion className="w-4 h-4 text-accent" />;
+        return "FAQ";
       default:
         return null;
     }
@@ -555,54 +572,125 @@ const ContentOutlineGenerator = () => {
 
                     {/* Outline Sections */}
                     <div className="divide-y divide-border">
-                      {generatedOutline.sections.map((section, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: index * 0.03 }}
-                          className="group p-4 hover:bg-secondary/30 transition-colors"
-                        >
-                          <div className="flex items-start justify-between gap-4">
-                            <div className="flex items-start gap-3 flex-1">
-                              <div className="mt-1 flex-shrink-0">
-                                {getSectionIcon(section.type)}
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 flex-wrap">
-                                  <span className={getSectionStyle(section.type)}>
-                                    {section.text}
-                                  </span>
-                                  {section.keywordPlacement && (
-                                    <Badge variant="outline" className="text-xs bg-accent/10 text-accent border-accent/30">
-                                      <Target className="w-3 h-3 mr-1" />
-                                      Keyword
-                                    </Badge>
-                                  )}
+                      {generatedOutline.sections.map((section, index) => {
+                        const isExpanded = expandedSections.has(index);
+                        const hasKeywords = section.suggestedKeywords && section.suggestedKeywords.length > 0;
+                        
+                        return (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: index * 0.03 }}
+                            className="group"
+                          >
+                            <div 
+                              className={`p-4 transition-colors ${hasKeywords ? 'cursor-pointer hover:bg-secondary/30' : ''}`}
+                              onClick={() => hasKeywords && toggleSection(index)}
+                            >
+                              <div className="flex items-start justify-between gap-4">
+                                <div className="flex items-start gap-3 flex-1">
+                                  {/* Heading Label Badge */}
+                                  <Badge 
+                                    variant="secondary" 
+                                    className={`text-xs font-mono flex-shrink-0 mt-0.5 ${
+                                      section.type === "h1" ? "bg-accent/20 text-accent" :
+                                      section.type === "h2" ? "bg-highlight/20 text-highlight" :
+                                      "bg-muted text-muted-foreground"
+                                    }`}
+                                  >
+                                    {getHeadingLabel(section.type)}
+                                  </Badge>
+                                  <div className="flex-1">
+                                    <div className="flex items-center gap-2 flex-wrap">
+                                      <span className={getSectionStyle(section.type)}>
+                                        {section.text}
+                                      </span>
+                                      {section.keywordPlacement && (
+                                        <Badge variant="outline" className="text-xs bg-accent/10 text-accent border-accent/30">
+                                          <Target className="w-3 h-3 mr-1" />
+                                          Primary
+                                        </Badge>
+                                      )}
+                                    </div>
+                                    {/* Keyword count hint when collapsed */}
+                                    {hasKeywords && !isExpanded && (
+                                      <p className="text-xs text-muted-foreground mt-1.5 flex items-center gap-1">
+                                        <Tag className="w-3 h-3" />
+                                        {section.suggestedKeywords!.length} suggested keywords
+                                        <ChevronDown className="w-3 h-3 ml-1" />
+                                      </p>
+                                    )}
+                                  </div>
                                 </div>
-                                {section.notes && (
-                                  <p className="text-sm text-muted-foreground mt-1.5 flex items-start gap-2">
-                                    <Lightbulb className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-amber-500" />
-                                    {section.notes}
-                                  </p>
-                                )}
+                                <div className="flex items-center gap-2">
+                                  {hasKeywords && (
+                                    <ChevronDown 
+                                      className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} 
+                                    />
+                                  )}
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      copySectionText(section.text, index);
+                                    }}
+                                    className="opacity-0 group-hover:opacity-100 transition-opacity h-7 px-2"
+                                  >
+                                    {copiedSection === index ? (
+                                      <Check className="w-3.5 h-3.5 text-emerald-600" />
+                                    ) : (
+                                      <Copy className="w-3.5 h-3.5" />
+                                    )}
+                                  </Button>
+                                </div>
                               </div>
                             </div>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => copySectionText(section.text, index)}
-                              className="opacity-0 group-hover:opacity-100 transition-opacity h-7 px-2"
-                            >
-                              {copiedSection === index ? (
-                                <Check className="w-3.5 h-3.5 text-emerald-600" />
-                              ) : (
-                                <Copy className="w-3.5 h-3.5" />
+                            
+                            {/* Expandable Keyword Suggestions */}
+                            <AnimatePresence>
+                              {hasKeywords && isExpanded && (
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.2 }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="px-4 pb-4 pt-0">
+                                    <div className={`p-3 bg-secondary/50 rounded-lg border border-border ${section.type === "h3" ? "ml-6" : ""}`}>
+                                      <p className="text-xs font-medium text-muted-foreground mb-2 flex items-center gap-1.5">
+                                        <Tag className="w-3.5 h-3.5 text-accent" />
+                                        Suggested keywords to include:
+                                      </p>
+                                      <div className="flex flex-wrap gap-1.5">
+                                        {section.suggestedKeywords!.map((keyword, kIndex) => (
+                                          <Badge 
+                                            key={kIndex} 
+                                            variant="outline" 
+                                            className="text-xs bg-background hover:bg-accent/10 cursor-pointer transition-colors"
+                                            onClick={(e) => {
+                                              e.stopPropagation();
+                                              navigator.clipboard.writeText(keyword);
+                                              toast({
+                                                title: "Keyword copied!",
+                                                description: `"${keyword}" copied to clipboard.`,
+                                              });
+                                            }}
+                                          >
+                                            {keyword}
+                                          </Badge>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </motion.div>
                               )}
-                            </Button>
-                          </div>
-                        </motion.div>
-                      ))}
+                            </AnimatePresence>
+                          </motion.div>
+                        );
+                      })}
                     </div>
 
                     {/* FAQ Section */}
