@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | RankTomorrow - Data-Driven SEO & AI Insights</title>
+  <meta name="description" content="Learn about RankTomorrow's mission to help marketers succeed with data-driven SEO. We're a publication focused on substance over speculation.">
+  <meta name="author" content="RankTomorrow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="About RankTomorrow">
+  <meta property="og:description" content="Data-driven SEO and AI insights built for people who want real search traffic.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/og-image.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__background"></div>
+    <div class="header__accent-line"></div>
+    
+    <div class="header__container">
+      <a href="/index.html" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+      </a>
+      
+      <nav class="nav">
+        <a href="/blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">
+            Topics
+            <svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown__menu" role="menu">
+            <a href="/topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="/topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="/topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="/topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="/topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="/tools.html" class="nav__link">SEO Tools</a>
+        <a href="/recommended-tools.html" class="nav__link">Software</a>
+        <a href="/about.html" class="nav__link nav__link--active">About</a>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Newsletter
+        </button>
+      </div>
+      
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="close-icon" style="display: none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu__container">
+        <a href="/blog.html" class="mobile-menu__link">Blog</a>
+        <button class="mobile-menu__link" id="mobileTopicsBtn">
+          Topics
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="mobile-menu__submenu" id="mobileTopicsSubmenu">
+          <a href="/topics/seo-strategy.html" class="mobile-menu__sublink">SEO Strategy</a>
+          <a href="/topics/keyword-research.html" class="mobile-menu__sublink">Keyword Research</a>
+          <a href="/topics/ai-automation.html" class="mobile-menu__sublink">AI & Automation</a>
+          <a href="/topics/content-marketing.html" class="mobile-menu__sublink">Content Marketing</a>
+          <a href="/topics/google-search.html" class="mobile-menu__sublink">Google Search</a>
+        </div>
+        <a href="/tools.html" class="mobile-menu__link">SEO Tools</a>
+        <a href="/recommended-tools.html" class="mobile-menu__link">Software</a>
+        <a href="/about.html" class="mobile-menu__link">About</a>
+        <div class="mobile-menu__actions">
+          <button class="btn btn--primary btn--full" id="mobileNewsletterBtn">Newsletter</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero--sm">
+      <div class="hero__background"></div>
+      <div class="hero__container">
+        <span class="hero__badge-text">About Us</span>
+        <h1 class="hero__title">
+          About <span class="hero__highlight">RankTomorrow</span>
+        </h1>
+        <p class="hero__subtitle">
+          Data-driven SEO and AI insights built for people who want real search traffic.
+        </p>
+      </div>
+    </section>
+
+    <!-- What is RankTomorrow -->
+    <section class="section">
+      <div class="container">
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon content-block__icon--accent">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h2 class="content-block__title">What is RankTomorrow?</h2>
+          </div>
+          
+          <div class="content-block__body">
+            <p>RankTomorrow is a media and publishing brand dedicated to the intersection of <strong>SEO, artificial intelligence, and data-driven growth</strong>. We're not an agency selling services. We're not a SaaS platform pushing subscriptions. We're a publication focused on one thing: helping you understand how search really works.</p>
+            <p>Our coverage spans keyword research, content strategy, AI-powered publishing workflows, and the ever-changing landscape of Google search. We treat SEO as a serious discipline that requires data, patience, and strategic thinking—not tricks or shortcuts.</p>
+            <p>Think of us as the publication serious marketers turn to when they want substance over speculation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why RankTomorrow Exists -->
+    <section class="section section--muted">
+      <div class="container">
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon content-block__icon--highlight">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h2 class="content-block__title">Why RankTomorrow Exists</h2>
+          </div>
+          
+          <div class="card-list">
+            <div class="card card--simple">
+              <h3 class="card__title--sm">SEO is full of noise</h3>
+              <p class="card__text">The industry is crowded with recycled tips, outdated tactics, and vague advice that doesn't translate to real rankings. We cut through the noise with data.</p>
+            </div>
+            
+            <div class="card card--simple">
+              <h3 class="card__title--sm">AI content often misses the mark</h3>
+              <p class="card__text">Most AI-generated content is disconnected from what people actually search for. It's fluent but not strategic. We use AI differently—guided by real keyword data and search intent.</p>
+            </div>
+            
+            <div class="card card--simple">
+              <h3 class="card__title--sm">There's a better way</h3>
+              <p class="card__text">RankTomorrow exists to connect <strong>data, AI, and real SEO strategy</strong> into a coherent approach. We believe search traffic should be built on research and intentional structure, not guesswork.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How Our Content is Created -->
+    <section class="section">
+      <div class="container">
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon content-block__icon--cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h2 class="content-block__title">How Our Content is Created</h2>
+          </div>
+          
+          <p class="content-block__intro">Transparency matters for trust. Here's exactly how we approach content creation:</p>
+          
+          <div class="steps-list">
+            <div class="step-item">
+              <span class="step-item__number">01</span>
+              <div class="step-item__content">
+                <h3 class="step-item__title">Topics Based on Real Data</h3>
+                <p class="step-item__desc">Every article starts with keyword research. We identify what people are actually searching for, not what we think sounds interesting.</p>
+              </div>
+            </div>
+            
+            <div class="step-item">
+              <span class="step-item__number">02</span>
+              <div class="step-item__content">
+                <h3 class="step-item__title">AI-Assisted, Human-Directed</h3>
+                <p class="step-item__desc">We use AI tools to assist with research, drafting, and optimization. But every piece is structured and reviewed by humans who understand SEO.</p>
+              </div>
+            </div>
+            
+            <div class="step-item">
+              <span class="step-item__number">03</span>
+              <div class="step-item__content">
+                <h3 class="step-item__title">Optimized for Search Intent</h3>
+                <p class="step-item__desc">Content is written to match what searchers actually want to find—whether that's a quick answer, a comprehensive guide, or a practical tool.</p>
+              </div>
+            </div>
+            
+            <div class="step-item">
+              <span class="step-item__number">04</span>
+              <div class="step-item__content">
+                <h3 class="step-item__title">Built for Long-Term Rankings</h3>
+                <p class="step-item__desc">We don't chase viral moments or clickbait. Our goal is content that ranks and delivers value for months and years, not just days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Makes Us Different -->
+    <section class="section section--muted">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-header__title">What Makes Us <span class="gradient-text">Different</span></h2>
+          <p class="section-header__subtitle">We're building a different kind of SEO publication—one focused on substance, not noise.</p>
+        </div>
+        
+        <div class="grid grid--3">
+          <div class="card card--icon">
+            <div class="card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">Data-Driven, Not Opinion-Driven</h3>
+            <p class="card__text">Every topic we cover is backed by real search data and keyword research.</p>
+          </div>
+          
+          <div class="card card--icon">
+            <div class="card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">Built for Real Search Traffic</h3>
+            <p class="card__text">We write for what people actually search, not what sounds impressive.</p>
+          </div>
+          
+          <div class="card card--icon">
+            <div class="card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">Focused on Long-Term SEO</h3>
+            <p class="card__text">No quick hacks. Strategies designed to compound over months and years.</p>
+          </div>
+          
+          <div class="card card--icon">
+            <div class="card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">No Spam, No Fluff</h3>
+            <p class="card__text">Every article serves a purpose. If it doesn't help, we don't publish it.</p>
+          </div>
+          
+          <div class="card card--icon">
+            <div class="card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">AI-Enhanced, Human-Directed</h3>
+            <p class="card__text">We use AI to scale quality, not to replace real editorial judgment.</p>
+          </div>
+          
+          <div class="card card--icon">
+            <div class="card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">Designed for Serious Marketers</h3>
+            <p class="card__text">Content for professionals who need results, not beginners tips.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-header__icon section-header__icon--emerald">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h2 class="section-header__title">Who RankTomorrow is For</h2>
+        </div>
+        
+        <div class="grid grid--3">
+          <div class="card card--check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(217, 91%, 50%)" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <strong>SEO Professionals</strong>
+              <p>Looking for advanced strategies and data insights</p>
+            </div>
+          </div>
+          
+          <div class="card card--check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(217, 91%, 50%)" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <strong>Marketers</strong>
+              <p>Building organic growth channels for their brands</p>
+            </div>
+          </div>
+          
+          <div class="card card--check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(217, 91%, 50%)" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <strong>Founders & Entrepreneurs</strong>
+              <p>Growing their businesses through search</p>
+            </div>
+          </div>
+          
+          <div class="card card--check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(217, 91%, 50%)" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <strong>Content Creators</strong>
+              <p>Scaling production without sacrificing quality</p>
+            </div>
+          </div>
+          
+          <div class="card card--check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(217, 91%, 50%)" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <strong>Website Builders</strong>
+              <p>Optimizing sites for long-term traffic growth</p>
+            </div>
+          </div>
+          
+          <div class="card card--check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(217, 91%, 50%)" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <strong>Business Owners</strong>
+              <p>Understanding SEO beyond the basics</p>
+            </div>
+          </div>
+        </div>
+        
+        <p class="text-center mt-8" style="color: hsl(240, 3.8%, 46.1%); font-size: 1.125rem;">
+          If you're serious about search traffic and tired of surface-level advice, <strong style="color: hsl(240, 10%, 3.9%);">you're in the right place</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-box">
+          <div class="newsletter-box__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <h2 class="newsletter-box__title">Stay in the Loop</h2>
+          <p class="newsletter-box__desc">Join our newsletter for weekly SEO insights, AI strategies, and actionable growth tips.</p>
+          <form class="newsletter-box__form" id="aboutNewsletterForm">
+            <input type="email" placeholder="Enter your email" class="newsletter-box__input" required>
+            <button type="submit" class="btn btn--primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/index.html" class="footer__logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">RankTomorrow</span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO and AI insights built for people who want real search traffic.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Topics</h4>
+          <ul class="footer-column__list">
+            <li><a href="/topics/seo-strategy.html" class="footer-column__link">SEO Strategy</a></li>
+            <li><a href="/topics/keyword-research.html" class="footer-column__link">Keyword Research</a></li>
+            <li><a href="/topics/ai-automation.html" class="footer-column__link">AI & Automation</a></li>
+            <li><a href="/topics/content-marketing.html" class="footer-column__link">Content Marketing</a></li>
+            <li><a href="/topics/google-search.html" class="footer-column__link">Google Search</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Tools</h4>
+          <ul class="footer-column__list">
+            <li><a href="/tools/seo-title-generator.html" class="footer-column__link">SEO Title Generator</a></li>
+            <li><a href="/tools/meta-description-generator.html" class="footer-column__link">Meta Description Generator</a></li>
+            <li><a href="/tools/content-outline-generator.html" class="footer-column__link">Content Outline Generator</a></li>
+            <li><a href="/tools/keyword-grouping.html" class="footer-column__link">Keyword Grouping Tool</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Company</h4>
+          <ul class="footer-column__list">
+            <li><a href="/about.html" class="footer-column__link">About</a></li>
+            <li><a href="/blog.html" class="footer-column__link">Blog</a></li>
+            <li><a href="/recommended-tools.html" class="footer-column__link">Software</a></li>
+            <li><a href="/editorial-team.html" class="footer-column__link">Editorial Team</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2025 RankTomorrow. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="/privacy-policy.html" class="footer-bottom__link">Privacy Policy</a>
+          <a href="/cookie-policy.html" class="footer-bottom__link">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="searchOverlay"></div>
+  <div class="modal search-modal" id="searchModal">
+    <div class="search-modal__header">
+      <div class="search-modal__input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" class="search-modal__input" placeholder="Search articles, tools, topics..." autocomplete="off">
+      </div>
+      <button class="search-modal__close" id="searchClose">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="search-modal__results" id="searchResults">
+      <p class="search-modal__empty">Start typing to search...</p>
+    </div>
+    <div class="search-modal__footer">
+      <span class="search-modal__hint">Press <kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="newsletterOverlay"></div>
+  <div class="modal newsletter-modal" id="newsletterModal">
+    <button class="modal__close" id="newsletterClose">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="newsletter-modal__icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+    <h2 class="newsletter-modal__title">Join Our Newsletter</h2>
+    <p class="newsletter-modal__desc">Get weekly SEO insights, AI strategies, and growth tips delivered to your inbox.</p>
+    <form class="newsletter-modal__form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email" class="newsletter-modal__input" required>
+      <button type="submit" class="btn btn--primary btn--full">Subscribe</button>
+    </form>
+    <p class="newsletter-modal__privacy">We respect your privacy. Unsubscribe at any time.</p>
+  </div>
+
+  <!-- Cookie Consent -->
+  <div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-consent__content">
+      <p class="cookie-consent__text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+      <div class="cookie-consent__actions">
+        <button class="btn btn--ghost btn--sm" id="cookieReject">Reject</button>
+        <button class="btn btn--primary btn--sm" id="cookieAccept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/cookie-consent.js"></script>
+</body>
+</html>

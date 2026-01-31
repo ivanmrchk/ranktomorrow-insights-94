@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free SEO Tools | RankTomorrow - AI-Powered SEO Utilities</title>
+  <meta name="description" content="Free SEO and AI tools to help you research keywords, create content, and improve your search rankings. Powered by data-driven methodology.">
+  <meta name="author" content="RankTomorrow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free SEO Tools | RankTomorrow">
+  <meta property="og:description" content="Free SEO and AI tools to help you research keywords, create content, and improve rankings.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/og-image.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__background"></div>
+    <div class="header__accent-line"></div>
+    
+    <div class="header__container">
+      <a href="/index.html" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+      </a>
+      
+      <nav class="nav">
+        <a href="/blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">
+            Topics
+            <svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown__menu" role="menu">
+            <a href="/topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="/topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="/topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="/topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="/topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="/tools.html" class="nav__link nav__link--active">SEO Tools</a>
+        <a href="/recommended-tools.html" class="nav__link">Software</a>
+        <a href="/about.html" class="nav__link">About</a>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Newsletter
+        </button>
+      </div>
+      
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="close-icon" style="display: none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu__container">
+        <a href="/blog.html" class="mobile-menu__link">Blog</a>
+        <button class="mobile-menu__link" id="mobileTopicsBtn">
+          Topics
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="mobile-menu__submenu" id="mobileTopicsSubmenu">
+          <a href="/topics/seo-strategy.html" class="mobile-menu__sublink">SEO Strategy</a>
+          <a href="/topics/keyword-research.html" class="mobile-menu__sublink">Keyword Research</a>
+          <a href="/topics/ai-automation.html" class="mobile-menu__sublink">AI & Automation</a>
+          <a href="/topics/content-marketing.html" class="mobile-menu__sublink">Content Marketing</a>
+          <a href="/topics/google-search.html" class="mobile-menu__sublink">Google Search</a>
+        </div>
+        <a href="/tools.html" class="mobile-menu__link">SEO Tools</a>
+        <a href="/recommended-tools.html" class="mobile-menu__link">Software</a>
+        <a href="/about.html" class="mobile-menu__link">About</a>
+        <div class="mobile-menu__actions">
+          <button class="btn btn--primary btn--full" id="mobileNewsletterBtn">Newsletter</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero hero--sm">
+      <div class="hero__background"></div>
+      <div class="hero__container">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          Free SEO Tools
+        </div>
+        
+        <h1 class="hero__title">
+          SEO & AI <span class="hero__highlight">Tools</span>
+        </h1>
+        
+        <p class="hero__subtitle">
+          Free tools to help you research keywords, create content, and improve your SEO.
+        </p>
+      </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="section section--sm" style="border-bottom: 1px solid hsl(240, 5.9%, 90%);">
+      <div class="container">
+        <p class="text-center" style="max-width: 720px; margin: 0 auto; font-size: 1.125rem; color: hsl(240, 3.8%, 46.1%); line-height: 1.625;">
+          RankTomorrow provides a growing collection of data-driven SEO and AI tools designed to help marketers, builders, and website owners make smarter decisions. Each tool is built to save you time and improve your results.
+        </p>
+      </div>
+    </section>
+
+    <!-- Tools Grid Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-header__title">Available Tools</h2>
+          <p class="section-header__subtitle">Explore our collection of free SEO and AI-powered utilities.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <!-- Tool 1: SEO Title Generator -->
+          <div class="card card--tool">
+            <div class="card__icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                <line x1="9" y1="20" x2="15" y2="20"></line>
+                <line x1="12" y1="4" x2="12" y2="20"></line>
+              </svg>
+            </div>
+            <h3 class="card__title">SEO Title Generator</h3>
+            <p class="card__text">Generate click-worthy, SEO-optimized titles that rank and convert.</p>
+            <a href="/tools/seo-title-generator.html" class="btn btn--outline btn--full">
+              Open Tool
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Tool 2: Meta Description Generator -->
+          <div class="card card--tool">
+            <div class="card__icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="17" y1="10" x2="3" y2="10"></line>
+                <line x1="21" y1="6" x2="3" y2="6"></line>
+                <line x1="21" y1="14" x2="3" y2="14"></line>
+                <line x1="17" y1="18" x2="3" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="card__title">Meta Description Generator</h3>
+            <p class="card__text">Craft compelling meta descriptions that boost your click-through rates.</p>
+            <a href="/tools/meta-description-generator.html" class="btn btn--outline btn--full">
+              Open Tool
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Tool 3: Content Outline Generator -->
+          <div class="card card--tool">
+            <div class="card__icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="card__title">Content Outline Generator</h3>
+            <p class="card__text">Create comprehensive content outlines based on top-ranking competitors.</p>
+            <a href="/tools/content-outline-generator.html" class="btn btn--outline btn--full">
+              Open Tool
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Tool 4: Keyword Grouping Tool -->
+          <div class="card card--tool">
+            <div class="card__icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="card__title">Keyword Grouping Tool</h3>
+            <p class="card__text">Automatically cluster keywords by intent and topic for smarter content planning.</p>
+            <a href="/tools/keyword-grouping.html" class="btn btn--outline btn--full">
+              Open Tool
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Tool 5: Rich Snippet Generator -->
+          <div class="card card--tool">
+            <div class="card__icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 class="card__title">Rich Snippet & Schema Generator</h3>
+            <p class="card__text">Generate JSON-LD schema to help your pages appear as rich results in Google.</p>
+            <a href="/tools/rich-snippet-generator.html" class="btn btn--outline btn--full">
+              Open Tool
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Tool 6: Keyword Seed Generator -->
+          <div class="card card--tool">
+            <div class="card__icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </div>
+            <h3 class="card__title">SEO Keyword Seed Generator</h3>
+            <p class="card__text">Generate keyword seed ideas to kickstart your keyword research in tools like Google Keyword Planner.</p>
+            <a href="/tools/keyword-seed-generator.html" class="btn btn--outline btn--full">
+              Open Tool
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="section section--muted" style="border-top: 1px solid hsl(240, 5.9%, 90%); border-bottom: 1px solid hsl(240, 5.9%, 90%);">
+      <div class="container">
+        <div class="mb-8">
+          <span class="section-header__badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            Our Methodology
+          </span>
+          <h2 class="section-header__title" style="margin-top: 0.75rem;">How These Tools Are Built</h2>
+        </div>
+
+        <div class="grid grid--4">
+          <div class="card card--method">
+            <div class="card__icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">Real Keyword Data</h3>
+            <p class="card__text--sm">Every tool is powered by actual search volume, ranking data, and SERP analysis from millions of queries.</p>
+          </div>
+          
+          <div class="card card--method">
+            <div class="card__icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">AI-Powered Workflows</h3>
+            <p class="card__text--sm">We use structured AI prompts trained on SEO best practices to generate accurate, actionable outputs.</p>
+          </div>
+          
+          <div class="card card--method">
+            <div class="card__icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">Structured Publishing</h3>
+            <p class="card__text--sm">Outputs follow proven content frameworks and schema standards used by top-ranking pages.</p>
+          </div>
+          
+          <div class="card card--method">
+            <div class="card__icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="card__title--sm">Quality Control</h3>
+            <p class="card__text--sm">Each tool is tested against real-world SEO scenarios to ensure practical, reliable results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-box">
+          <div class="newsletter-box__icon newsletter-box__icon--gradient">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <h2 class="newsletter-box__title">Get Notified About New Tools</h2>
+          <p class="newsletter-box__desc">Be the first to know when we release new SEO and AI tools.</p>
+          <form class="newsletter-box__form" id="toolsNewsletterForm">
+            <input type="email" placeholder="Enter your email" class="newsletter-box__input" required>
+            <button type="submit" class="btn btn--primary">Notify Me</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/index.html" class="footer__logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">RankTomorrow</span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO and AI insights built for people who want real search traffic.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Topics</h4>
+          <ul class="footer-column__list">
+            <li><a href="/topics/seo-strategy.html" class="footer-column__link">SEO Strategy</a></li>
+            <li><a href="/topics/keyword-research.html" class="footer-column__link">Keyword Research</a></li>
+            <li><a href="/topics/ai-automation.html" class="footer-column__link">AI & Automation</a></li>
+            <li><a href="/topics/content-marketing.html" class="footer-column__link">Content Marketing</a></li>
+            <li><a href="/topics/google-search.html" class="footer-column__link">Google Search</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Tools</h4>
+          <ul class="footer-column__list">
+            <li><a href="/tools/seo-title-generator.html" class="footer-column__link">SEO Title Generator</a></li>
+            <li><a href="/tools/meta-description-generator.html" class="footer-column__link">Meta Description Generator</a></li>
+            <li><a href="/tools/content-outline-generator.html" class="footer-column__link">Content Outline Generator</a></li>
+            <li><a href="/tools/keyword-grouping.html" class="footer-column__link">Keyword Grouping Tool</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Company</h4>
+          <ul class="footer-column__list">
+            <li><a href="/about.html" class="footer-column__link">About</a></li>
+            <li><a href="/blog.html" class="footer-column__link">Blog</a></li>
+            <li><a href="/recommended-tools.html" class="footer-column__link">Software</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2025 RankTomorrow. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="/privacy-policy.html" class="footer-bottom__link">Privacy Policy</a>
+          <a href="/cookie-policy.html" class="footer-bottom__link">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="searchOverlay"></div>
+  <div class="modal search-modal" id="searchModal">
+    <div class="search-modal__header">
+      <div class="search-modal__input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" class="search-modal__input" placeholder="Search articles, tools, topics..." autocomplete="off">
+      </div>
+      <button class="search-modal__close" id="searchClose">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="search-modal__results" id="searchResults">
+      <p class="search-modal__empty">Start typing to search...</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="newsletterOverlay"></div>
+  <div class="modal newsletter-modal" id="newsletterModal">
+    <button class="modal__close" id="newsletterClose">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="newsletter-modal__icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+    <h2 class="newsletter-modal__title">Join Our Newsletter</h2>
+    <p class="newsletter-modal__desc">Get weekly SEO insights, AI strategies, and growth tips.</p>
+    <form class="newsletter-modal__form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email" class="newsletter-modal__input" required>
+      <button type="submit" class="btn btn--primary btn--full">Subscribe</button>
+    </form>
+  </div>
+
+  <!-- Cookie Consent -->
+  <div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-consent__content">
+      <p class="cookie-consent__text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+      <div class="cookie-consent__actions">
+        <button class="btn btn--ghost btn--sm" id="cookieReject">Reject</button>
+        <button class="btn btn--primary btn--sm" id="cookieAccept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/cookie-consent.js"></script>
+</body>
+</html>

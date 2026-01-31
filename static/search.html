@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search | RankTomorrow</title>
+  <meta name="description" content="Search RankTomorrow for SEO articles, tools, and topics.">
+  <meta name="robots" content="noindex, follow">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__background"></div>
+    <div class="header__accent-line"></div>
+    
+    <div class="header__container">
+      <a href="/index.html" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+      </a>
+      
+      <nav class="nav">
+        <a href="/blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">
+            Topics
+            <svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown__menu" role="menu">
+            <a href="/topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="/topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="/topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="/topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="/topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="/tools.html" class="nav__link">SEO Tools</a>
+        <a href="/recommended-tools.html" class="nav__link">Software</a>
+        <a href="/about.html" class="nav__link">About</a>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">Newsletter</button>
+      </div>
+      
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu__container">
+        <a href="/blog.html" class="mobile-menu__link">Blog</a>
+        <a href="/tools.html" class="mobile-menu__link">SEO Tools</a>
+        <a href="/recommended-tools.html" class="mobile-menu__link">Software</a>
+        <a href="/about.html" class="mobile-menu__link">About</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Search Header -->
+    <section class="section" style="padding-top: 7rem; padding-bottom: 2rem; border-bottom: 1px solid hsl(240, 5.9%, 90%);">
+      <div class="container">
+        <div style="max-width: 640px; margin: 0 auto;">
+          <h1 style="font-size: 1.875rem; font-weight: 700; text-align: center; margin-bottom: 1.5rem;">Search Results</h1>
+          
+          <form class="search-form" id="searchPageForm">
+            <div class="search-form__wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="searchPageInput" class="search-form__input" placeholder="Search articles, tools, topics..." autocomplete="off">
+              <button type="submit" class="btn btn--primary">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section">
+      <div class="container">
+        <div id="searchPageResults">
+          <div class="search-empty">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="hsl(240, 3.8%, 46.1%)" stroke-width="1" style="opacity: 0.3; margin-bottom: 1rem;">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Start your search</h2>
+            <p style="color: hsl(240, 3.8%, 46.1%);">Enter keywords above to search our articles, tools, and topics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/index.html" class="footer__logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">RankTomorrow</span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO and AI insights built for people who want real search traffic.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Topics</h4>
+          <ul class="footer-column__list">
+            <li><a href="/topics/seo-strategy.html" class="footer-column__link">SEO Strategy</a></li>
+            <li><a href="/topics/keyword-research.html" class="footer-column__link">Keyword Research</a></li>
+            <li><a href="/topics/ai-automation.html" class="footer-column__link">AI & Automation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Tools</h4>
+          <ul class="footer-column__list">
+            <li><a href="/tools/seo-title-generator.html" class="footer-column__link">SEO Title Generator</a></li>
+            <li><a href="/tools/meta-description-generator.html" class="footer-column__link">Meta Description Generator</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-column__title">Company</h4>
+          <ul class="footer-column__list">
+            <li><a href="/about.html" class="footer-column__link">About</a></li>
+            <li><a href="/blog.html" class="footer-column__link">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2025 RankTomorrow. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="/privacy-policy.html" class="footer-bottom__link">Privacy Policy</a>
+          <a href="/cookie-policy.html" class="footer-bottom__link">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal (for header button) -->
+  <div class="modal-overlay" id="searchOverlay"></div>
+  <div class="modal search-modal" id="searchModal">
+    <div class="search-modal__header">
+      <div class="search-modal__input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" class="search-modal__input" placeholder="Search..." autocomplete="off">
+      </div>
+      <button class="search-modal__close" id="searchClose">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="search-modal__results" id="searchResults">
+      <p class="search-modal__empty">Start typing to search...</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="newsletterOverlay"></div>
+  <div class="modal newsletter-modal" id="newsletterModal">
+    <button class="modal__close" id="newsletterClose">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <h2 class="newsletter-modal__title">Join Our Newsletter</h2>
+    <form class="newsletter-modal__form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email" class="newsletter-modal__input" required>
+      <button type="submit" class="btn btn--primary btn--full">Subscribe</button>
+    </form>
+  </div>
+
+  <!-- Cookie Consent -->
+  <div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-consent__content">
+      <p class="cookie-consent__text">We use cookies to enhance your experience.</p>
+      <div class="cookie-consent__actions">
+        <button class="btn btn--ghost btn--sm" id="cookieReject">Reject</button>
+        <button class="btn btn--primary btn--sm" id="cookieAccept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/cookie-consent.js"></script>
+  <script>
+    // Search page specific functionality
+    (function() {
+      const searchForm = document.getElementById('searchPageForm');
+      const searchInput = document.getElementById('searchPageInput');
+      const resultsContainer = document.getElementById('searchPageResults');
+      
+      // Get query from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get('q');
+      
+      if (query) {
+        searchInput.value = query;
+        performSearch(query);
+      }
+      
+      searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const q = searchInput.value.trim();
+        if (q) {
+          window.history.pushState({}, '', '?q=' + encodeURIComponent(q));
+          performSearch(q);
+        }
+      });
+      
+      function performSearch(query) {
+        const searchData = [
+          { title: 'SEO Title Generator', type: 'Tool', href: '/tools/seo-title-generator.html', excerpt: 'Generate click-worthy, SEO-optimized titles.' },
+          { title: 'Meta Description Generator', type: 'Tool', href: '/tools/meta-description-generator.html', excerpt: 'Craft compelling meta descriptions.' },
+          { title: 'Content Outline Generator', type: 'Tool', href: '/tools/content-outline-generator.html', excerpt: 'Create comprehensive content outlines.' },
+          { title: 'SEO Strategy', type: 'Topic', href: '/topics/seo-strategy.html', excerpt: 'Master the art of SEO strategy.' },
+          { title: 'Keyword Research', type: 'Topic', href: '/topics/keyword-research.html', excerpt: 'Find and target the right keywords.' },
+          { title: 'AI & Automation', type: 'Topic', href: '/topics/ai-automation.html', excerpt: 'Explore how AI is transforming SEO.' },
+          { title: 'About RankTomorrow', type: 'Page', href: '/about.html', excerpt: 'Learn about our mission and team.' },
+          { title: 'Blog', type: 'Page', href: '/blog.html', excerpt: 'Deep dives into SEO and AI.' }
+        ];
+        
+        const q = query.toLowerCase();
+        const results = searchData.filter(item => 
+          item.title.toLowerCase().includes(q) || 
+          item.excerpt.toLowerCase().includes(q)
+        );
+        
+        if (results.length === 0) {
+          resultsContainer.innerHTML = '<div class="search-empty"><p style="color: hsl(240, 3.8%, 46.1%);">No results found for "' + escapeHtml(query) + '"</p></div>';
+          return;
+        }
+        
+        let html = '<p style="color: hsl(240, 3.8%, 46.1%); margin-bottom: 1.5rem;">Found <strong style="color: hsl(240, 10%, 3.9%);">' + results.length + '</strong> results for "' + escapeHtml(query) + '"</p>';
+        html += '<div class="grid grid--3">';
+        
+        results.forEach(function(item) {
+          html += '<a href="' + item.href + '" class="card card--link">';
+          html += '<span class="badge badge--sm">' + item.type + '</span>';
+          html += '<h3 class="card__title">' + escapeHtml(item.title) + '</h3>';
+          html += '<p class="card__text">' + escapeHtml(item.excerpt) + '</p>';
+          html += '</a>';
+        });
+        
+        html += '</div>';
+        resultsContainer.innerHTML = html;
+      }
+      
+      function escapeHtml(text) {
+        var div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+    })();
+  </script>
+  
+  <style>
+    .search-form__wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: hsl(0, 0%, 100%);
+      border: 1px solid hsl(240, 5.9%, 90%);
+      border-radius: 0.75rem;
+      padding: 0.5rem 0.5rem 0.5rem 1rem;
+    }
+    
+    .search-form__wrap svg {
+      color: hsl(240, 3.8%, 46.1%);
+      flex-shrink: 0;
+    }
+    
+    .search-form__input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 1.125rem;
+      color: hsl(240, 10%, 3.9%);
+      outline: none;
+      padding: 0.5rem;
+    }
+    
+    .search-form__input::placeholder {
+      color: hsl(240, 3.8%, 46.1%);
+    }
+    
+    .search-empty {
+      text-align: center;
+      padding: 4rem 0;
+    }
+    
+    .card--link {
+      display: block;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .card--link:hover {
+      border-color: hsla(217, 91%, 50%, 0.3);
+      box-shadow: 0 10px 15px -3px hsla(217, 91%, 50%, 0.05);
+    }
+    
+    .badge--sm {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.5rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+  </style>
+</body>
+</html>
