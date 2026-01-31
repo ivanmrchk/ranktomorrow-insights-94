@@ -42,7 +42,7 @@ const tools = [
     icon: List,
     name: "Content Outline Generator",
     description: "Create comprehensive content outlines based on top-ranking competitors.",
-    href: "#",
+    href: "/tools/content-outline-generator",
   },
   {
     icon: Layers,

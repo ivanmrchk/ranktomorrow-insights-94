@@ -39,7 +39,7 @@ const tools = [
     name: "Content Outline Builder",
     description: "Create comprehensive content outlines based on top-ranking competitors.",
     usage: "1,200+ daily uses",
-    href: "/tools",
+    href: "/tools/content-outline-generator",
   },
   {
     icon: FileJson,
