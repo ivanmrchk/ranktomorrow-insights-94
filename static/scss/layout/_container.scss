@@ -1,0 +1,123 @@
+// ==========================================================================
+// Container & Layout
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.container {
+  @include container;
+}
+
+.section {
+  padding-top: $spacing-16;
+  padding-bottom: $spacing-16;
+  
+  @include breakpoint-up(lg) {
+    padding-top: $spacing-24;
+    padding-bottom: $spacing-24;
+  }
+  
+  &--hero {
+    padding-top: $spacing-24;
+    padding-bottom: $spacing-16;
+    
+    @include breakpoint-up(lg) {
+      padding-top: 8rem;
+      padding-bottom: $spacing-24;
+    }
+  }
+  
+  &--sm {
+    padding-top: $spacing-12;
+    padding-bottom: $spacing-12;
+  }
+}
+
+// Grid system
+.grid {
+  display: grid;
+  gap: $spacing-6;
+  
+  &--2 {
+    grid-template-columns: 1fr;
+    
+    @include breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &--3 {
+    grid-template-columns: 1fr;
+    
+    @include breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include breakpoint-up(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  &--4 {
+    grid-template-columns: 1fr;
+    
+    @include breakpoint-up(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include breakpoint-up(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  &--gap-sm {
+    gap: $spacing-4;
+  }
+  
+  &--gap-lg {
+    gap: $spacing-8;
+  }
+}
+
+// Flex utilities
+.flex {
+  display: flex;
+  
+  &--center {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &--between {
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &--column {
+    flex-direction: column;
+  }
+  
+  &--wrap {
+    flex-wrap: wrap;
+  }
+  
+  &--gap-2 { gap: $spacing-2; }
+  &--gap-3 { gap: $spacing-3; }
+  &--gap-4 { gap: $spacing-4; }
+  &--gap-6 { gap: $spacing-6; }
+  &--gap-8 { gap: $spacing-8; }
+}
+
+// Text alignment
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+// Spacing utilities
+.mt-4 { margin-top: $spacing-4; }
+.mt-6 { margin-top: $spacing-6; }
+.mt-8 { margin-top: $spacing-8; }
+.mb-4 { margin-bottom: $spacing-4; }
+.mb-6 { margin-bottom: $spacing-6; }
+.mb-8 { margin-bottom: $spacing-8; }

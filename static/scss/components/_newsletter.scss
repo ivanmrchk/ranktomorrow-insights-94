@@ -1,0 +1,145 @@
+// ==========================================================================
+// Newsletter / Email Capture
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.newsletter {
+  background: linear-gradient(135deg, $color-foreground 0%, lighten($color-foreground, 5%) 100%);
+  padding: $spacing-16 0;
+  
+  &__container {
+    @include container;
+    max-width: 640px;
+    text-align: center;
+  }
+  
+  &__icon {
+    @include flex-center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-6;
+    background: $gradient-accent;
+    border-radius: $radius-2xl;
+    
+    svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: white;
+    margin-bottom: $spacing-4;
+    
+    @include breakpoint-up(md) {
+      font-size: $font-size-4xl;
+    }
+  }
+  
+  &__subtitle {
+    font-size: $font-size-lg;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: $spacing-8;
+  }
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+    max-width: 400px;
+    margin: 0 auto;
+    
+    @include breakpoint-up(sm) {
+      flex-direction: row;
+    }
+  }
+  
+  &__input {
+    flex: 1;
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-base;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: $radius-lg;
+    color: white;
+    
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+  
+  &__btn {
+    @include button-primary;
+    padding: $spacing-3 $spacing-6;
+    white-space: nowrap;
+  }
+  
+  &__note {
+    margin-top: $spacing-4;
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+// Inline newsletter (for article pages)
+.newsletter-inline {
+  @include card-base;
+  padding: $spacing-8;
+  text-align: center;
+  background: linear-gradient(135deg, hsla(217, 91%, 50%, 0.05) 0%, hsla(280, 80%, 55%, 0.05) 100%);
+  
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-foreground;
+    margin-bottom: $spacing-2;
+  }
+  
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $color-muted-foreground;
+    margin-bottom: $spacing-6;
+  }
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+    max-width: 360px;
+    margin: 0 auto;
+    
+    @include breakpoint-up(sm) {
+      flex-direction: row;
+    }
+  }
+  
+  &__input {
+    flex: 1;
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-sm;
+    background: $color-background;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+    }
+  }
+  
+  &__btn {
+    @include button-primary;
+    padding: $spacing-3 $spacing-5;
+  }
+}

@@ -1,0 +1,143 @@
+// ==========================================================================
+// Footer Component
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.footer {
+  background: $color-foreground;
+  color: rgba(255, 255, 255, 0.7);
+  padding: $spacing-16 0 $spacing-8;
+  
+  &__container {
+    @include container;
+  }
+  
+  &__grid {
+    display: grid;
+    gap: $spacing-8;
+    
+    @include breakpoint-up(md) {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+  }
+  
+  &__brand {
+    max-width: 280px;
+  }
+  
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    margin-bottom: $spacing-4;
+    
+    .logo__icon {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .logo__text {
+      font-size: $font-size-lg;
+      color: white;
+    }
+  }
+  
+  &__tagline {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-4;
+  }
+  
+  &__social {
+    display: flex;
+    gap: $spacing-2;
+  }
+  
+  &__social-link {
+    @include flex-center;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-lg;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    transition: all $transition-fast;
+    
+    &:hover {
+      background: $color-accent;
+      color: white;
+    }
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+// Footer columns
+.footer-column {
+  &__title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-4;
+  }
+  
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+  }
+  
+  &__link {
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+// Footer bottom
+.footer-bottom {
+  margin-top: $spacing-12;
+  padding-top: $spacing-6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @include breakpoint-up(md) {
+    @include flex-between;
+  }
+  
+  &__copy {
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: $spacing-4;
+    
+    @include breakpoint-up(md) {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__links {
+    display: flex;
+    gap: $spacing-6;
+  }
+  
+  &__link {
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: white;
+    }
+  }
+}

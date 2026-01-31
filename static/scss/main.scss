@@ -1,0 +1,28 @@
+// ==========================================================================
+// Main SCSS Entry Point
+// ==========================================================================
+
+// Utilities (must come first)
+@use 'utilities/variables';
+@use 'utilities/mixins';
+@use 'utilities/reset';
+
+// Layout
+@use 'layout/container';
+
+// Components
+@use 'components/header';
+@use 'components/footer';
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/hero';
+@use 'components/section-header';
+@use 'components/badge';
+@use 'components/newsletter';
+@use 'components/modal';
+@use 'components/accordion';
+@use 'components/forms';
+@use 'components/ads';
+
+// Pages
+@use 'pages/article';
