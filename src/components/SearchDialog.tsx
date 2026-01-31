@@ -29,8 +29,9 @@ const searchableContent = [
   
   // Pages
   { title: "About RankTomorrow", type: "Page", href: "/about", excerpt: "Learn about RankTomorrow's mission to help marketers succeed with data-driven SEO." },
-  { title: "All Tools", type: "Page", href: "/tools", excerpt: "Browse our collection of free SEO and AI-powered tools." },
-  { title: "Recommended Tools", type: "Page", href: "/recommended-tools", excerpt: "Our curated stack of trusted SEO and marketing tools for professionals." },
+  { title: "SEO Tools", type: "Page", href: "/tools", excerpt: "Browse our collection of free SEO and AI-powered tools." },
+  { title: "Software", type: "Page", href: "/recommended-tools", excerpt: "Our curated stack of trusted third-party SEO and marketing software." },
+  { title: "Blog", type: "Page", href: "/blog", excerpt: "Deep dives into SEO, AI, and content growth backed by real data." },
 ];
 
 const getTypeIcon = (type: string) => {

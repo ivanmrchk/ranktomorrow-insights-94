@@ -100,18 +100,25 @@ const searchableContent = [
     keywords: ["about", "mission", "team", "editorial"]
   },
   { 
-    title: "All Tools", 
+    title: "SEO Tools", 
     type: "Page", 
     href: "/tools", 
     excerpt: "Browse our complete collection of free SEO and AI-powered tools. From title generators to schema markup builders.",
     keywords: ["tools", "free", "seo tools", "collection"]
   },
   { 
-    title: "Recommended SEO & Marketing Tools", 
+    title: "Software", 
     type: "Page", 
     href: "/recommended-tools", 
-    excerpt: "Our curated stack of trusted third-party SEO and marketing tools for professionals. Honest recommendations from daily users.",
-    keywords: ["recommended", "tools", "ahrefs", "semrush", "software"]
+    excerpt: "Our curated stack of trusted third-party SEO and marketing software for professionals.",
+    keywords: ["recommended", "software", "ahrefs", "semrush", "tools"]
+  },
+  { 
+    title: "Blog", 
+    type: "Page", 
+    href: "/blog", 
+    excerpt: "Deep dives into SEO, AI, and content growth backed by real data. The RankTomorrow editorial hub.",
+    keywords: ["blog", "articles", "editorial", "content", "news"]
   },
 ];
 

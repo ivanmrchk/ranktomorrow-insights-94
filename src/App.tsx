@@ -20,6 +20,7 @@ import RichSnippetGenerator from "./pages/RichSnippetGenerator";
 import KeywordSeedGenerator from "./pages/KeywordSeedGenerator";
 import SearchResults from "./pages/SearchResults";
 import RecommendedTools from "./pages/RecommendedTools";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/tools/keyword-seed-generator" element={<KeywordSeedGenerator />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/recommended-tools" element={<RecommendedTools />} />
+          <Route path="/blog" element={<Blog />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
