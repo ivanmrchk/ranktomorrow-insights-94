@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyword Grouping Tool | Free CSV Clustering | RankTomorrow</title>
+  <meta name="description" content="Upload your keyword CSV and automatically group keywords into SEO-ready content clusters by intent and volume.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__background"></div>
+    <div class="header__accent-line"></div>
+    <div class="header__container">
+      <a href="/" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">Topics<svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="dropdown__menu" role="menu">
+            <a href="/topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="/topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="/topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="/topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="/topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="/tools.html" class="nav__link nav__link--active">SEO Tools</a>
+        <a href="/recommended-tools.html" class="nav__link">Software</a>
+        <a href="/about.html" class="nav__link">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">Newsletter</button>
+      </div>
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero hero--compact">
+      <div class="hero__background"></div>
+      <div class="hero__container">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Free SEO Tool
+        </div>
+        <h1 class="hero__title">Keyword Grouping <span class="hero__highlight">Tool</span></h1>
+        <p class="hero__subtitle">Upload your keyword data and automatically group it into SEO-ready content clusters.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="card">
+          <div class="card__content">
+            <div class="upload-header">
+              <div class="upload-header__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+              <div>
+                <h2 class="upload-header__title">Upload Keyword CSV</h2>
+                <p class="upload-header__desc">Export keyword data from Google Keyword Planner, Ahrefs, SEMrush, or other SEO tools.</p>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <div>
+                <p class="info-box__title">Supported CSV Columns:</p>
+                <div class="info-box__badges">
+                  <span class="badge badge--green">Keyword (required)</span>
+                  <span class="badge badge--blue">Search Volume (recommended)</span>
+                  <span class="badge badge--secondary">CPC (optional)</span>
+                  <span class="badge badge--secondary">Intent (optional)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="upload-area" id="uploadArea">
+              <input type="file" id="fileInput" accept=".csv" hidden>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <p class="upload-area__text">Click to upload or drag and drop</p>
+              <p class="upload-area__hint">CSV files only (max 10MB)</p>
+              <p class="upload-area__file" id="fileName" style="display: none;"></p>
+            </div>
+
+            <button class="btn btn--primary btn--lg btn--full" id="uploadBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              Upload & Group Keywords
+            </button>
+          </div>
+        </div>
+
+        <div id="outputArea" class="tool-output" style="display: none;">
+          <div class="tool-output__header">
+            <div>
+              <h2 class="tool-output__title">Keyword Clusters</h2>
+              <p class="tool-output__subtitle" id="clusterCount">5 clusters found</p>
+            </div>
+            <button class="btn btn--outline btn--sm" id="exportBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Export CSV
+            </button>
+          </div>
+          <div id="clusterResults" class="cluster-results"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="section section--muted">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">Related Tools</h2>
+        </div>
+        <div class="grid grid--4">
+          <a href="/tools/keyword-seed-generator.html" class="link-card">
+            <span class="link-card__text">Keyword Seed Generator</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/tools/seo-title-generator.html" class="link-card">
+            <span class="link-card__text">SEO Title Generator</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/tools/content-outline-generator.html" class="link-card">
+            <span class="link-card__text">Content Outline Generator</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/topics/keyword-research.html" class="link-card">
+            <span class="link-card__text">Keyword Research Guide</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO strategies for sustainable organic growth.</p>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Resources</h4>
+          <a href="/blog.html" class="footer__link">Blog</a>
+          <a href="/tools.html" class="footer__link">SEO Tools</a>
+          <a href="/recommended-tools.html" class="footer__link">Software</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Topics</h4>
+          <a href="/topics/seo-strategy.html" class="footer__link">SEO Strategy</a>
+          <a href="/topics/keyword-research.html" class="footer__link">Keyword Research</a>
+          <a href="/topics/ai-automation.html" class="footer__link">AI & Automation</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Company</h4>
+          <a href="/about.html" class="footer__link">About</a>
+          <a href="/privacy-policy.html" class="footer__link">Privacy Policy</a>
+          <a href="/cookie-policy.html" class="footer__link">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 RankTomorrow. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/cookie-consent.js"></script>
+  <script>
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'toast toast--success';
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    const demoClusters = [
+      {
+        name: 'Email Marketing Software',
+        primaryKeyword: 'best email marketing software',
+        secondaryKeywords: ['email marketing tools', 'email platforms', 'email automation software', 'email campaign software'],
+        totalVolume: 12400,
+        avgCPC: '$4.52',
+        suggestedTitle: 'Best Email Marketing Software for Growing Businesses in 2025',
+        intent: 'commercial'
+      },
+      {
+        name: 'Email Marketing Pricing',
+        primaryKeyword: 'email marketing software pricing',
+        secondaryKeywords: ['email marketing cost', 'cheap email marketing', 'affordable email tools'],
+        totalVolume: 5600,
+        avgCPC: '$3.89',
+        suggestedTitle: 'Email Marketing Software Pricing: Complete Cost Comparison Guide',
+        intent: 'commercial'
+      },
+      {
+        name: 'Email Marketing Comparisons',
+        primaryKeyword: 'mailchimp vs constant contact',
+        secondaryKeywords: ['mailchimp alternatives', 'convertkit vs mailchimp', 'email marketing comparison'],
+        totalVolume: 8900,
+        avgCPC: '$5.21',
+        suggestedTitle: 'Mailchimp vs Constant Contact: Which Email Tool is Better?',
+        intent: 'commercial'
+      },
+      {
+        name: 'Email Marketing for Beginners',
+        primaryKeyword: 'how to start email marketing',
+        secondaryKeywords: ['email marketing guide', 'email marketing basics', 'email list building'],
+        totalVolume: 7200,
+        avgCPC: '$2.15',
+        suggestedTitle: 'How to Start Email Marketing: A Complete Beginner\'s Guide',
+        intent: 'informational'
+      },
+      {
+        name: 'Email Marketing Automation',
+        primaryKeyword: 'email automation software',
+        secondaryKeywords: ['automated email campaigns', 'drip email software', 'email workflow automation'],
+        totalVolume: 4800,
+        avgCPC: '$6.34',
+        suggestedTitle: 'Email Automation Software: Top 10 Tools for Automated Campaigns',
+        intent: 'commercial'
+      }
+    ];
+
+    function getIntentClass(intent) {
+      return intent === 'commercial' ? 'badge--purple' : 
+             intent === 'informational' ? 'badge--blue' : 
+             intent === 'transactional' ? 'badge--green' : 'badge--secondary';
+    }
+
+    function renderClusters(clusters) {
+      const resultsContainer = document.getElementById('clusterResults');
+      document.getElementById('clusterCount').textContent = `${clusters.length} clusters found`;
+
+      resultsContainer.innerHTML = clusters.map((cluster, index) => `
+        <div class="cluster-card">
+          <div class="cluster-card__header">
+            <div class="cluster-card__info">
+              <h3 class="cluster-card__name">${cluster.name}</h3>
+              <div class="cluster-card__meta">
+                <span class="cluster-card__stat">${cluster.totalVolume.toLocaleString()} vol</span>
+                <span class="cluster-card__stat">${cluster.avgCPC} CPC</span>
+                <span class="badge ${getIntentClass(cluster.intent)}">${cluster.intent}</span>
+              </div>
+            </div>
+            <button class="btn btn--ghost btn--sm cluster-card__copy" data-index="${index}">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div class="cluster-card__body">
+            <div class="cluster-card__section">
+              <span class="cluster-card__label">Primary Keyword</span>
+              <span class="cluster-card__primary">${cluster.primaryKeyword}</span>
+            </div>
+            <div class="cluster-card__section">
+              <span class="cluster-card__label">Secondary Keywords</span>
+              <div class="cluster-card__keywords">
+                ${cluster.secondaryKeywords.map(kw => `<span class="badge badge--secondary">${kw}</span>`).join('')}
+              </div>
+            </div>
+            <div class="cluster-card__section">
+              <span class="cluster-card__label">Suggested Title</span>
+              <p class="cluster-card__title">${cluster.suggestedTitle}</p>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Add copy handlers
+      document.querySelectorAll('.cluster-card__copy').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cluster = clusters[parseInt(btn.dataset.index)];
+          const text = `Cluster: ${cluster.name}
+Primary Keyword: ${cluster.primaryKeyword}
+Secondary Keywords: ${cluster.secondaryKeywords.join(', ')}
+Total Volume: ${cluster.totalVolume.toLocaleString()}
+Avg CPC: ${cluster.avgCPC}
+Suggested Title: ${cluster.suggestedTitle}
+Intent: ${cluster.intent}`;
+          navigator.clipboard.writeText(text);
+          showToast('Cluster copied!');
+        });
+      });
+    }
+
+    function exportCSV(clusters) {
+      const headers = 'Cluster Name,Primary Keyword,Secondary Keywords,Total Volume,Avg CPC,Suggested Title,Intent\n';
+      const rows = clusters.map(c => 
+        `"${c.name}","${c.primaryKeyword}","${c.secondaryKeywords.join('; ')}",${c.totalVolume},"${c.avgCPC}","${c.suggestedTitle}","${c.intent}"`
+      ).join('\n');
+
+      const blob = new Blob([headers + rows], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'keyword_clusters.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('CSV exported!');
+    }
+
+    // Initialize with demo
+    document.addEventListener('DOMContentLoaded', () => {
+      renderClusters(demoClusters);
+      document.getElementById('outputArea').style.display = 'block';
+      document.getElementById('fileName').textContent = 'Demo file: email_marketing_keywords.csv';
+      document.getElementById('fileName').style.display = 'block';
+    });
+
+    // Upload area click
+    document.getElementById('uploadArea').addEventListener('click', () => {
+      document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('uploadBtn').addEventListener('click', () => {
+      document.getElementById('fileInput').click();
+    });
+
+    // File upload handler
+    document.getElementById('fileInput').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        document.getElementById('fileName').textContent = `Selected: ${file.name}`;
+        document.getElementById('fileName').style.display = 'block';
+        
+        // Simulate processing
+        setTimeout(() => {
+          renderClusters(demoClusters);
+          document.getElementById('outputArea').style.display = 'block';
+          showToast(`Found ${demoClusters.length} keyword clusters!`);
+        }, 1000);
+      }
+    });
+
+    // Export button
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      exportCSV(demoClusters);
+    });
+  </script>
+</body>
+</html>
