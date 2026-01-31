@@ -18,6 +18,7 @@ const searchableContent = [
   { title: "Content Outline Generator", type: "Tool", href: "/tools/content-outline-generator", excerpt: "Create comprehensive content outlines based on top-ranking competitors." },
   { title: "Keyword Grouping Tool", type: "Tool", href: "/tools/keyword-grouping", excerpt: "Automatically cluster keywords by intent and topic for smarter content planning." },
   { title: "Rich Snippet & Schema Generator", type: "Tool", href: "/tools/rich-snippet-generator", excerpt: "Generate JSON-LD schema to help your pages appear as rich results in Google." },
+  { title: "SEO Keyword Seed Generator", type: "Tool", href: "/tools/keyword-seed-generator", excerpt: "Generate keyword seed ideas to kickstart your research in Google Keyword Planner, Ahrefs, or SEMrush." },
   
   // Topics
   { title: "SEO Strategy", type: "Topic", href: "/topics/seo-strategy", excerpt: "Master the art of SEO strategy with data-driven frameworks and actionable insights." },

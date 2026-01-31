@@ -16,6 +16,7 @@ import MetaDescriptionGenerator from "./pages/MetaDescriptionGenerator";
 import ContentOutlineGenerator from "./pages/ContentOutlineGenerator";
 import KeywordGroupingTool from "./pages/KeywordGroupingTool";
 import RichSnippetGenerator from "./pages/RichSnippetGenerator";
+import KeywordSeedGenerator from "./pages/KeywordSeedGenerator";
 import SearchResults from "./pages/SearchResults";
 import RecommendedTools from "./pages/RecommendedTools";
 import NotFound from "./pages/NotFound";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/tools/content-outline-generator" element={<ContentOutlineGenerator />} />
           <Route path="/tools/keyword-grouping" element={<KeywordGroupingTool />} />
           <Route path="/tools/rich-snippet-generator" element={<RichSnippetGenerator />} />
+          <Route path="/tools/keyword-seed-generator" element={<KeywordSeedGenerator />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/recommended-tools" element={<RecommendedTools />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

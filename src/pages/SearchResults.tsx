@@ -46,6 +46,13 @@ const searchableContent = [
     excerpt: "Generate JSON-LD schema markup to help your pages appear as rich results in Google. Support for FAQ, HowTo, Article, and more.",
     keywords: ["schema", "json-ld", "rich snippet", "structured data", "faq"]
   },
+  { 
+    title: "SEO Keyword Seed Generator", 
+    type: "Tool", 
+    href: "/tools/keyword-seed-generator", 
+    excerpt: "Generate keyword seed ideas to kickstart your research in Google Keyword Planner, Ahrefs, or SEMrush. Group by intent.",
+    keywords: ["keyword", "seed", "generator", "keyword planner", "research", "ideas"]
+  },
   
   // Topics
   { 
