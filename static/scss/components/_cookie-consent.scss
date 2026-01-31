@@ -1,0 +1,150 @@
+// ==========================================================================
+// Cookie Consent Banner
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: $spacing-4;
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal;
+  
+  &--visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $color-card;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-xl;
+    border: 1px solid $color-border;
+    padding: $spacing-5 $spacing-6;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+    
+    @include breakpoint-up(md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-6;
+    }
+  }
+  
+  &__content {
+    flex: 1;
+  }
+  
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $color-foreground;
+    margin-bottom: $spacing-2;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+      color: $color-accent;
+    }
+  }
+  
+  &__text {
+    font-size: $font-size-sm;
+    color: $color-muted-foreground;
+    line-height: 1.6;
+    margin-bottom: $spacing-2;
+  }
+  
+  &__links {
+    display: flex;
+    gap: $spacing-4;
+    font-size: $font-size-xs;
+    
+    a {
+      color: $color-accent;
+      text-decoration: none;
+      transition: color $transition-fast;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    gap: $spacing-3;
+    flex-shrink: 0;
+    
+    @include breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+  
+  &__btn {
+    @include button-base;
+    padding: $spacing-2-5 $spacing-5;
+    font-size: $font-size-sm;
+    border-radius: $radius-lg;
+    min-width: 100px;
+    
+    @include breakpoint-down(sm) {
+      flex: 1;
+    }
+    
+    &--accept {
+      background: $gradient-accent;
+      color: white;
+      box-shadow: $shadow-md;
+      
+      &:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: $shadow-lg;
+      }
+    }
+    
+    &--reject {
+      background: $color-secondary;
+      color: $color-foreground;
+      border: 1px solid $color-border;
+      
+      &:hover {
+        background: darken($color-secondary, 3%);
+        border-color: $color-muted-foreground;
+      }
+    }
+  }
+}
+
+// Overlay for modal variant (optional)
+.cookie-consent-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal;
+  
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
