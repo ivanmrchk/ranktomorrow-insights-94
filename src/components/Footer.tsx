@@ -2,27 +2,23 @@ import { Twitter, Linkedin, Youtube, Github } from "lucide-react";
 
 const footerLinks = {
   resources: [
-    { label: "Blog", href: "#" },
-    { label: "Guides", href: "#" },
-    { label: "Tools", href: "#tools" },
-    { label: "Newsletter", href: "#" },
+    { label: "Blog", href: "/blog" },
+    { label: "Tools", href: "/tools" },
+    { label: "Software", href: "/recommended-tools" },
   ],
   topics: [
-    { label: "SEO Strategy", href: "#" },
-    { label: "Keyword Research", href: "#" },
-    { label: "AI & Automation", href: "#" },
-    { label: "Content Marketing", href: "#" },
+    { label: "SEO Strategy", href: "/topics/seo-strategy" },
+    { label: "Keyword Research", href: "/topics/keyword-research" },
+    { label: "AI & Automation", href: "/topics/ai-automation" },
+    { label: "Content Marketing", href: "/topics/content-marketing" },
   ],
   company: [
-    { label: "About", href: "#" },
-    { label: "Editorial Team", href: "/static/editorial-team.html" },
-    { label: "Contact", href: "#" },
-    { label: "Press", href: "#" },
+    { label: "About", href: "/about" },
+    { label: "Editorial Team", href: "/editorial" },
   ],
   legal: [
-    { label: "Privacy", href: "#" },
-    { label: "Terms", href: "#" },
-    { label: "Cookies", href: "#" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
   ],
 };
 
