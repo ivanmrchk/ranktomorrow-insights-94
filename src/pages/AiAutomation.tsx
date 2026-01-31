@@ -346,7 +346,7 @@ const AiAutomation = () => {
                   </h2>
                 </div>
                 <a
-                  href="#"
+                  href="/ai-automation/articles/"
                   className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
                 >
                   View all articles
