@@ -32,7 +32,7 @@ const tools = [
     name: "Keyword Grouper",
     description: "Automatically cluster keywords by intent and topic for smarter content planning.",
     usage: "950+ daily uses",
-    href: "/tools",
+    href: "/tools/keyword-grouping",
   },
   {
     icon: List,

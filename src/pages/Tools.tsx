@@ -48,7 +48,7 @@ const tools = [
     icon: Layers,
     name: "Keyword Grouping Tool",
     description: "Automatically cluster keywords by intent and topic for smarter content planning.",
-    href: "#",
+    href: "/tools/keyword-grouping",
   },
   {
     icon: FileJson,
