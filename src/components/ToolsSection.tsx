@@ -53,7 +53,7 @@ const tools = [
     name: "SEO Keyword Seed Generator",
     description: "Generate keyword seed ideas to kickstart your keyword research in tools like Google Keyword Planner.",
     usage: "620+ daily uses",
-    href: "/tools",
+    href: "/tools/keyword-seed-generator",
   },
 ];
 

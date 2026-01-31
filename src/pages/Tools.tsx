@@ -60,7 +60,7 @@ const tools = [
     icon: Network,
     name: "SEO Keyword Seed Generator",
     description: "Generate keyword seed ideas to kickstart your keyword research in tools like Google Keyword Planner.",
-    href: "#",
+    href: "/tools/keyword-seed-generator",
   },
 ];
 
