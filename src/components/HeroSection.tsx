@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-24 pb-16">
       {/* Light gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary via-background to-muted" />
       
@@ -85,7 +85,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
           >
             <Button
               size="lg"
@@ -102,15 +102,13 @@ export const HeroSection = () => {
               Try Our SEO Tools
             </Button>
           </motion.div>
-        </motion.div>
 
-        {/* Floating data visualization elements */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-full max-w-5xl">
+          {/* Stats - Now positioned below CTAs with proper spacing */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="flex justify-center gap-8"
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="flex flex-wrap justify-center gap-8 md:gap-12 pt-8 border-t border-border/30 max-w-xl mx-auto"
           >
             {[
               { label: "Articles Published", value: "500+" },
@@ -119,21 +117,21 @@ export const HeroSection = () => {
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
-                className="text-center px-6"
+                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
+                className="text-center"
               >
                 <div className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
