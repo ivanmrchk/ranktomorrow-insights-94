@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Target, 
@@ -9,10 +10,15 @@ import {
   BarChart3,
   Zap,
   Shield,
-  BookOpen
+  BookOpen,
+  Mail,
+  ArrowRight
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { useToast } from "@/hooks/use-toast";
 
 const differentiators = [
   {
@@ -360,10 +366,100 @@ const About = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Newsletter Signup */}
+        <AboutNewsletter />
       </main>
 
       <Footer />
     </div>
+  );
+};
+
+const AboutNewsletter = () => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast({
+      title: "You're subscribed!",
+      description: "You'll receive our latest SEO research and insights.",
+    });
+    
+    setEmail("");
+    setIsSubmitting(false);
+  };
+
+  return (
+    <section className="py-16 md:py-20 bg-secondary/30 border-t border-border/50">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-xl mx-auto text-center"
+        >
+          <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
+            <Mail className="w-6 h-6 text-accent" />
+          </div>
+          
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+            Follow Our SEO Research
+          </h2>
+          
+          <p className="text-muted-foreground mb-8">
+            Get notified when we publish new SEO insights, data-driven studies, and AI-powered growth experiments.
+          </p>
+
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <Input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 h-12 bg-card border-border focus:border-accent"
+              disabled={isSubmitting}
+            />
+            <Button 
+              type="submit"
+              disabled={isSubmitting}
+              className="h-12 px-6 bg-accent text-accent-foreground hover:bg-accent/90"
+            >
+              {isSubmitting ? (
+                "Subscribing..."
+              ) : (
+                <>
+                  Subscribe
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
+                </>
+              )}
+            </Button>
+          </form>
+
+          <p className="text-xs text-muted-foreground mt-4">
+            No spam. Unsubscribe anytime.
+          </p>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
