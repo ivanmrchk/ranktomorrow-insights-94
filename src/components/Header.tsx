@@ -7,7 +7,7 @@ const topicItems = [
   { label: "SEO Strategy", href: "/topics/seo-strategy" },
   { label: "Keyword Research", href: "/topics/keyword-research" },
   { label: "AI & Automation", href: "/topics/ai-automation" },
-  { label: "Content Marketing", href: "#" },
+  { label: "Content Marketing", href: "/topics/content-marketing" },
   { label: "Google Search", href: "#" },
 ];
 
