@@ -19,7 +19,7 @@ const trustBlocks = [
   },
   {
     icon: Target,
-    title: "Results, Not Clickbait",
+    title: "Real Results",
     description: "Our content is designed to generate real rankings and traffic—not just pageviews for us.",
   },
 ];
@@ -41,7 +41,7 @@ const itemVariants = {
 
 export const TrustSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden bg-background">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-highlight/5 blur-[120px]" />
@@ -58,7 +58,7 @@ export const TrustSection = () => {
           className="text-center mb-16"
         >
           <span className="text-accent text-sm font-semibold uppercase tracking-wider">Why RankTomorrow</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3 mb-4 text-foreground">
             Built for <span className="gradient-text">Serious Marketers</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -80,14 +80,14 @@ export const TrustSection = () => {
               variants={itemVariants}
               className="relative group"
             >
-              <div className="gradient-border p-6 md:p-8 h-full">
+              <div className="gradient-border p-6 md:p-8 h-full bg-card">
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent/20 to-highlight/20 flex items-center justify-center mb-5">
                   <block.icon className="w-6 h-6 text-accent" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-bold mb-3">{block.title}</h3>
+                <h3 className="text-lg font-bold mb-3 text-foreground">{block.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {block.description}
                 </p>
@@ -107,7 +107,7 @@ export const TrustSection = () => {
           <p className="text-muted-foreground text-sm">
             Trusted by SEO professionals at leading companies worldwide
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 mt-6 opacity-50">
+          <div className="flex flex-wrap items-center justify-center gap-8 mt-6 opacity-40">
             {["TechCorp", "GrowthLabs", "DataDriven", "ScaleUp", "MetricsPro"].map((company) => (
               <span key={company} className="text-lg font-semibold text-muted-foreground">
                 {company}

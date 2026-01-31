@@ -4,11 +4,74 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* RankTomorrow Design System - Modern Tech Media Brand */
+/* RankTomorrow Design System - Modern Editorial Light Mode */
 
 @layer base {
   :root {
-    /* Core brand colors - Deep navy with teal/purple accents */
+    /* Core brand colors - Clean light mode with blue/teal/purple accents */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 99%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Deep Navy Blue */
+    --primary: 222 47% 11%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light gray */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Accent - Teal */
+    --accent: 174 72% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Highlight - Purple */
+    --highlight: 262 83% 58%;
+    --highlight-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 174 72% 40%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens for light mode */
+    --gradient-hero: linear-gradient(135deg, hsl(220 14% 98%) 0%, hsl(220 20% 96%) 50%, hsl(0 0% 100%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(174 72% 40%) 0%, hsl(262 83% 58%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    --gradient-text: linear-gradient(90deg, hsl(174 72% 35%) 0%, hsl(262 83% 50%) 100%);
+    
+    --glow-accent: 0 0 40px hsl(174 72% 40% / 0.15);
+    --glow-highlight: 0 0 40px hsl(262 83% 58% / 0.15);
+    
+    --shadow-card: 0 1px 3px hsl(220 13% 91% / 0.5), 0 4px 12px hsl(220 13% 91% / 0.3);
+    --shadow-elevated: 0 4px 20px hsl(220 13% 91% / 0.4), 0 8px 32px hsl(220 13% 91% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 174 72% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 174 72% 40%;
+  }
+
+  .dark {
+    /* Dark mode (optional) */
     --background: 222 47% 5%;
     --foreground: 210 40% 96%;
 
@@ -18,23 +81,18 @@
     --popover: 222 47% 8%;
     --popover-foreground: 210 40% 96%;
 
-    /* Primary - Deep Navy Blue */
-    --primary: 222 47% 11%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
 
-    /* Secondary - Muted slate */
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 96%;
 
-    /* Accent - Teal */
     --accent: 174 72% 46%;
     --accent-foreground: 222 47% 5%;
 
-    /* Highlight - Purple */
     --highlight: 262 83% 58%;
     --highlight-foreground: 210 40% 98%;
 
-    /* Muted */
     --muted: 217 33% 17%;
     --muted-foreground: 215 20% 55%;
 
@@ -45,9 +103,6 @@
     --input: 217 33% 20%;
     --ring: 174 72% 46%;
 
-    --radius: 0.75rem;
-
-    /* Custom tokens */
     --gradient-hero: linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(262 83% 12%) 50%, hsl(222 47% 5%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(174 72% 46%) 0%, hsl(262 83% 58%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(217 33% 12%) 0%, hsl(222 47% 8%) 100%);
@@ -59,7 +114,6 @@
     --shadow-card: 0 4px 24px hsl(222 47% 5% / 0.5);
     --shadow-elevated: 0 8px 40px hsl(222 47% 5% / 0.6);
 
-    /* Sidebar - keeping defaults for compatibility */
     --sidebar-background: 222 47% 8%;
     --sidebar-foreground: 210 40% 96%;
     --sidebar-primary: 174 72% 46%;
@@ -82,7 +136,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    @apply font-bold tracking-tight text-foreground;
   }
 
   code, pre {

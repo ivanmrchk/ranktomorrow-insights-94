@@ -53,7 +53,7 @@ const itemVariants = {
 
 export const ToolsSection = () => {
   return (
-    <section id="tools" className="section-padding relative bg-secondary/20">
+    <section id="tools" className="section-padding relative bg-secondary/50">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-accent/10 blur-[100px]" />
@@ -73,7 +73,7 @@ export const ToolsSection = () => {
               <Sparkles className="w-4 h-4" />
               Free SEO Tools
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
               Tools That <span className="gradient-text">Actually Work</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
@@ -102,17 +102,17 @@ export const ToolsSection = () => {
                 key={index}
                 href="#"
                 variants={itemVariants}
-                className="group flex items-start gap-5 bg-card rounded-xl border border-border/50 p-5 card-hover"
+                className="group flex items-start gap-5 bg-card rounded-xl border border-border p-5 card-hover"
               >
                 {/* Icon */}
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors">
                   <tool.icon className="w-6 h-6 text-accent" />
                 </div>
 
                 {/* Content */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-4 mb-1">
-                    <h3 className="font-semibold group-hover:text-accent transition-colors">
+                    <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
                       {tool.name}
                     </h3>
                     <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0" />
@@ -120,7 +120,7 @@ export const ToolsSection = () => {
                   <p className="text-sm text-muted-foreground mb-2 line-clamp-1">
                     {tool.description}
                   </p>
-                  <span className="text-xs text-accent/80">{tool.usage}</span>
+                  <span className="text-xs text-accent">{tool.usage}</span>
                 </div>
               </motion.a>
             ))}
