@@ -21,6 +21,7 @@ import KeywordSeedGenerator from "./pages/KeywordSeedGenerator";
 import SearchResults from "./pages/SearchResults";
 import RecommendedTools from "./pages/RecommendedTools";
 import Blog from "./pages/Blog";
+import ArticleTemplate from "./pages/ArticleTemplate";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,7 +51,9 @@ const App = () => (
           <Route path="/search" element={<SearchResults />} />
           <Route path="/recommended-tools" element={<RecommendedTools />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/ai-automation/:slug" element={<ArticleTemplate />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
