@@ -14,6 +14,7 @@ import Tools from "./pages/Tools";
 import SeoTitleGenerator from "./pages/SeoTitleGenerator";
 import MetaDescriptionGenerator from "./pages/MetaDescriptionGenerator";
 import ContentOutlineGenerator from "./pages/ContentOutlineGenerator";
+import KeywordGroupingTool from "./pages/KeywordGroupingTool";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/tools/seo-title-generator" element={<SeoTitleGenerator />} />
           <Route path="/tools/meta-description-generator" element={<MetaDescriptionGenerator />} />
           <Route path="/tools/content-outline-generator" element={<ContentOutlineGenerator />} />
+          <Route path="/tools/keyword-grouping" element={<KeywordGroupingTool />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
