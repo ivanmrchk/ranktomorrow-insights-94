@@ -3,71 +3,361 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found | RankTomorrow</title>
-  <meta name="description" content="The page you're looking for doesn't exist. Return to RankTomorrow homepage.">
+  <title>Page Not Found | RankTomorrow</title>
+  <meta name="description" content="The page you're looking for might have been moved, renamed, or doesn't exist.">
   <meta name="robots" content="noindex, nofollow">
   
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  
-  <!-- Favicon -->
   <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
-  <div class="error-page">
-    <div class="error-page__content">
-      <h1 class="error-page__title">404</h1>
-      <p class="error-page__subtitle">Oops! Page not found</p>
-      <p class="error-page__desc">The page you're looking for doesn't exist or has been moved.</p>
-      <a href="/index.html" class="btn btn--primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-          <polyline points="9 22 9 12 15 12 15 22"></polyline>
-        </svg>
-        Return to Home
+  <!-- Header -->
+  <header class="header">
+    <div class="header__background"></div>
+    <div class="header__accent-line"></div>
+    <div class="header__container">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
       </a>
+      <nav class="nav">
+        <a href="blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">Topics<svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="dropdown__menu" role="menu">
+            <a href="topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="tools.html" class="nav__link">SEO Tools</a>
+        <a href="recommended-tools.html" class="nav__link">Software</a>
+        <a href="about.html" class="nav__link">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">Newsletter</button>
+      </div>
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <main>
+    <section class="error-section">
+      <div class="error-section__background"></div>
+      <div class="container">
+        <div class="error-content">
+          <!-- Decorative Element -->
+          <div class="error-content__visual">
+            <div class="error-content__code">404</div>
+            <div class="error-content__orbit">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+          </div>
+
+          <h1 class="error-content__title">Page not found</h1>
+          <p class="error-content__message">The page you're looking for might have been moved, renamed, or doesn't exist. But don't worry—there's plenty more to explore.</p>
+
+          <!-- Search Box -->
+          <form class="error-search" action="search.html" method="get">
+            <div class="error-search__wrapper">
+              <svg class="error-search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" name="q" class="error-search__input" placeholder="Search articles, tools, and topics..." autocomplete="off">
+              <button type="submit" class="btn btn--primary btn--sm">Search</button>
+            </div>
+          </form>
+
+          <!-- Action Links -->
+          <div class="error-actions">
+            <a href="index.html" class="btn btn--outline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              Back to Homepage
+            </a>
+            <a href="blog.html" class="btn btn--ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              Browse the Blog
+            </a>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="error-suggestions">
+            <p class="error-suggestions__label">Popular topics:</p>
+            <div class="error-suggestions__tags">
+              <a href="topics/seo-strategy.html" class="error-tag">SEO Strategy</a>
+              <a href="topics/keyword-research.html" class="error-tag">Keyword Research</a>
+              <a href="topics/ai-automation.html" class="error-tag">AI & Automation</a>
+              <a href="tools.html" class="error-tag">SEO Tools</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO strategies for sustainable organic growth.</p>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Resources</h4>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="tools.html" class="footer__link">SEO Tools</a>
+          <a href="recommended-tools.html" class="footer__link">Software</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Topics</h4>
+          <a href="topics/seo-strategy.html" class="footer__link">SEO Strategy</a>
+          <a href="topics/keyword-research.html" class="footer__link">Keyword Research</a>
+          <a href="topics/ai-automation.html" class="footer__link">AI & Automation</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Company</h4>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="editorial.html" class="footer__link">Editorial Team</a>
+          <a href="privacy-policy.html" class="footer__link">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 RankTomorrow. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cookie-consent.js"></script>
 
   <style>
-    .error-page {
-      min-height: 100vh;
+    /* 404 Error Section */
+    .error-section {
+      position: relative;
+      min-height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
+      padding: 8rem 0 4rem;
+      overflow: hidden;
+    }
+
+    .error-section__background {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, hsl(240, 4.8%, 95.9%) 0%, hsl(0, 0%, 100%) 100%);
+      z-index: -1;
+    }
+
+    .error-section__background::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, hsla(217, 91%, 50%, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .error-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .error-content__visual {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .error-content__code {
+      font-size: 8rem;
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, hsl(217, 91%, 50%), hsl(280, 80%, 55%));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (min-width: 768px) {
+      .error-content__code {
+        font-size: 10rem;
+      }
+    }
+
+    .error-content__orbit {
+      position: absolute;
+      top: 50%;
+      right: calc(50% - 120px);
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: hsl(240, 4.8%, 95.9%);
-      padding: 2rem;
+      background: hsl(0, 0%, 100%);
+      border-radius: 50%;
+      box-shadow: 0 10px 30px -10px hsla(217, 91%, 50%, 0.3);
+      color: hsl(217, 91%, 50%);
+      animation: float 3s ease-in-out infinite;
     }
-    
-    .error-page__content {
-      text-align: center;
-      max-width: 400px;
+
+    @keyframes float {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-60%) translateX(5px); }
     }
-    
-    .error-page__title {
-      font-size: 6rem;
+
+    .error-content__title {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 1.875rem;
       font-weight: 700;
       color: hsl(240, 10%, 3.9%);
-      margin: 0 0 0.5rem;
-      line-height: 1;
+      margin-bottom: 1rem;
     }
-    
-    .error-page__subtitle {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: hsl(240, 10%, 3.9%);
-      margin: 0 0 1rem;
+
+    @media (min-width: 768px) {
+      .error-content__title {
+        font-size: 2.25rem;
+      }
     }
-    
-    .error-page__desc {
-      font-size: 1rem;
+
+    .error-content__message {
+      font-size: 1.125rem;
       color: hsl(240, 3.8%, 46.1%);
-      margin: 0 0 2rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    /* Search Box */
+    .error-search {
+      margin-bottom: 2rem;
+    }
+
+    .error-search__wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: hsl(0, 0%, 100%);
+      border: 1px solid hsl(240, 5.9%, 90%);
+      border-radius: 0.75rem;
+      padding: 0.5rem 0.5rem 0.5rem 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .error-search__wrapper:focus-within {
+      border-color: hsl(217, 91%, 50%);
+      box-shadow: 0 0 0 3px hsla(217, 91%, 50%, 0.1);
+    }
+
+    .error-search__icon {
+      color: hsl(240, 3.8%, 46.1%);
+      flex-shrink: 0;
+    }
+
+    .error-search__input {
+      flex: 1;
+      border: none;
+      background: none;
+      font-size: 1rem;
+      color: hsl(240, 10%, 3.9%);
+      outline: none;
+    }
+
+    .error-search__input::placeholder {
+      color: hsl(240, 3.8%, 46.1%);
+    }
+
+    /* Action Links */
+    .error-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 480px) {
+      .error-actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .error-actions .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    /* Quick Links */
+    .error-suggestions {
+      padding-top: 2rem;
+      border-top: 1px solid hsl(240, 5.9%, 90%);
+    }
+
+    .error-suggestions__label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: hsl(240, 3.8%, 46.1%);
+      margin-bottom: 1rem;
+    }
+
+    .error-suggestions__tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .error-tag {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: hsl(240, 3.8%, 46.1%);
+      background: hsl(0, 0%, 100%);
+      border: 1px solid hsl(240, 5.9%, 90%);
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 200ms ease;
+    }
+
+    .error-tag:hover {
+      color: hsl(217, 91%, 50%);
+      border-color: hsl(217, 91%, 50%);
+      background: hsla(217, 91%, 50%, 0.05);
     }
   </style>
 </body>

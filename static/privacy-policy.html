@@ -4,108 +4,364 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | RankTomorrow</title>
-  <meta name="description" content="RankTomorrow Privacy Policy - How we collect, use, and protect your personal information.">
+  <meta name="description" content="RankTomorrow Privacy Policy - Learn how we collect, use, and protect your personal information. Information about cookies, analytics, and your data rights.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
     <div class="header__background"></div>
     <div class="header__accent-line"></div>
     <div class="header__container">
-      <a href="/index.html" class="logo"><div class="logo__icon"><span>R</span></div><span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span></a>
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+      </a>
       <nav class="nav">
-        <a href="/blog.html" class="nav__link">Blog</a>
-        <a href="/tools.html" class="nav__link">SEO Tools</a>
-        <a href="/recommended-tools.html" class="nav__link">Software</a>
-        <a href="/about.html" class="nav__link">About</a>
+        <a href="blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">Topics<svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="dropdown__menu" role="menu">
+            <a href="topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="tools.html" class="nav__link">SEO Tools</a>
+        <a href="recommended-tools.html" class="nav__link">Software</a>
+        <a href="about.html" class="nav__link">About</a>
       </nav>
-      <div class="header-actions"><button class="btn btn--primary" id="newsletterBtn">Newsletter</button></div>
-      <div class="mobile-toggle"><button class="mobile-toggle__btn" id="mobileMenuBtn"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div>
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">Newsletter</button>
+      </div>
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
-    <div class="mobile-menu" id="mobileMenu"><div class="mobile-menu__container"><a href="/blog.html" class="mobile-menu__link">Blog</a><a href="/tools.html" class="mobile-menu__link">SEO Tools</a><a href="/about.html" class="mobile-menu__link">About</a></div></div>
   </header>
 
   <main>
-    <section class="section" style="padding-top: 7rem;">
-      <div class="container">
-        <div class="article-content" style="max-width: 720px; margin: 0 auto;">
-          <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Privacy Policy</h1>
-          <p style="color: hsl(240, 3.8%, 46.1%); margin-bottom: 2rem;">Last updated: January 2025</p>
-          
-          <h2>1. Information We Collect</h2>
-          <p>When you visit RankTomorrow, we may collect certain information automatically, including:</p>
-          <ul>
-            <li>Browser type and version</li>
-            <li>Pages visited and time spent</li>
-            <li>Referring website</li>
-            <li>IP address (anonymized)</li>
-          </ul>
-          <p>If you subscribe to our newsletter, we collect your email address.</p>
-          
-          <h2>2. How We Use Your Information</h2>
-          <p>We use the information we collect to:</p>
-          <ul>
-            <li>Send newsletter updates (with your consent)</li>
-            <li>Analyze site traffic and improve our content</li>
-            <li>Ensure site security and prevent abuse</li>
-          </ul>
-          
-          <h2>3. Cookies</h2>
-          <p>We use cookies to enhance your experience and analyze site traffic. You can control cookie preferences through our cookie consent banner or your browser settings.</p>
-          <p>For more details, see our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
-          
-          <h2>4. Third-Party Services</h2>
-          <p>We may use third-party services for analytics (such as Google Analytics). These services may collect information about your use of our site. We do not sell your personal information to third parties.</p>
-          
-          <h2>5. Data Retention</h2>
-          <p>We retain personal information only as long as necessary for the purposes described in this policy. Newsletter subscribers can unsubscribe at any time.</p>
-          
-          <h2>6. Your Rights</h2>
-          <p>Depending on your location, you may have rights to:</p>
-          <ul>
-            <li>Access your personal data</li>
-            <li>Request deletion of your data</li>
-            <li>Opt out of marketing communications</li>
-            <li>Object to data processing</li>
-          </ul>
-          
-          <h2>7. Contact Us</h2>
-          <p>If you have questions about this Privacy Policy, please contact us at privacy@ranktomorrow.com.</p>
-          
-          <h2>8. Changes to This Policy</h2>
-          <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>
+    <!-- Hero -->
+    <section class="hero hero--compact">
+      <div class="hero__background"></div>
+      <div class="hero__container">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Legal
         </div>
+        <h1 class="hero__title">Privacy <span class="hero__highlight">Policy</span></h1>
+        <p class="hero__subtitle">How we collect, use, and protect your personal information.</p>
+        <p class="hero__meta">Last updated: January 2025</p>
+      </div>
+    </section>
+
+    <!-- Privacy Content -->
+    <section class="section">
+      <div class="container container--narrow">
+        
+        <!-- Introduction -->
+        <div class="content-block">
+          <div class="content-block__body">
+            <p>At <strong>RankTomorrow</strong>, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your rights regarding your information.</p>
+            <p>By using our website, you agree to the collection and use of information in accordance with this policy.</p>
+          </div>
+        </div>
+
+        <!-- Information We Collect -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            </div>
+            <h2 class="content-block__title">Information We Collect</h2>
+          </div>
+          <div class="content-block__body">
+            <h3 class="content-subheading">Information You Provide</h3>
+            <p>We collect information you voluntarily provide when you:</p>
+            <ul class="content-list">
+              <li><strong>Subscribe to our newsletter</strong> — We collect your email address to send you SEO insights, content updates, and occasional promotional material.</li>
+              <li><strong>Contact us</strong> — If you reach out via email or contact forms, we collect the information you provide in your message.</li>
+              <li><strong>Use our tools</strong> — Some of our SEO tools may require you to input data. We do not store this data on our servers unless explicitly stated.</li>
+            </ul>
+
+            <h3 class="content-subheading">Information Collected Automatically</h3>
+            <p>When you visit RankTomorrow, we automatically collect certain technical information:</p>
+            <ul class="content-list">
+              <li><strong>Device information</strong> — Browser type, operating system, device type</li>
+              <li><strong>Usage data</strong> — Pages visited, time spent on pages, referring website</li>
+              <li><strong>IP address</strong> — Collected in anonymized or aggregated form for analytics</li>
+              <li><strong>Cookies and similar technologies</strong> — See our Cookies section below</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- How We Use Information -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+            </div>
+            <h2 class="content-block__title">How We Use Your Information</h2>
+          </div>
+          <div class="content-block__body">
+            <p>We use the information we collect to:</p>
+            <ul class="content-list">
+              <li><strong>Deliver our newsletter</strong> — Send you the content you signed up for, including articles, guides, and updates</li>
+              <li><strong>Improve our website</strong> — Analyze how visitors use our site to enhance content, navigation, and user experience</li>
+              <li><strong>Respond to inquiries</strong> — Reply to your questions, feedback, or support requests</li>
+              <li><strong>Display relevant advertising</strong> — Show ads that may be relevant to your interests (see Advertising section)</li>
+              <li><strong>Ensure security</strong> — Protect against spam, abuse, and unauthorized access</li>
+              <li><strong>Comply with legal obligations</strong> — Meet regulatory requirements when necessary</li>
+            </ul>
+            <p>We do <strong>not</strong> sell your personal information to third parties.</p>
+          </div>
+        </div>
+
+        <!-- Cookies -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
+            </div>
+            <h2 class="content-block__title">Cookies</h2>
+          </div>
+          <div class="content-block__body">
+            <p>We use cookies and similar tracking technologies to improve your experience on our website. Cookies are small text files stored on your device that help us:</p>
+            <ul class="content-list">
+              <li><strong>Remember your preferences</strong> — Such as cookie consent choices</li>
+              <li><strong>Analyze traffic</strong> — Understand how visitors interact with our site</li>
+              <li><strong>Deliver advertising</strong> — Show relevant ads and measure their effectiveness</li>
+            </ul>
+            
+            <h3 class="content-subheading">Types of Cookies We Use</h3>
+            <ul class="content-list">
+              <li><strong>Essential cookies</strong> — Required for basic site functionality (always active)</li>
+              <li><strong>Analytics cookies</strong> — Help us understand site usage through services like Google Analytics</li>
+              <li><strong>Advertising cookies</strong> — Used by ad networks to deliver relevant advertisements</li>
+            </ul>
+            
+            <p>You can manage your cookie preferences through our cookie consent banner. You can also control cookies through your browser settings, though this may affect site functionality.</p>
+            <p>For more details, see our <a href="cookie-policy.html">Cookie Policy</a>.</p>
+          </div>
+        </div>
+
+        <!-- Third-Party Services -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"></path><path d="m6 17 3.13-5.78c.53-.97.43-2.22-.26-3.07A4 4 0 0 1 9.5 2c1.47 0 2.75.8 3.45 2"></path><path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8"></path></svg>
+            </div>
+            <h2 class="content-block__title">Third-Party Services</h2>
+          </div>
+          <div class="content-block__body">
+            <p>We use trusted third-party services to operate our website:</p>
+            
+            <h3 class="content-subheading">Analytics</h3>
+            <p>We use <strong>Google Analytics</strong> to understand how visitors use our site. Google Analytics collects anonymized data about page views, session duration, and traffic sources. You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</p>
+            
+            <h3 class="content-subheading">Email Marketing</h3>
+            <p>Our newsletter is managed through third-party email service providers. When you subscribe, your email address is stored securely with our provider and used solely to deliver our newsletter. Every email includes an unsubscribe link.</p>
+            
+            <h3 class="content-subheading">Hosting</h3>
+            <p>Our website is hosted on third-party servers that may log standard access information (IP addresses, request times) for security and performance purposes.</p>
+          </div>
+        </div>
+
+        <!-- Advertising & Affiliates -->
+        <div class="content-block content-block--highlight">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </div>
+            <h2 class="content-block__title">Advertising & Affiliate Disclosure</h2>
+          </div>
+          <div class="content-block__body">
+            <h3 class="content-subheading">Display Advertising</h3>
+            <p>RankTomorrow displays advertisements through third-party ad networks. These networks may use cookies and similar technologies to:</p>
+            <ul class="content-list">
+              <li>Deliver ads based on your interests and browsing history</li>
+              <li>Measure ad performance and reach</li>
+              <li>Limit the number of times you see an ad</li>
+            </ul>
+            <p>You can opt out of personalized advertising through the <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">Digital Advertising Alliance</a> or <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">Your Online Choices</a> (EU).</p>
+            
+            <h3 class="content-subheading">Affiliate Links</h3>
+            <p>Some content on RankTomorrow contains affiliate links. When you click these links and make a purchase, we may earn a commission at no additional cost to you. This helps support our free content.</p>
+            <p><strong>Disclosure:</strong> Affiliate relationships do not influence our editorial content. We only recommend tools and services we believe provide genuine value. All affiliate links are clearly disclosed.</p>
+          </div>
+        </div>
+
+        <!-- Data Retention -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h2 class="content-block__title">Data Retention</h2>
+          </div>
+          <div class="content-block__body">
+            <p>We retain personal information only as long as necessary to fulfill the purposes outlined in this policy:</p>
+            <ul class="content-list">
+              <li><strong>Newsletter subscribers</strong> — Your email is retained until you unsubscribe</li>
+              <li><strong>Analytics data</strong> — Aggregated and anonymized data may be retained indefinitely</li>
+              <li><strong>Contact inquiries</strong> — Retained for up to 2 years for reference purposes</li>
+            </ul>
+            <p>You can request deletion of your data at any time (see Your Rights section).</p>
+          </div>
+        </div>
+
+        <!-- Your Rights -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h2 class="content-block__title">Your Rights</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+            <ul class="content-list">
+              <li><strong>Right to access</strong> — Request a copy of the personal data we hold about you</li>
+              <li><strong>Right to rectification</strong> — Request correction of inaccurate or incomplete data</li>
+              <li><strong>Right to erasure</strong> — Request deletion of your personal data ("right to be forgotten")</li>
+              <li><strong>Right to restrict processing</strong> — Request that we limit how we use your data</li>
+              <li><strong>Right to data portability</strong> — Request your data in a machine-readable format</li>
+              <li><strong>Right to object</strong> — Object to processing of your data for certain purposes</li>
+              <li><strong>Right to withdraw consent</strong> — Withdraw consent for data processing at any time</li>
+            </ul>
+            <p>To exercise any of these rights, please contact us using the information below. We will respond to your request within 30 days.</p>
+            
+            <h3 class="content-subheading">For EU/EEA Residents</h3>
+            <p>If you are located in the European Union or European Economic Area, you have rights under the General Data Protection Regulation (GDPR). If you believe we have not addressed your concerns adequately, you have the right to lodge a complaint with your local data protection authority.</p>
+            
+            <h3 class="content-subheading">For California Residents</h3>
+            <p>California residents have specific rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information is collected and the right to opt out of the sale of personal information. Note: We do not sell personal information.</p>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h2 class="content-block__title">Security</h2>
+          </div>
+          <div class="content-block__body">
+            <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+          </div>
+        </div>
+
+        <!-- Children's Privacy -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg>
+            </div>
+            <h2 class="content-block__title">Children's Privacy</h2>
+          </div>
+          <div class="content-block__body">
+            <p>RankTomorrow is not intended for children under the age of 16. We do not knowingly collect personal information from children. If you believe we have inadvertently collected data from a child, please contact us immediately and we will take steps to delete the information.</p>
+          </div>
+        </div>
+
+        <!-- Changes to Policy -->
+        <div class="content-block">
+          <div class="content-block__header">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            </div>
+            <h2 class="content-block__title">Changes to This Policy</h2>
+          </div>
+          <div class="content-block__body">
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. When we make significant changes, we will:</p>
+            <ul class="content-list">
+              <li>Update the "Last updated" date at the top of this page</li>
+              <li>Notify newsletter subscribers of material changes when appropriate</li>
+            </ul>
+            <p>We encourage you to review this page periodically for the latest information on our privacy practices.</p>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="content-block text-center">
+          <div class="content-block__header" style="justify-content: center;">
+            <div class="content-block__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <h2 class="content-block__title">Contact Us</h2>
+          </div>
+          <div class="content-block__body">
+            <p>If you have questions about this Privacy Policy or wish to exercise your data rights, please contact us:</p>
+            <p style="margin-top: 1.5rem;"><strong>Email:</strong> privacy@ranktomorrow.com</p>
+            <p style="margin-top: 1rem;">We aim to respond to all inquiries within 30 days.</p>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__grid">
-        <div class="footer__brand"><a href="/index.html" class="footer__logo"><div class="logo__icon"><span>R</span></div><span class="logo__text">RankTomorrow</span></a><p class="footer__tagline">Data-driven SEO and AI insights.</p></div>
-        <div class="footer-column"><h4 class="footer-column__title">Topics</h4><ul class="footer-column__list"><li><a href="/topics/seo-strategy.html" class="footer-column__link">SEO Strategy</a></li><li><a href="/topics/keyword-research.html" class="footer-column__link">Keyword Research</a></li></ul></div>
-        <div class="footer-column"><h4 class="footer-column__title">Company</h4><ul class="footer-column__list"><li><a href="/about.html" class="footer-column__link">About</a></li><li><a href="/blog.html" class="footer-column__link">Blog</a></li></ul></div>
+        <div class="footer__brand">
+          <a href="index.html" class="logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO strategies for sustainable organic growth.</p>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Resources</h4>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="tools.html" class="footer__link">SEO Tools</a>
+          <a href="recommended-tools.html" class="footer__link">Software</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Topics</h4>
+          <a href="topics/seo-strategy.html" class="footer__link">SEO Strategy</a>
+          <a href="topics/keyword-research.html" class="footer__link">Keyword Research</a>
+          <a href="topics/ai-automation.html" class="footer__link">AI & Automation</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Legal</h4>
+          <a href="privacy-policy.html" class="footer__link">Privacy Policy</a>
+          <a href="cookie-policy.html" class="footer__link">Cookie Policy</a>
+          <a href="editorial.html" class="footer__link">Editorial Team</a>
+        </div>
       </div>
-      <div class="footer-bottom"><p class="footer-bottom__copy">© 2025 RankTomorrow. All rights reserved.</p><div class="footer-bottom__links"><a href="/privacy-policy.html" class="footer-bottom__link">Privacy Policy</a><a href="/cookie-policy.html" class="footer-bottom__link">Cookie Policy</a></div></div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 RankTomorrow. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <div class="modal-overlay" id="newsletterOverlay"></div>
-  <div class="modal newsletter-modal" id="newsletterModal"><button class="modal__close" id="newsletterClose">×</button><h2 class="newsletter-modal__title">Join Our Newsletter</h2><form class="newsletter-modal__form" id="newsletterForm"><input type="email" placeholder="Enter your email" class="newsletter-modal__input" required><button type="submit" class="btn btn--primary btn--full">Subscribe</button></form></div>
-
   <script src="js/main.js"></script>
-  
+  <script src="js/cookie-consent.js"></script>
+
   <style>
-    .article-content h2 { font-size: 1.5rem; font-weight: 600; margin: 2rem 0 1rem; color: hsl(240, 10%, 3.9%); }
-    .article-content p { color: hsl(240, 3.8%, 46.1%); line-height: 1.75; margin-bottom: 1rem; }
-    .article-content ul { margin: 1rem 0 1.5rem 1.5rem; color: hsl(240, 3.8%, 46.1%); }
-    .article-content li { margin-bottom: 0.5rem; line-height: 1.625; }
-    .article-content a { color: hsl(217, 91%, 50%); text-decoration: underline; }
+    .hero__meta {
+      font-size: 0.875rem;
+      color: hsl(240, 3.8%, 46.1%);
+      margin-top: 1rem;
+    }
   </style>
 </body>
 </html>
