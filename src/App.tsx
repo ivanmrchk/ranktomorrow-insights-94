@@ -8,6 +8,7 @@ import About from "./pages/About";
 import KeywordResearch from "./pages/KeywordResearch";
 import SeoStrategy from "./pages/SeoStrategy";
 import AiAutomation from "./pages/AiAutomation";
+import ContentMarketing from "./pages/ContentMarketing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/topics/keyword-research" element={<KeywordResearch />} />
           <Route path="/topics/seo-strategy" element={<SeoStrategy />} />
           <Route path="/topics/ai-automation" element={<AiAutomation />} />
+          <Route path="/topics/content-marketing" element={<ContentMarketing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
