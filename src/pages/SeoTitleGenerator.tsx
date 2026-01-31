@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   Type, 
@@ -12,7 +12,9 @@ import {
   Target,
   MousePointerClick,
   TrendingUp,
-  Clock
+  Clock,
+  Search,
+  BadgeCheck
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -29,42 +31,113 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
 
 interface GeneratedTitle {
   title: string;
   charCount: number;
   isRecommended?: boolean;
+  hasKeyword: boolean;
+  intent: "informational" | "commercial" | "transactional";
 }
 
-const mockGenerateTitles = (primaryKeyword: string, secondaryKeywords: string, pageType: string, tone: string): GeneratedTitle[] => {
+// Demo titles for "keyword research tools"
+const demoTitles: GeneratedTitle[] = [
+  {
+    title: "7 Best Keyword Research Tools for SEO in 2025",
+    charCount: 45,
+    hasKeyword: true,
+    intent: "informational",
+    isRecommended: true,
+  },
+  {
+    title: "Keyword Research Tools: Find Profitable SEO Keywords Fast",
+    charCount: 57,
+    hasKeyword: true,
+    intent: "commercial",
+  },
+  {
+    title: "Top SEO Keyword Research Tools for Better Rankings",
+    charCount: 50,
+    hasKeyword: true,
+    intent: "informational",
+  },
+  {
+    title: "How to Choose the Best Keyword Research Tools",
+    charCount: 46,
+    hasKeyword: true,
+    intent: "informational",
+  },
+  {
+    title: "10 Keyword Research Tools Every SEO Should Use",
+    charCount: 47,
+    hasKeyword: true,
+    intent: "informational",
+  },
+  {
+    title: "Free vs Paid Keyword Research Tools: Complete Comparison",
+    charCount: 56,
+    hasKeyword: true,
+    intent: "commercial",
+  },
+  {
+    title: "Master Keyword Research: Tools, Tips & Strategies",
+    charCount: 50,
+    hasKeyword: true,
+    intent: "informational",
+  },
+  {
+    title: "Keyword Research Tools That Actually Improve Rankings",
+    charCount: 53,
+    hasKeyword: true,
+    intent: "commercial",
+  },
+  {
+    title: "The Ultimate Guide to Using Keyword Research Tools",
+    charCount: 51,
+    hasKeyword: true,
+    intent: "informational",
+  },
+  {
+    title: "Keyword Research Tools: From Beginner to Pro",
+    charCount: 45,
+    hasKeyword: true,
+    intent: "informational",
+  },
+];
+
+const generateTitlesFromKeyword = (primaryKeyword: string): GeneratedTitle[] => {
   const templates = [
-    `${primaryKeyword}: The Complete Guide for 2025`,
-    `How to Master ${primaryKeyword} in 7 Simple Steps`,
-    `${primaryKeyword} Explained: Everything You Need to Know`,
-    `The Ultimate ${primaryKeyword} Strategy That Actually Works`,
-    `${primaryKeyword}: Expert Tips & Best Practices`,
-    `Why ${primaryKeyword} Matters (And How to Get It Right)`,
-    `${primaryKeyword} 101: A Beginner's Complete Guide`,
-    `Top 10 ${primaryKeyword} Techniques for Better Results`,
-    `${primaryKeyword}: Data-Driven Strategies for Success`,
-    `The Science Behind ${primaryKeyword}: What Research Shows`,
+    { template: `7 Best ${primaryKeyword} for SEO in 2025`, intent: "informational" as const },
+    { template: `${primaryKeyword}: Find Profitable SEO Keywords Fast`, intent: "commercial" as const },
+    { template: `Top ${primaryKeyword} for Better Rankings`, intent: "informational" as const },
+    { template: `How to Choose the Best ${primaryKeyword}`, intent: "informational" as const },
+    { template: `10 ${primaryKeyword} Every SEO Should Use`, intent: "informational" as const },
+    { template: `Free vs Paid ${primaryKeyword}: Complete Comparison`, intent: "commercial" as const },
+    { template: `Master ${primaryKeyword}: Tips & Strategies`, intent: "informational" as const },
+    { template: `${primaryKeyword} That Actually Improve Rankings`, intent: "commercial" as const },
+    { template: `The Ultimate Guide to Using ${primaryKeyword}`, intent: "informational" as const },
+    { template: `${primaryKeyword}: From Beginner to Pro`, intent: "informational" as const },
   ];
 
-  return templates.map((template, index) => ({
-    title: template,
-    charCount: template.length,
-    isRecommended: index === 3,
+  return templates.map((item, index) => ({
+    title: item.template,
+    charCount: item.template.length,
+    hasKeyword: true,
+    intent: item.intent,
+    isRecommended: index === 0,
   }));
 };
 
 const SeoTitleGenerator = () => {
-  const [primaryKeyword, setPrimaryKeyword] = useState("");
-  const [secondaryKeywords, setSecondaryKeywords] = useState("");
-  const [pageType, setPageType] = useState("");
-  const [tone, setTone] = useState("");
-  const [generatedTitles, setGeneratedTitles] = useState<GeneratedTitle[]>([]);
+  const [primaryKeyword, setPrimaryKeyword] = useState("keyword research tools");
+  const [secondaryKeywords, setSecondaryKeywords] = useState("seo tools, google keyword planner, keyword ideas");
+  const [pageType, setPageType] = useState("blog-post");
+  const [tone, setTone] = useState("informational");
+  const [generatedTitles, setGeneratedTitles] = useState<GeneratedTitle[]>(demoTitles);
   const [isGenerating, setIsGenerating] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [isDemo, setIsDemo] = useState(true);
   const { toast } = useToast();
 
   const handleGenerate = async (e: React.FormEvent) => {
@@ -80,11 +153,12 @@ const SeoTitleGenerator = () => {
     }
 
     setIsGenerating(true);
+    setIsDemo(false);
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    const titles = mockGenerateTitles(primaryKeyword, secondaryKeywords, pageType, tone);
+    const titles = generateTitlesFromKeyword(primaryKeyword.trim());
     setGeneratedTitles(titles);
     setIsGenerating(false);
     
@@ -254,7 +328,14 @@ const SeoTitleGenerator = () => {
                 className="mt-8"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-foreground">Generated Titles</h2>
+                  <div className="flex items-center gap-3">
+                    <h2 className="text-2xl font-bold text-foreground">Generated Titles</h2>
+                    {isDemo && (
+                      <Badge variant="secondary" className="text-xs">
+                        Demo Output
+                      </Badge>
+                    )}
+                  </div>
                   <span className="text-sm text-muted-foreground">
                     {generatedTitles.length} titles generated
                   </span>
@@ -274,8 +355,8 @@ const SeoTitleGenerator = () => {
                       }`}
                     >
                       {item.isRecommended && (
-                        <div className="absolute -top-2.5 left-4 px-2 py-0.5 bg-accent text-accent-foreground text-xs font-medium rounded">
-                          <Star className="w-3 h-3 inline mr-1" />
+                        <div className="absolute -top-2.5 left-4 px-2 py-0.5 bg-accent text-accent-foreground text-xs font-medium rounded flex items-center gap-1">
+                          <Star className="w-3 h-3" />
                           Recommended
                         </div>
                       )}
@@ -285,12 +366,27 @@ const SeoTitleGenerator = () => {
                           <p className="text-foreground font-medium leading-relaxed">
                             {item.title}
                           </p>
-                          <div className="flex items-center gap-4 mt-2">
-                            <span className={`text-xs font-medium ${
-                              item.charCount <= 60 ? "text-green-600" : "text-amber-600"
+                          <div className="flex flex-wrap items-center gap-2 mt-3">
+                            <span className={`inline-flex items-center text-xs font-medium px-2 py-0.5 rounded ${
+                              item.charCount <= 60 
+                                ? "bg-emerald-500/10 text-emerald-600" 
+                                : "bg-amber-500/10 text-amber-600"
                             }`}>
-                              {item.charCount} characters
-                              {item.charCount <= 60 ? " ✓" : " (over 60)"}
+                              {item.charCount} chars
+                              {item.charCount <= 60 && <Check className="w-3 h-3 ml-1" />}
+                            </span>
+                            {item.hasKeyword && (
+                              <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded bg-accent/10 text-accent">
+                                <Search className="w-3 h-3 mr-1" />
+                                Primary keyword
+                              </span>
+                            )}
+                            <span className={`inline-flex items-center text-xs font-medium px-2 py-0.5 rounded ${
+                              item.intent === "informational" 
+                                ? "bg-blue-500/10 text-blue-600" 
+                                : "bg-purple-500/10 text-purple-600"
+                            }`}>
+                              {item.intent === "informational" ? "Informational" : "Commercial"}
                             </span>
                           </div>
                         </div>
@@ -302,7 +398,7 @@ const SeoTitleGenerator = () => {
                           className="opacity-0 group-hover:opacity-100 transition-opacity"
                         >
                           {copiedIndex === index ? (
-                            <Check className="w-4 h-4 text-green-600" />
+                            <Check className="w-4 h-4 text-emerald-600" />
                           ) : (
                             <Copy className="w-4 h-4" />
                           )}
@@ -311,11 +407,25 @@ const SeoTitleGenerator = () => {
 
                       {item.isRecommended && (
                         <div className="mt-4 pt-4 border-t border-accent/20">
-                          <div className="flex items-start gap-2">
-                            <Info className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                            <p className="text-sm text-muted-foreground">
-                              <strong className="text-foreground">Why this works:</strong> This title combines your primary keyword with an action-oriented structure that signals value. The phrase "That Actually Works" creates curiosity and differentiates from generic guides.
-                            </p>
+                          <div className="bg-background/50 rounded-lg p-4">
+                            <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-3">
+                              <BadgeCheck className="w-4 h-4 text-accent" />
+                              Why This Title Works
+                            </h4>
+                            <ul className="space-y-2 text-sm text-muted-foreground">
+                              <li className="flex items-start gap-2">
+                                <Target className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                                <span><strong className="text-foreground">Keyword placement:</strong> Primary keyword appears at the start, maximizing SEO impact and signaling relevance to Google.</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <MousePointerClick className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                                <span><strong className="text-foreground">Search intent match:</strong> The "7 Best" format aligns with informational intent, matching what users searching for tool comparisons expect.</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <TrendingUp className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                                <span><strong className="text-foreground">Click-worthy:</strong> Specific number (7) + "Best" creates curiosity. Year (2025) signals freshness, encouraging clicks over dated results.</span>
+                              </li>
+                            </ul>
                           </div>
                         </div>
                       )}
