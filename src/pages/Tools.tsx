@@ -36,7 +36,7 @@ const tools = [
     icon: AlignLeft,
     name: "Meta Description Generator",
     description: "Craft compelling meta descriptions that boost your click-through rates.",
-    href: "#",
+    href: "/tools/meta-description-generator",
   },
   {
     icon: List,

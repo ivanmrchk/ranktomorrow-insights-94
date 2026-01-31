@@ -12,6 +12,7 @@ import ContentMarketing from "./pages/ContentMarketing";
 import GoogleSearch from "./pages/GoogleSearch";
 import Tools from "./pages/Tools";
 import SeoTitleGenerator from "./pages/SeoTitleGenerator";
+import MetaDescriptionGenerator from "./pages/MetaDescriptionGenerator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/topics/google-search" element={<GoogleSearch />} />
           <Route path="/tools" element={<Tools />} />
           <Route path="/tools/seo-title-generator" element={<SeoTitleGenerator />} />
+          <Route path="/tools/meta-description-generator" element={<MetaDescriptionGenerator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
