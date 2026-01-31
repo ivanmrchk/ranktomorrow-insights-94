@@ -14,7 +14,8 @@ const pillars = [
     title: "SEO Strategy",
     description: "Master the fundamentals and advanced tactics for sustainable organic growth.",
     articleCount: 87,
-    color: "from-accent/20 to-accent/5",
+    color: "from-accent/10 to-accent/5",
+    iconBg: "bg-accent/10",
     iconColor: "text-accent",
   },
   {
@@ -22,7 +23,8 @@ const pillars = [
     title: "Keyword Research",
     description: "Find high-value opportunities with data-driven keyword analysis methods.",
     articleCount: 54,
-    color: "from-highlight/20 to-highlight/5",
+    color: "from-highlight/10 to-highlight/5",
+    iconBg: "bg-highlight/10",
     iconColor: "text-highlight",
   },
   {
@@ -30,24 +32,27 @@ const pillars = [
     title: "AI & Automation",
     description: "Leverage artificial intelligence to scale your SEO and content operations.",
     articleCount: 42,
-    color: "from-cyan-500/20 to-cyan-500/5",
-    iconColor: "text-cyan-400",
+    color: "from-cyan-500/10 to-cyan-500/5",
+    iconBg: "bg-cyan-500/10",
+    iconColor: "text-cyan-600",
   },
   {
     icon: FileText,
     title: "Content Marketing",
     description: "Create content that ranks, converts, and builds lasting authority.",
     articleCount: 68,
-    color: "from-emerald-500/20 to-emerald-500/5",
-    iconColor: "text-emerald-400",
+    color: "from-emerald-500/10 to-emerald-500/5",
+    iconBg: "bg-emerald-500/10",
+    iconColor: "text-emerald-600",
   },
   {
     icon: Globe,
     title: "Google Search",
     description: "Stay ahead of algorithm updates and understand how Google really works.",
     articleCount: 93,
-    color: "from-orange-500/20 to-orange-500/5",
-    iconColor: "text-orange-400",
+    color: "from-orange-500/10 to-orange-500/5",
+    iconBg: "bg-orange-500/10",
+    iconColor: "text-orange-600",
   },
 ];
 
@@ -68,7 +73,7 @@ const itemVariants = {
 
 export const TopicalPillars = () => {
   return (
-    <section id="topics" className="section-padding relative bg-secondary/20">
+    <section id="topics" className="section-padding relative bg-secondary/50">
       {/* Background accent */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-accent/5 blur-[150px]" />
@@ -84,7 +89,7 @@ export const TopicalPillars = () => {
           className="text-center mb-16"
         >
           <span className="text-accent text-sm font-semibold uppercase tracking-wider">Content Hubs</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3 mb-4 text-foreground">
             Explore by <span className="gradient-text">Topic</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -105,7 +110,7 @@ export const TopicalPillars = () => {
               key={index}
               href="#"
               variants={itemVariants}
-              className={`group relative bg-card rounded-xl border border-border/50 p-8 card-hover overflow-hidden ${
+              className={`group relative bg-card rounded-xl border border-border p-8 card-hover overflow-hidden ${
                 index === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
@@ -114,12 +119,12 @@ export const TopicalPillars = () => {
               
               <div className="relative z-10">
                 {/* Icon */}
-                <div className={`w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-14 h-14 rounded-xl ${pillar.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <pillar.icon className={`w-7 h-7 ${pillar.iconColor}`} />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">
+                <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent transition-colors">
                   {pillar.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-6">

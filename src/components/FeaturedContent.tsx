@@ -49,7 +49,7 @@ const itemVariants = {
 
 export const FeaturedContent = () => {
   return (
-    <section className="section-padding relative">
+    <section className="section-padding relative bg-background">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -60,7 +60,7 @@ export const FeaturedContent = () => {
           className="text-center mb-16"
         >
           <span className="text-accent text-sm font-semibold uppercase tracking-wider">Featured Insights</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3 mb-4 text-foreground">
             Latest from the <span className="gradient-text">Blog</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -80,7 +80,7 @@ export const FeaturedContent = () => {
             <motion.article
               key={index}
               variants={itemVariants}
-              className="group relative bg-card rounded-xl border border-border/50 p-6 md:p-8 card-hover cursor-pointer overflow-hidden"
+              className="group relative bg-card rounded-xl border border-border p-6 md:p-8 card-hover cursor-pointer overflow-hidden"
             >
               {/* Hover gradient effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-highlight/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -100,7 +100,7 @@ export const FeaturedContent = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-accent transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
                   {article.title}
                 </h3>
 

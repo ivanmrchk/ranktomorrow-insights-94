@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Twitter, Linkedin, Youtube, Github } from "lucide-react";
 
 const footerLinks = {
@@ -36,7 +35,7 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border/50 bg-card/50">
+    <footer className="border-t border-border bg-secondary/30">
       <div className="container-custom py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand Column */}
@@ -121,7 +120,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} RankTomorrow. All rights reserved.
           </p>
