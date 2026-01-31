@@ -14,7 +14,7 @@ const topicItems = [
 const navItems = [
   { label: "Blog", href: "#" },
   { label: "Topics", href: "#", hasDropdown: true },
-  { label: "Tools", href: "/#tools" },
+  { label: "Tools", href: "/tools" },
   { label: "About", href: "/about" },
 ];
 
