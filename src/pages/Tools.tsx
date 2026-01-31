@@ -4,13 +4,17 @@ import {
   AlignLeft, 
   List, 
   Layers, 
-  HelpCircle,
+  FileJson,
   ArrowRight,
   Sparkles,
   Zap,
   Database,
   Mail,
-  CheckCircle
+  CheckCircle,
+  BarChart3,
+  Cpu,
+  FileCheck,
+  Settings2
 } from "lucide-react";
 import { useState } from "react";
 import { Header } from "@/components/Header";
@@ -46,9 +50,9 @@ const tools = [
     href: "#",
   },
   {
-    icon: HelpCircle,
-    name: "FAQ Generator",
-    description: "Generate relevant FAQ sections based on search queries and user intent.",
+    icon: FileJson,
+    name: "Rich Snippet & Schema Generator",
+    description: "Generate JSON-LD schema to help your pages appear as rich results in Google.",
     href: "#",
   },
 ];
@@ -244,32 +248,70 @@ const Tools = () => {
         </div>
       </section>
 
-      {/* Trust Block */}
-      <section className="py-16 md:py-20 bg-secondary/30 border-y border-border">
+      {/* How These Tools Are Built */}
+      <section className="py-16 md:py-24 bg-secondary/30 border-y border-border">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
+            className="mb-12"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                <Database className="w-6 h-6 text-accent" />
-              </div>
-              <div className="w-12 h-12 rounded-xl bg-highlight/10 flex items-center justify-center">
-                <Zap className="w-6 h-6 text-highlight" />
-              </div>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-              Built on Real Data & AI
+            <span className="inline-flex items-center gap-2 text-accent text-sm font-semibold uppercase tracking-wider mb-3">
+              <Settings2 className="w-4 h-4" />
+              Our Methodology
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              How These Tools Are Built
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              These tools are built using real keyword data and AI-powered workflows. 
-              Every feature is designed to help you create better content and improve 
-              your search visibility with confidence.
-            </p>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: BarChart3,
+                title: "Real Keyword Data",
+                description: "Every tool is powered by actual search volume, ranking data, and SERP analysis from millions of queries.",
+              },
+              {
+                icon: Cpu,
+                title: "AI-Powered Workflows",
+                description: "We use structured AI prompts trained on SEO best practices to generate accurate, actionable outputs.",
+              },
+              {
+                icon: FileCheck,
+                title: "Structured Publishing",
+                description: "Outputs follow proven content frameworks and schema standards used by top-ranking pages.",
+              },
+              {
+                icon: Zap,
+                title: "Quality Control",
+                description: "Each tool is tested against real-world SEO scenarios to ensure practical, reliable results.",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="bg-card border border-border rounded-xl p-6 h-full">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                    <item.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+                {index < 3 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
