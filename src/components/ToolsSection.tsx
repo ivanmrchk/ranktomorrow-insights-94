@@ -4,6 +4,7 @@ import {
   AlignLeft, 
   Layers, 
   List,
+  FileJson,
   ArrowRight,
   Sparkles
 } from "lucide-react";
@@ -33,6 +34,12 @@ const tools = [
     name: "Content Outline Builder",
     description: "Create comprehensive content outlines based on top-ranking competitors.",
     usage: "1,200+ daily uses",
+  },
+  {
+    icon: FileJson,
+    name: "Rich Snippet & Schema Generator",
+    description: "Generate JSON-LD schema to help your pages appear as rich results in Google.",
+    usage: "780+ daily uses",
   },
 ];
 
