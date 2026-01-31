@@ -1,0 +1,303 @@
+// ==========================================================================
+// Header Component
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  
+  &__background {
+    position: absolute;
+    inset: 0;
+    @include glass-effect;
+    border-bottom: 1px solid rgba($color-border, 0.5);
+    box-shadow: $shadow-sm;
+  }
+  
+  &__accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba($color-accent, 0.5), transparent);
+  }
+  
+  &__container {
+    @include container;
+    position: relative;
+    @include flex-between;
+    height: 64px;
+    
+    @include breakpoint-up(md) {
+      height: 80px;
+    }
+  }
+}
+
+// Logo
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  text-decoration: none;
+  
+  &__icon {
+    @include flex-center;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-xl;
+    background: $gradient-accent;
+    box-shadow: $shadow-accent;
+    transition: box-shadow $transition-normal;
+    
+    span {
+      color: $color-accent-foreground;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-sm;
+    }
+  }
+  
+  &__text {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-foreground;
+  }
+  
+  &__highlight {
+    @include gradient-text;
+  }
+  
+  &:hover .logo__icon {
+    box-shadow: 0 10px 35px -10px hsla(217, 91%, 50%, 0.4);
+  }
+}
+
+// Navigation
+.nav {
+  display: none;
+  align-items: center;
+  gap: $spacing-1;
+  
+  @include breakpoint-up(lg) {
+    display: flex;
+  }
+  
+  &__link {
+    position: relative;
+    padding: $spacing-2 $spacing-4;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-muted-foreground;
+    text-decoration: none;
+    border-radius: $radius-lg;
+    transition: all $transition-normal;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: $color-accent;
+      border-radius: $radius-full;
+      transition: width $transition-slow;
+    }
+    
+    &:hover {
+      color: $color-foreground;
+      background: rgba($color-secondary, 0.8);
+      
+      &::after {
+        width: 50%;
+      }
+    }
+    
+    &--active {
+      color: $color-foreground;
+    }
+  }
+}
+
+// Dropdown
+.dropdown {
+  position: relative;
+  
+  &__trigger {
+    @extend .nav__link;
+    display: flex;
+    align-items: center;
+    gap: $spacing-1;
+    cursor: pointer;
+  }
+  
+  &__icon {
+    width: 16px;
+    height: 16px;
+    transition: transform $transition-fast;
+    
+    .dropdown--open & {
+      transform: rotate(180deg);
+    }
+  }
+  
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: $spacing-1;
+    min-width: 220px;
+    background: $color-card;
+    border: 1px solid $color-border;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-lg;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all $transition-fast;
+    z-index: 100;
+    
+    .dropdown--open & {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+  
+  &__item {
+    display: block;
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-sm;
+    color: $color-muted-foreground;
+    text-decoration: none;
+    transition: all $transition-fast;
+    
+    &:first-child {
+      border-radius: $radius-xl $radius-xl 0 0;
+    }
+    
+    &:last-child {
+      border-radius: 0 0 $radius-xl $radius-xl;
+    }
+    
+    &:hover {
+      color: $color-foreground;
+      background: rgba($color-secondary, 0.8);
+    }
+  }
+}
+
+// Header actions
+.header-actions {
+  display: none;
+  align-items: center;
+  gap: $spacing-3;
+  
+  @include breakpoint-up(lg) {
+    display: flex;
+  }
+}
+
+// Mobile menu
+.mobile-toggle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  
+  @include breakpoint-up(lg) {
+    display: none;
+  }
+  
+  &__btn {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-lg;
+    color: $color-foreground;
+    transition: background $transition-fast;
+    
+    &:hover {
+      background: rgba($color-secondary, 0.8);
+    }
+    
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: relative;
+  @include glass-effect;
+  border-bottom: 1px solid rgba($color-border, 0.5);
+  
+  @include breakpoint-up(lg) {
+    display: none !important;
+  }
+  
+  &--open {
+    display: block;
+  }
+  
+  &__container {
+    @include container;
+    padding-top: $spacing-4;
+    padding-bottom: $spacing-4;
+  }
+  
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $color-muted-foreground;
+    border-radius: $radius-lg;
+    transition: all $transition-fast;
+    
+    &:hover {
+      color: $color-foreground;
+      background: rgba($color-secondary, 0.8);
+    }
+  }
+  
+  &__submenu {
+    margin-left: $spacing-4;
+    padding-left: $spacing-4;
+    border-left: 2px solid rgba($color-border, 0.5);
+    display: none;
+    
+    &--open {
+      display: block;
+    }
+  }
+  
+  &__sublink {
+    display: block;
+    padding: $spacing-2 $spacing-3;
+    font-size: $font-size-sm;
+    color: $color-muted-foreground;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $color-foreground;
+    }
+  }
+  
+  &__actions {
+    margin-top: $spacing-4;
+    padding-top: $spacing-4;
+    border-top: 1px solid rgba($color-border, 0.5);
+  }
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="grad3" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:hsl(217, 91%, 50%);stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:hsl(280, 80%, 55%);stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:hsl(217, 91%, 50%);stop-opacity:0.08" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="hsl(240, 4.8%, 95.9%)"/>
+  <rect width="800" height="450" fill="url(#grad3)"/>
+  <g fill="none" stroke="hsl(217, 91%, 50%)" stroke-width="2" opacity="0.3">
+    <path d="M100,350 Q200,100 400,200 T700,150"/>
+    <path d="M100,380 Q300,200 500,280 T750,200"/>
+  </g>
+  <g fill="hsl(217, 91%, 50%)" opacity="0.4">
+    <circle cx="100" cy="350" r="8"/>
+    <circle cx="200" cy="200" r="8"/>
+    <circle cx="400" cy="200" r="8"/>
+    <circle cx="700" cy="150" r="8"/>
+  </g>
+  <g fill="hsl(280, 80%, 55%)" opacity="0.3">
+    <circle cx="300" cy="280" r="12"/>
+    <circle cx="500" cy="280" r="12"/>
+  </g>
+</svg>

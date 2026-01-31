@@ -1,0 +1,53 @@
+// ==========================================================================
+// Badge Component
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-1 $spacing-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-full;
+  line-height: 1;
+  
+  // Variants
+  &--primary {
+    background: $color-accent;
+    color: $color-accent-foreground;
+  }
+  
+  &--secondary {
+    background: $color-secondary;
+    color: $color-secondary-foreground;
+  }
+  
+  &--outline {
+    background: transparent;
+    border: 1px solid $color-border;
+    color: $color-foreground;
+  }
+  
+  &--success {
+    background: hsla(142, 76%, 36%, 0.1);
+    color: $color-success;
+  }
+  
+  &--accent {
+    background: hsla(217, 91%, 50%, 0.1);
+    color: $color-accent;
+  }
+  
+  // With icon
+  &--icon {
+    gap: $spacing-1;
+    
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+// ==========================================================================
+// CSS Reset & Base Styles
+// ==========================================================================
+
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $color-foreground;
+  background-color: $color-background;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Images
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Typography reset
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Lists
+ul, ol {
+  list-style: none;
+}
+
+// Buttons
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+// Forms
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: $color-muted-foreground;
+  opacity: 1;
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Remove default focus outline and add custom
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}
+
+// Selection
+::selection {
+  background: hsla(217, 91%, 50%, 0.2);
+  color: $color-foreground;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-muted-foreground;
+  border-radius: $radius-full;
+  
+  &:hover {
+    background: darken($color-muted-foreground, 10%);
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

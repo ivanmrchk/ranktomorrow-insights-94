@@ -1,0 +1,93 @@
+// ==========================================================================
+// Button Components
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.btn {
+  @include button-base;
+  
+  // Variants
+  &--primary {
+    @include button-primary;
+  }
+  
+  &--secondary {
+    @include button-secondary;
+  }
+  
+  &--ghost {
+    @include button-ghost;
+  }
+  
+  &--outline {
+    @include button-base;
+    background: transparent;
+    border: 1px solid $color-border;
+    color: $color-foreground;
+    padding: $spacing-3 $spacing-6;
+    
+    &:hover {
+      background: $color-secondary;
+      border-color: $color-accent;
+    }
+  }
+  
+  // Sizes
+  &--sm {
+    padding: $spacing-2 $spacing-3;
+    font-size: $font-size-xs;
+    border-radius: $radius-md;
+  }
+  
+  &--lg {
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-base;
+  }
+  
+  &--full {
+    width: 100%;
+  }
+  
+  // Icon button
+  &--icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: $radius-lg;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  &--icon-sm {
+    width: 36px;
+    height: 36px;
+    
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Button group
+.btn-group {
+  display: flex;
+  gap: $spacing-3;
+  
+  &--center {
+    justify-content: center;
+  }
+  
+  &--stack {
+    flex-direction: column;
+    
+    @include breakpoint-up(sm) {
+      flex-direction: row;
+    }
+  }
+}

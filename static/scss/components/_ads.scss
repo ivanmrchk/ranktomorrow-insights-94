@@ -1,0 +1,56 @@
+// ==========================================================================
+// Ad Placeholder Components
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.ad-placeholder {
+  @include flex-center;
+  min-height: 100px;
+  margin: $spacing-8 0;
+  background: linear-gradient(135deg, $color-secondary, darken($color-secondary, 3%));
+  border: 1px dashed $color-border;
+  border-radius: $radius-lg;
+  
+  &__content {
+    text-align: center;
+    padding: $spacing-4;
+  }
+  
+  &__label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-muted-foreground;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: $spacing-1;
+  }
+  
+  &__size {
+    font-size: $font-size-xs;
+    color: rgba($color-muted-foreground, 0.6);
+  }
+  
+  // Sizes
+  &--leaderboard {
+    min-height: 90px;
+    max-width: 728px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  &--rectangle {
+    min-height: 250px;
+    max-width: 300px;
+  }
+  
+  &--inline {
+    min-height: 120px;
+  }
+  
+  &--sidebar {
+    min-height: 600px;
+    width: 100%;
+  }
+}

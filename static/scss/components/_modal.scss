@@ -1,0 +1,253 @@
+// ==========================================================================
+// Modal / Dialog Components
+// ==========================================================================
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+// Modal overlay
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal;
+  
+  &--open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Modal container
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  z-index: 2001;
+  width: calc(100% - #{$spacing-8});
+  max-width: 480px;
+  max-height: calc(100vh - #{$spacing-8});
+  background: $color-card;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-xl;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal;
+  overflow: hidden;
+  
+  &--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  &--lg {
+    max-width: 640px;
+  }
+  
+  &--full {
+    max-width: 900px;
+    width: calc(100% - #{$spacing-8});
+  }
+  
+  &__header {
+    @include flex-between;
+    padding: $spacing-6;
+    border-bottom: 1px solid $color-border;
+  }
+  
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-foreground;
+  }
+  
+  &__close {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-lg;
+    color: $color-muted-foreground;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background: $color-secondary;
+      color: $color-foreground;
+    }
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  &__body {
+    padding: $spacing-6;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  
+  &__footer {
+    @include flex-between;
+    padding: $spacing-6;
+    border-top: 1px solid $color-border;
+    gap: $spacing-3;
+  }
+}
+
+// Search modal specific
+.search-modal {
+  max-width: 600px;
+  
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    padding: $spacing-4 $spacing-6;
+    border-bottom: 1px solid $color-border;
+  }
+  
+  &__icon {
+    width: 20px;
+    height: 20px;
+    color: $color-muted-foreground;
+  }
+  
+  &__input {
+    flex: 1;
+    font-size: $font-size-lg;
+    background: transparent;
+    border: none;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  &__results {
+    padding: $spacing-4;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  &__result {
+    display: block;
+    padding: $spacing-3 $spacing-4;
+    border-radius: $radius-lg;
+    text-decoration: none;
+    transition: background $transition-fast;
+    
+    &:hover {
+      background: $color-secondary;
+    }
+  }
+  
+  &__result-title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-foreground;
+    margin-bottom: $spacing-1;
+  }
+  
+  &__result-excerpt {
+    font-size: $font-size-xs;
+    color: $color-muted-foreground;
+    @include line-clamp(1);
+  }
+  
+  &__empty {
+    text-align: center;
+    padding: $spacing-8;
+    color: $color-muted-foreground;
+    font-size: $font-size-sm;
+  }
+  
+  &__hint {
+    @include flex-between;
+    padding: $spacing-3 $spacing-6;
+    border-top: 1px solid $color-border;
+    font-size: $font-size-xs;
+    color: $color-muted-foreground;
+  }
+  
+  &__kbd {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-1;
+    
+    kbd {
+      padding: $spacing-1 $spacing-2;
+      background: $color-secondary;
+      border-radius: $radius-sm;
+      font-family: $font-family-mono;
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+// Newsletter modal
+.newsletter-modal {
+  text-align: center;
+  
+  .modal__body {
+    padding: $spacing-8;
+  }
+  
+  &__icon {
+    @include flex-center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-6;
+    background: $gradient-accent;
+    border-radius: $radius-2xl;
+    
+    svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-foreground;
+    margin-bottom: $spacing-3;
+  }
+  
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $color-muted-foreground;
+    margin-bottom: $spacing-6;
+  }
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+  }
+  
+  &__input {
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-base;
+    background: $color-secondary;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+    }
+  }
+  
+  &__btn {
+    @include button-primary;
+    width: 100%;
+    padding: $spacing-3;
+  }
+}
