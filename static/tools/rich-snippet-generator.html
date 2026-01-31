@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rich Snippet & Schema Generator | Free JSON-LD Tool | RankTomorrow</title>
+  <meta name="description" content="Generate valid JSON-LD structured data for Article, FAQ, HowTo, Organization, and more schema types.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__background"></div>
+    <div class="header__accent-line"></div>
+    <div class="header__container">
+      <a href="/" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">Topics<svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="dropdown__menu" role="menu">
+            <a href="/topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="/topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="/topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="/topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="/topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="/tools.html" class="nav__link nav__link--active">SEO Tools</a>
+        <a href="/recommended-tools.html" class="nav__link">Software</a>
+        <a href="/about.html" class="nav__link">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">Newsletter</button>
+      </div>
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero hero--compact">
+      <div class="hero__background"></div>
+      <div class="hero__container">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Schema Generator
+        </div>
+        <h1 class="hero__title">Rich Snippet & <span class="hero__highlight">Schema Generator</span></h1>
+        <p class="hero__subtitle">Generate valid JSON-LD structured data markup to help your pages appear as rich results in Google.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="section">
+      <div class="container">
+        <div class="schema-grid">
+          <!-- Input Form -->
+          <div class="card">
+            <div class="card__content">
+              <div class="form">
+                <div class="form__group">
+                  <label for="schemaType" class="form__label">Schema Type</label>
+                  <select id="schemaType" class="form__select">
+                    <option value="article">Article / BlogPosting</option>
+                    <option value="faq">FAQPage</option>
+                    <option value="howto">HowTo</option>
+                    <option value="breadcrumb">BreadcrumbList</option>
+                    <option value="organization">Organization</option>
+                    <option value="website">Website (Searchbox)</option>
+                  </select>
+                </div>
+
+                <hr class="form__divider">
+                <h3 class="form__section-title">Global Fields</h3>
+
+                <div class="form__row">
+                  <div class="form__group">
+                    <label for="pageUrl" class="form__label">Page URL</label>
+                    <input type="text" id="pageUrl" class="form__input" value="https://example.com/best-email-marketing-software">
+                  </div>
+                  <div class="form__group">
+                    <label for="siteName" class="form__label">Site Name</label>
+                    <input type="text" id="siteName" class="form__input" value="RankTomorrow">
+                  </div>
+                </div>
+
+                <div class="form__row">
+                  <div class="form__group">
+                    <label for="authorName" class="form__label">Author Name</label>
+                    <input type="text" id="authorName" class="form__input" value="Sarah Johnson">
+                  </div>
+                  <div class="form__group">
+                    <label for="logoUrl" class="form__label">Logo URL</label>
+                    <input type="text" id="logoUrl" class="form__input" value="https://example.com/logo.png">
+                  </div>
+                </div>
+
+                <div class="form__row">
+                  <div class="form__group">
+                    <label for="publishDate" class="form__label">Publish Date</label>
+                    <input type="date" id="publishDate" class="form__input" value="2025-01-15">
+                  </div>
+                  <div class="form__group">
+                    <label for="modifiedDate" class="form__label">Last Modified</label>
+                    <input type="date" id="modifiedDate" class="form__input" value="2025-01-30">
+                  </div>
+                </div>
+
+                <!-- Article Fields -->
+                <div id="articleFields">
+                  <hr class="form__divider">
+                  <h3 class="form__section-title">Article Fields</h3>
+                  <div class="form__group">
+                    <label for="headline" class="form__label">Headline</label>
+                    <input type="text" id="headline" class="form__input" value="Best Email Marketing Software for Growing Businesses in 2025">
+                  </div>
+                  <div class="form__group">
+                    <label for="featuredImage" class="form__label">Featured Image URL</label>
+                    <input type="text" id="featuredImage" class="form__input" value="https://example.com/email-marketing-hero.jpg">
+                  </div>
+                </div>
+
+                <!-- FAQ Fields -->
+                <div id="faqFields" style="display: none;">
+                  <hr class="form__divider">
+                  <h3 class="form__section-title">FAQ Items</h3>
+                  <div id="faqItems">
+                    <div class="faq-item">
+                      <input type="text" class="form__input faq-question" placeholder="Question" value="What is the best email marketing software?">
+                      <textarea class="form__textarea faq-answer" placeholder="Answer">The best email marketing software depends on your needs, but popular options include Mailchimp, ConvertKit, and ActiveCampaign.</textarea>
+                    </div>
+                    <div class="faq-item">
+                      <input type="text" class="form__input faq-question" placeholder="Question" value="How much does email marketing software cost?">
+                      <textarea class="form__textarea faq-answer" placeholder="Answer">Email marketing software typically ranges from free plans for small lists to $50-300/month for advanced features.</textarea>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn--outline btn--sm" id="addFaqBtn">+ Add FAQ</button>
+                </div>
+
+                <!-- Organization Fields -->
+                <div id="orgFields" style="display: none;">
+                  <hr class="form__divider">
+                  <h3 class="form__section-title">Organization Fields</h3>
+                  <div class="form__group">
+                    <label for="orgName" class="form__label">Organization Name</label>
+                    <input type="text" id="orgName" class="form__input" value="RankTomorrow">
+                  </div>
+                  <div class="form__group">
+                    <label for="orgWebsite" class="form__label">Website URL</label>
+                    <input type="text" id="orgWebsite" class="form__input" value="https://ranktomorrow.com">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Output -->
+          <div class="card schema-output">
+            <div class="card__header">
+              <h3 class="card__title">Generated JSON-LD</h3>
+              <button class="btn btn--primary btn--sm" id="copySchemaBtn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy
+              </button>
+            </div>
+            <div class="card__content">
+              <pre id="schemaOutput" class="schema-code"><code></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="section section--muted">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">Related Tools</h2>
+        </div>
+        <div class="grid grid--4">
+          <a href="/tools/seo-title-generator.html" class="link-card">
+            <span class="link-card__text">SEO Title Generator</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/tools/meta-description-generator.html" class="link-card">
+            <span class="link-card__text">Meta Description Generator</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/tools/content-outline-generator.html" class="link-card">
+            <span class="link-card__text">Content Outline Generator</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/topics/google-search.html" class="link-card">
+            <span class="link-card__text">Google Search Guide</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO strategies for sustainable organic growth.</p>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Resources</h4>
+          <a href="/blog.html" class="footer__link">Blog</a>
+          <a href="/tools.html" class="footer__link">SEO Tools</a>
+          <a href="/recommended-tools.html" class="footer__link">Software</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Topics</h4>
+          <a href="/topics/seo-strategy.html" class="footer__link">SEO Strategy</a>
+          <a href="/topics/keyword-research.html" class="footer__link">Keyword Research</a>
+          <a href="/topics/ai-automation.html" class="footer__link">AI & Automation</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Company</h4>
+          <a href="/about.html" class="footer__link">About</a>
+          <a href="/privacy-policy.html" class="footer__link">Privacy Policy</a>
+          <a href="/cookie-policy.html" class="footer__link">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 RankTomorrow. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/cookie-consent.js"></script>
+  <script>
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'toast toast--success';
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    function generateSchema() {
+      const schemaType = document.getElementById('schemaType').value;
+      const baseContext = 'https://schema.org';
+
+      let schema = {};
+
+      switch (schemaType) {
+        case 'article':
+          schema = {
+            '@context': baseContext,
+            '@type': 'Article',
+            headline: document.getElementById('headline').value,
+            image: document.getElementById('featuredImage').value,
+            author: {
+              '@type': 'Person',
+              name: document.getElementById('authorName').value
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: document.getElementById('siteName').value,
+              logo: {
+                '@type': 'ImageObject',
+                url: document.getElementById('logoUrl').value
+              }
+            },
+            datePublished: document.getElementById('publishDate').value,
+            dateModified: document.getElementById('modifiedDate').value,
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': document.getElementById('pageUrl').value
+            }
+          };
+          break;
+
+        case 'faq':
+          const faqItems = [];
+          document.querySelectorAll('.faq-item').forEach(item => {
+            const q = item.querySelector('.faq-question').value;
+            const a = item.querySelector('.faq-answer').value;
+            if (q && a) {
+              faqItems.push({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: a
+                }
+              });
+            }
+          });
+          schema = {
+            '@context': baseContext,
+            '@type': 'FAQPage',
+            mainEntity: faqItems
+          };
+          break;
+
+        case 'organization':
+          schema = {
+            '@context': baseContext,
+            '@type': 'Organization',
+            name: document.getElementById('orgName').value,
+            url: document.getElementById('orgWebsite').value,
+            logo: document.getElementById('logoUrl').value
+          };
+          break;
+
+        case 'website':
+          schema = {
+            '@context': baseContext,
+            '@type': 'WebSite',
+            name: document.getElementById('siteName').value,
+            url: document.getElementById('pageUrl').value,
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: document.getElementById('pageUrl').value + '/search?q={search_term_string}',
+              'query-input': 'required name=search_term_string'
+            }
+          };
+          break;
+
+        case 'breadcrumb':
+          schema = {
+            '@context': baseContext,
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: document.getElementById('pageUrl').value.split('/').slice(0, 3).join('/') },
+              { '@type': 'ListItem', position: 2, name: 'Tools', item: document.getElementById('pageUrl').value.split('/').slice(0, 4).join('/') },
+              { '@type': 'ListItem', position: 3, name: 'Current Page', item: document.getElementById('pageUrl').value }
+            ]
+          };
+          break;
+
+        case 'howto':
+          schema = {
+            '@context': baseContext,
+            '@type': 'HowTo',
+            name: document.getElementById('headline').value || 'How to Guide',
+            step: [
+              { '@type': 'HowToStep', position: 1, name: 'Step 1', text: 'First step description' },
+              { '@type': 'HowToStep', position: 2, name: 'Step 2', text: 'Second step description' },
+              { '@type': 'HowToStep', position: 3, name: 'Step 3', text: 'Third step description' }
+            ]
+          };
+          break;
+      }
+
+      return JSON.stringify(schema, null, 2);
+    }
+
+    function updateOutput() {
+      const output = generateSchema();
+      document.querySelector('#schemaOutput code').textContent = output;
+    }
+
+    function toggleFields() {
+      const schemaType = document.getElementById('schemaType').value;
+      
+      document.getElementById('articleFields').style.display = schemaType === 'article' || schemaType === 'howto' ? 'block' : 'none';
+      document.getElementById('faqFields').style.display = schemaType === 'faq' ? 'block' : 'none';
+      document.getElementById('orgFields').style.display = schemaType === 'organization' ? 'block' : 'none';
+      
+      updateOutput();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      updateOutput();
+
+      // Schema type change
+      document.getElementById('schemaType').addEventListener('change', toggleFields);
+
+      // All inputs update output
+      document.querySelectorAll('input, textarea, select').forEach(el => {
+        el.addEventListener('input', updateOutput);
+      });
+
+      // Copy button
+      document.getElementById('copySchemaBtn').addEventListener('click', () => {
+        navigator.clipboard.writeText(generateSchema());
+        showToast('JSON-LD copied to clipboard!');
+      });
+
+      // Add FAQ
+      document.getElementById('addFaqBtn').addEventListener('click', () => {
+        const faqItems = document.getElementById('faqItems');
+        const newItem = document.createElement('div');
+        newItem.className = 'faq-item';
+        newItem.innerHTML = `
+          <input type="text" class="form__input faq-question" placeholder="Question">
+          <textarea class="form__textarea faq-answer" placeholder="Answer"></textarea>
+        `;
+        faqItems.appendChild(newItem);
+        newItem.querySelectorAll('input, textarea').forEach(el => {
+          el.addEventListener('input', updateOutput);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

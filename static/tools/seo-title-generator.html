@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Title Generator | Free Tool | RankTomorrow</title>
+  <meta name="description" content="Generate click-optimized SEO titles with automatic URL slugs. Free tool to create search-optimized headlines that rank.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__background"></div>
+    <div class="header__accent-line"></div>
+    <div class="header__container">
+      <a href="/" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">
+            Topics
+            <svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="dropdown__menu" role="menu">
+            <a href="/topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="/topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="/topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="/topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="/topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="/tools.html" class="nav__link nav__link--active">SEO Tools</a>
+        <a href="/recommended-tools.html" class="nav__link">Software</a>
+        <a href="/about.html" class="nav__link">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">Newsletter</button>
+      </div>
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero hero--compact">
+      <div class="hero__background"></div>
+      <div class="hero__container">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+          Free SEO Tool
+        </div>
+        <h1 class="hero__title">SEO Title <span class="hero__highlight">Generator</span></h1>
+        <p class="hero__subtitle">Generate search-optimized titles that get more clicks and higher rankings.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="section">
+      <div class="container container--narrow">
+        <!-- Input Form -->
+        <div class="card">
+          <div class="card__content">
+            <form id="titleForm" class="form">
+              <div class="form__group">
+                <label for="primaryKeyword" class="form__label">Primary Keyword <span class="form__required">*</span></label>
+                <input type="text" id="primaryKeyword" class="form__input" placeholder="e.g., email marketing software" value="keyword research tools" required>
+                <p class="form__help">The main keyword you want to rank for</p>
+              </div>
+              
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="pageType" class="form__label">Page Type</label>
+                  <select id="pageType" class="form__select">
+                    <option value="blog-post">Blog Post</option>
+                    <option value="landing-page">Landing Page</option>
+                    <option value="product-page">Product Page</option>
+                    <option value="guide">Guide</option>
+                    <option value="comparison">Comparison</option>
+                  </select>
+                </div>
+                <div class="form__group">
+                  <label for="tone" class="form__label">Tone</label>
+                  <select id="tone" class="form__select">
+                    <option value="informational">Informational</option>
+                    <option value="click-optimized">Click-Optimized</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="authority">Authority</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form__group">
+                <label class="form__checkbox">
+                  <input type="checkbox" id="generateSlug" checked>
+                  <span>Generate SEO-friendly URL slug</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--lg btn--full">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 10l7-7 7 7M5 14l7 7 7-7"></path></svg>
+                Generate SEO Titles
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Output Area -->
+        <div id="outputArea" class="tool-output" style="display: none;">
+          <div class="tool-output__header">
+            <h2 class="tool-output__title">Generated Titles</h2>
+            <span class="badge badge--secondary" id="demoTag">Demo Output</span>
+          </div>
+
+          <div id="titleResults" class="tool-results"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section section--muted">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">Why SEO Titles Matter</h2>
+        </div>
+        <div class="grid grid--3">
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3 class="feature-card__title">Higher CTR</h3>
+            <p class="feature-card__desc">Compelling titles increase click-through rates by up to 30%.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+            </div>
+            <h3 class="feature-card__title">Better Rankings</h3>
+            <p class="feature-card__desc">Keyword-optimized titles help search engines understand your content.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h3 class="feature-card__title">Save Time</h3>
+            <p class="feature-card__desc">Generate 10 optimized titles in seconds instead of hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">Related Tools</h2>
+        </div>
+        <div class="grid grid--4">
+          <a href="/tools/meta-description-generator.html" class="link-card">
+            <span class="link-card__text">Meta Description Generator</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/tools/content-outline-generator.html" class="link-card">
+            <span class="link-card__text">Content Outline Generator</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/tools/keyword-grouping.html" class="link-card">
+            <span class="link-card__text">Keyword Grouping Tool</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="/topics/keyword-research.html" class="link-card">
+            <span class="link-card__text">Keyword Research Guide</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO strategies for sustainable organic growth.</p>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Resources</h4>
+          <a href="/blog.html" class="footer__link">Blog</a>
+          <a href="/tools.html" class="footer__link">SEO Tools</a>
+          <a href="/recommended-tools.html" class="footer__link">Software</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Topics</h4>
+          <a href="/topics/seo-strategy.html" class="footer__link">SEO Strategy</a>
+          <a href="/topics/keyword-research.html" class="footer__link">Keyword Research</a>
+          <a href="/topics/ai-automation.html" class="footer__link">AI & Automation</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Company</h4>
+          <a href="/about.html" class="footer__link">About</a>
+          <a href="/privacy-policy.html" class="footer__link">Privacy Policy</a>
+          <a href="/cookie-policy.html" class="footer__link">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 RankTomorrow. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/cookie-consent.js"></script>
+  <script>
+    // Stop words to remove from slugs
+    const STOP_WORDS = new Set([
+      'a', 'an', 'the', 'for', 'to', 'in', 'of', 'and', 'or', 'is', 'are', 
+      'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 
+      'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might',
+      'must', 'shall', 'can', 'need', 'dare', 'ought', 'used', 'with',
+      'from', 'by', 'at', 'on', 'your', 'our', 'my', 'their', 'its',
+      'this', 'that', 'these', 'those', 'what', 'which', 'who', 'whom',
+      'how', 'why', 'when', 'where'
+    ]);
+
+    function generateSlug(title) {
+      return title
+        .toLowerCase()
+        .replace(/\b20\d{2}\b/g, '')
+        .replace(/^\d+\s+/g, '')
+        .replace(/[^\w\s-]/g, '')
+        .split(/\s+/)
+        .filter(word => word && !STOP_WORDS.has(word))
+        .join('-')
+        .replace(/-+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 60);
+    }
+
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'toast toast--success';
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    function generateTitles(keyword) {
+      const templates = [
+        { template: `7 Best ${keyword} for SEO in 2025`, intent: 'informational', recommended: true },
+        { template: `${keyword}: Find Profitable SEO Keywords Fast`, intent: 'commercial' },
+        { template: `Top ${keyword} for Better Rankings`, intent: 'informational' },
+        { template: `How to Choose the Best ${keyword}`, intent: 'informational' },
+        { template: `10 ${keyword} Every SEO Should Use`, intent: 'informational' },
+        { template: `Free vs Paid ${keyword}: Complete Comparison`, intent: 'commercial' },
+        { template: `Master ${keyword}: Tips & Strategies`, intent: 'informational' },
+        { template: `${keyword} That Actually Improve Rankings`, intent: 'commercial' },
+        { template: `The Ultimate Guide to Using ${keyword}`, intent: 'informational' },
+        { template: `${keyword}: From Beginner to Pro`, intent: 'informational' },
+      ];
+
+      return templates.map(item => ({
+        title: item.template,
+        charCount: item.template.length,
+        intent: item.intent,
+        recommended: item.recommended || false,
+        slug: generateSlug(item.template)
+      }));
+    }
+
+    function renderResults(titles, showSlug) {
+      const resultsContainer = document.getElementById('titleResults');
+      resultsContainer.innerHTML = titles.map((item, index) => `
+        <div class="result-item ${item.recommended ? 'result-item--recommended' : ''}">
+          ${item.recommended ? '<span class="result-item__badge">★ Recommended</span>' : ''}
+          <div class="result-item__content">
+            <div class="result-item__main">
+              <p class="result-item__text">${item.title}</p>
+              <button class="btn btn--ghost btn--sm result-item__copy" data-copy="${item.title}" title="Copy title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            <div class="result-item__meta">
+              <span class="badge badge--outline">${item.charCount} chars</span>
+              <span class="badge badge--${item.intent === 'commercial' ? 'purple' : 'blue'}">${item.intent}</span>
+            </div>
+            ${showSlug ? `
+            <div class="result-item__slug">
+              <code class="result-item__slug-text">/${item.slug}</code>
+              <button class="btn btn--ghost btn--sm" data-copy="/${item.slug}" title="Copy slug">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+            ` : ''}
+          </div>
+        </div>
+      `).join('');
+
+      // Add copy handlers
+      document.querySelectorAll('[data-copy]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          navigator.clipboard.writeText(btn.dataset.copy);
+          showToast('Copied to clipboard!');
+        });
+      });
+    }
+
+    // Initialize with demo output
+    document.addEventListener('DOMContentLoaded', () => {
+      const outputArea = document.getElementById('outputArea');
+      const showSlug = document.getElementById('generateSlug').checked;
+      const keyword = document.getElementById('primaryKeyword').value;
+      
+      const titles = generateTitles(keyword);
+      renderResults(titles, showSlug);
+      outputArea.style.display = 'block';
+    });
+
+    // Form submission
+    document.getElementById('titleForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const keyword = document.getElementById('primaryKeyword').value.trim();
+      const showSlug = document.getElementById('generateSlug').checked;
+      const demoTag = document.getElementById('demoTag');
+      
+      if (!keyword) {
+        showToast('Please enter a primary keyword');
+        return;
+      }
+
+      const titles = generateTitles(keyword);
+      renderResults(titles, showSlug);
+      
+      demoTag.style.display = 'none';
+      document.getElementById('outputArea').style.display = 'block';
+      showToast('10 SEO titles generated!');
+    });
+  </script>
+</body>
+</html>

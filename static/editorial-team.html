@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editorial Team | RankTomorrow</title>
+  <meta name="description" content="Meet the SEO experts and content strategists behind RankTomorrow's data-driven insights and actionable guides.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__background"></div>
+    <div class="header__accent-line"></div>
+    <div class="header__container">
+      <a href="/" class="logo">
+        <div class="logo__icon"><span>R</span></div>
+        <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/blog.html" class="nav__link">Blog</a>
+        <div class="dropdown" id="topicsDropdown">
+          <button class="dropdown__trigger" aria-expanded="false" aria-haspopup="true">Topics<svg class="dropdown__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="dropdown__menu" role="menu">
+            <a href="/topics/seo-strategy.html" class="dropdown__item" role="menuitem">SEO Strategy</a>
+            <a href="/topics/keyword-research.html" class="dropdown__item" role="menuitem">Keyword Research</a>
+            <a href="/topics/ai-automation.html" class="dropdown__item" role="menuitem">AI & Automation</a>
+            <a href="/topics/content-marketing.html" class="dropdown__item" role="menuitem">Content Marketing</a>
+            <a href="/topics/google-search.html" class="dropdown__item" role="menuitem">Google Search</a>
+          </div>
+        </div>
+        <a href="/tools.html" class="nav__link">SEO Tools</a>
+        <a href="/recommended-tools.html" class="nav__link">Software</a>
+        <a href="/about.html" class="nav__link nav__link--active">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="searchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Search
+        </button>
+        <button class="btn btn--primary" id="newsletterBtn">Newsletter</button>
+      </div>
+      <div class="mobile-toggle">
+        <button class="mobile-toggle__btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero hero--compact">
+      <div class="hero__background"></div>
+      <div class="hero__container">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Our Team
+        </div>
+        <h1 class="hero__title">Editorial <span class="hero__highlight">Team</span></h1>
+        <p class="hero__subtitle">Meet the SEO experts and content strategists behind RankTomorrow's data-driven insights.</p>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--3">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <div class="team-card__avatar">
+              <div class="team-card__initials">SJ</div>
+            </div>
+            <h3 class="team-card__name">Sarah Johnson</h3>
+            <p class="team-card__role">Editor-in-Chief</p>
+            <p class="team-card__bio">10+ years in SEO and content strategy. Previously led organic growth at multiple SaaS companies.</p>
+            <div class="team-card__expertise">
+              <span class="badge badge--secondary">SEO Strategy</span>
+              <span class="badge badge--secondary">Content Marketing</span>
+            </div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <div class="team-card__avatar">
+              <div class="team-card__initials">MC</div>
+            </div>
+            <h3 class="team-card__name">Michael Chen</h3>
+            <p class="team-card__role">Technical SEO Lead</p>
+            <p class="team-card__bio">Former Google engineer turned SEO consultant. Specializes in site architecture and Core Web Vitals.</p>
+            <div class="team-card__expertise">
+              <span class="badge badge--secondary">Technical SEO</span>
+              <span class="badge badge--secondary">Site Speed</span>
+            </div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <div class="team-card__avatar">
+              <div class="team-card__initials">EP</div>
+            </div>
+            <h3 class="team-card__name">Emma Patel</h3>
+            <p class="team-card__role">AI & Automation Editor</p>
+            <p class="team-card__bio">Expert in AI-powered content workflows. Helps teams scale content production with automation.</p>
+            <div class="team-card__expertise">
+              <span class="badge badge--secondary">AI Tools</span>
+              <span class="badge badge--secondary">Automation</span>
+            </div>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div class="team-card">
+            <div class="team-card__avatar">
+              <div class="team-card__initials">JW</div>
+            </div>
+            <h3 class="team-card__name">James Wilson</h3>
+            <p class="team-card__role">Keyword Research Specialist</p>
+            <p class="team-card__bio">Data analyst with deep expertise in search behavior. Develops keyword research methodologies.</p>
+            <div class="team-card__expertise">
+              <span class="badge badge--secondary">Keyword Research</span>
+              <span class="badge badge--secondary">Data Analysis</span>
+            </div>
+          </div>
+
+          <!-- Team Member 5 -->
+          <div class="team-card">
+            <div class="team-card__avatar">
+              <div class="team-card__initials">LR</div>
+            </div>
+            <h3 class="team-card__name">Lisa Rodriguez</h3>
+            <p class="team-card__role">Content Strategy Editor</p>
+            <p class="team-card__bio">Award-winning content strategist. Focuses on content that drives both rankings and conversions.</p>
+            <div class="team-card__expertise">
+              <span class="badge badge--secondary">Content Strategy</span>
+              <span class="badge badge--secondary">Conversion</span>
+            </div>
+          </div>
+
+          <!-- Team Member 6 -->
+          <div class="team-card">
+            <div class="team-card__avatar">
+              <div class="team-card__initials">DK</div>
+            </div>
+            <h3 class="team-card__name">David Kim</h3>
+            <p class="team-card__role">Tools & Reviews Editor</p>
+            <p class="team-card__bio">Tests and reviews 50+ SEO tools annually. Provides unbiased, data-backed recommendations.</p>
+            <div class="team-card__expertise">
+              <span class="badge badge--secondary">Tool Reviews</span>
+              <span class="badge badge--secondary">Comparisons</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Standards -->
+    <section class="section section--muted">
+      <div class="container container--narrow">
+        <div class="section-header">
+          <h2 class="section-header__title">Our Editorial Standards</h2>
+        </div>
+        <div class="prose">
+          <p>Every piece of content published on RankTomorrow goes through a rigorous editorial process:</p>
+          <ul>
+            <li><strong>Research-backed:</strong> All claims are supported by data, case studies, or cited sources.</li>
+            <li><strong>Expert-reviewed:</strong> Content is reviewed by specialists in the relevant field.</li>
+            <li><strong>Regularly updated:</strong> We revisit and update content to ensure accuracy.</li>
+            <li><strong>Transparent:</strong> We disclose affiliate relationships and sponsored content.</li>
+          </ul>
+        </div>
+        <div class="text-center" style="margin-top: 2rem;">
+          <a href="/about.html" class="btn btn--outline">Learn More About Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="logo">
+            <div class="logo__icon"><span>R</span></div>
+            <span class="logo__text">Rank<span class="logo__highlight">Tomorrow</span></span>
+          </a>
+          <p class="footer__tagline">Data-driven SEO strategies for sustainable organic growth.</p>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Resources</h4>
+          <a href="/blog.html" class="footer__link">Blog</a>
+          <a href="/tools.html" class="footer__link">SEO Tools</a>
+          <a href="/recommended-tools.html" class="footer__link">Software</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Topics</h4>
+          <a href="/topics/seo-strategy.html" class="footer__link">SEO Strategy</a>
+          <a href="/topics/keyword-research.html" class="footer__link">Keyword Research</a>
+          <a href="/topics/ai-automation.html" class="footer__link">AI & Automation</a>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__heading">Company</h4>
+          <a href="/about.html" class="footer__link">About</a>
+          <a href="/editorial-team.html" class="footer__link">Editorial Team</a>
+          <a href="/privacy-policy.html" class="footer__link">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 RankTomorrow. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/cookie-consent.js"></script>
+</body>
+</html>
