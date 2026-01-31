@@ -8,6 +8,7 @@ import About from "./pages/About";
 import KeywordResearch from "./pages/KeywordResearch";
 import SeoStrategy from "./pages/SeoStrategy";
 import AiAutomation from "./pages/AiAutomation";
+import AiAutomationArticles from "./pages/AiAutomationArticles";
 import ContentMarketing from "./pages/ContentMarketing";
 import GoogleSearch from "./pages/GoogleSearch";
 import Tools from "./pages/Tools";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/topics/keyword-research" element={<KeywordResearch />} />
           <Route path="/topics/seo-strategy" element={<SeoStrategy />} />
           <Route path="/topics/ai-automation" element={<AiAutomation />} />
+          <Route path="/ai-automation/articles" element={<AiAutomationArticles />} />
           <Route path="/topics/content-marketing" element={<ContentMarketing />} />
           <Route path="/topics/google-search" element={<GoogleSearch />} />
           <Route path="/tools" element={<Tools />} />
