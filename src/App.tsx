@@ -16,6 +16,8 @@ import MetaDescriptionGenerator from "./pages/MetaDescriptionGenerator";
 import ContentOutlineGenerator from "./pages/ContentOutlineGenerator";
 import KeywordGroupingTool from "./pages/KeywordGroupingTool";
 import RichSnippetGenerator from "./pages/RichSnippetGenerator";
+import SearchResults from "./pages/SearchResults";
+import RecommendedTools from "./pages/RecommendedTools";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +42,8 @@ const App = () => (
           <Route path="/tools/content-outline-generator" element={<ContentOutlineGenerator />} />
           <Route path="/tools/keyword-grouping" element={<KeywordGroupingTool />} />
           <Route path="/tools/rich-snippet-generator" element={<RichSnippetGenerator />} />
+          <Route path="/search" element={<SearchResults />} />
+          <Route path="/recommended-tools" element={<RecommendedTools />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
