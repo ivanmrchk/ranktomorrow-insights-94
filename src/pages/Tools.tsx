@@ -30,7 +30,7 @@ const tools = [
     icon: Type,
     name: "SEO Title Generator",
     description: "Generate click-worthy, SEO-optimized titles that rank and convert.",
-    href: "#",
+    href: "/tools/seo-title-generator",
   },
   {
     icon: AlignLeft,

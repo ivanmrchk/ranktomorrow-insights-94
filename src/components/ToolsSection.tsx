@@ -10,6 +10,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const tools = [
   {
@@ -17,36 +18,42 @@ const tools = [
     name: "SEO Title Generator",
     description: "Generate click-worthy, SEO-optimized titles that rank and convert.",
     usage: "2,500+ daily uses",
+    href: "/tools/seo-title-generator",
   },
   {
     icon: AlignLeft,
     name: "Meta Description Writer",
     description: "Craft compelling meta descriptions that boost your click-through rates.",
     usage: "1,800+ daily uses",
+    href: "/tools",
   },
   {
     icon: Layers,
     name: "Keyword Grouper",
     description: "Automatically cluster keywords by intent and topic for smarter content planning.",
     usage: "950+ daily uses",
+    href: "/tools",
   },
   {
     icon: List,
     name: "Content Outline Builder",
     description: "Create comprehensive content outlines based on top-ranking competitors.",
     usage: "1,200+ daily uses",
+    href: "/tools",
   },
   {
     icon: FileJson,
     name: "Rich Snippet & Schema Generator",
     description: "Generate JSON-LD schema to help your pages appear as rich results in Google.",
     usage: "780+ daily uses",
+    href: "/tools",
   },
   {
     icon: Network,
     name: "SEO Keyword Seed Generator",
     description: "Generate keyword seed ideas to kickstart your keyword research in tools like Google Keyword Planner.",
     usage: "620+ daily uses",
+    href: "/tools",
   },
 ];
 
@@ -112,31 +119,31 @@ export const ToolsSection = () => {
             className="space-y-4"
           >
             {tools.map((tool, index) => (
-              <motion.a
-                key={index}
-                href="#"
-                variants={itemVariants}
-                className="group flex items-start gap-5 bg-card rounded-xl border border-border p-5 card-hover"
-              >
-                {/* Icon */}
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-                  <tool.icon className="w-6 h-6 text-accent" />
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between gap-4 mb-1">
-                    <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
-                      {tool.name}
-                    </h3>
-                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0" />
+              <motion.div key={index} variants={itemVariants}>
+                <Link
+                  to={tool.href}
+                  className="group flex items-start gap-5 bg-card rounded-xl border border-border p-5 card-hover"
+                >
+                  {/* Icon */}
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors">
+                    <tool.icon className="w-6 h-6 text-accent" />
                   </div>
-                  <p className="text-sm text-muted-foreground mb-2 line-clamp-1">
-                    {tool.description}
-                  </p>
-                  <span className="text-xs text-accent">{tool.usage}</span>
-                </div>
-              </motion.a>
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-4 mb-1">
+                      <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
+                        {tool.name}
+                      </h3>
+                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0" />
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-2 line-clamp-1">
+                      {tool.description}
+                    </p>
+                    <span className="text-xs text-accent">{tool.usage}</span>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </motion.div>
         </div>
