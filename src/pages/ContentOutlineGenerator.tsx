@@ -56,7 +56,6 @@ const demoOutline: GeneratedOutline = {
       type: "h1",
       text: "10 Best Email Marketing Software in 2025 (Compared)",
       keywordPlacement: true,
-      suggestedKeywords: ["email marketing software", "best email marketing tools", "email marketing platforms", "marketing automation software"],
     },
     {
       type: "intro",
@@ -197,7 +196,7 @@ const generateOutlineFromInputs = (
                     targetLength === "medium" ? "1,500–2,500 words" : "3,000+ words";
   
   const sections: OutlineSection[] = [
-    { type: "h1", text: title, keywordPlacement: true, suggestedKeywords: [keyword, `best ${keyword}`, `${keyword} guide`, `${keyword} tips`] },
+    { type: "h1", text: title, keywordPlacement: true },
     { type: "intro", text: "Introduction", keywordPlacement: true, suggestedKeywords: [`${keyword} overview`, `${keyword} basics`, `understanding ${keyword}`, `${keyword} introduction`] },
     { type: "h2", text: `What is ${keyword}?`, suggestedKeywords: [`${keyword} definition`, `${keyword} meaning`, `${keyword} explained`, `what does ${keyword} mean`] },
     { type: "h2", text: `Why ${keyword} Matters`, suggestedKeywords: [`${keyword} benefits`, `${keyword} importance`, `why use ${keyword}`, `${keyword} advantages`] },
@@ -574,7 +573,8 @@ const ContentOutlineGenerator = () => {
                     <div className="divide-y divide-border">
                       {generatedOutline.sections.map((section, index) => {
                         const isExpanded = expandedSections.has(index);
-                        const hasKeywords = section.suggestedKeywords && section.suggestedKeywords.length > 0;
+                        // H1 should NOT have keywords - it's a page title, not a content section
+                        const hasKeywords = section.type !== "h1" && section.suggestedKeywords && section.suggestedKeywords.length > 0;
                         
                         return (
                           <motion.div
@@ -584,10 +584,7 @@ const ContentOutlineGenerator = () => {
                             transition={{ delay: index * 0.03 }}
                             className="group"
                           >
-                            <div 
-                              className={`p-4 transition-colors ${hasKeywords ? 'cursor-pointer hover:bg-secondary/30' : ''}`}
-                              onClick={() => hasKeywords && toggleSection(index)}
-                            >
+                            <div className="p-4">
                               <div className="flex items-start justify-between gap-4">
                                 <div className="flex items-start gap-3 flex-1">
                                   {/* Heading Label Badge */}
@@ -613,38 +610,36 @@ const ContentOutlineGenerator = () => {
                                         </Badge>
                                       )}
                                     </div>
-                                    {/* Keyword count hint when collapsed */}
-                                    {hasKeywords && !isExpanded && (
-                                      <p className="text-xs text-muted-foreground mt-1.5 flex items-center gap-1">
+                                    
+                                    {/* Keyword toggle - always visible when section has keywords */}
+                                    {hasKeywords && (
+                                      <button
+                                        type="button"
+                                        onClick={() => toggleSection(index)}
+                                        className="text-xs text-muted-foreground mt-2 flex items-center gap-1.5 hover:text-foreground transition-colors py-1 px-2 -ml-2 rounded-md hover:bg-secondary/50"
+                                      >
                                         <Tag className="w-3 h-3" />
                                         {section.suggestedKeywords!.length} suggested keywords
-                                        <ChevronDown className="w-3 h-3 ml-1" />
-                                      </p>
+                                        <ChevronDown className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                                      </button>
                                     )}
                                   </div>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                  {hasKeywords && (
-                                    <ChevronDown 
-                                      className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} 
-                                    />
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    copySectionText(section.text, index);
+                                  }}
+                                  className="opacity-0 group-hover:opacity-100 transition-opacity h-7 px-2"
+                                >
+                                  {copiedSection === index ? (
+                                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                                  ) : (
+                                    <Copy className="w-3.5 h-3.5" />
                                   )}
-                                  <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      copySectionText(section.text, index);
-                                    }}
-                                    className="opacity-0 group-hover:opacity-100 transition-opacity h-7 px-2"
-                                  >
-                                    {copiedSection === index ? (
-                                      <Check className="w-3.5 h-3.5 text-emerald-600" />
-                                    ) : (
-                                      <Copy className="w-3.5 h-3.5" />
-                                    )}
-                                  </Button>
-                                </div>
+                                </Button>
                               </div>
                             </div>
                             
