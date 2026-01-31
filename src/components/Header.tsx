@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Mail, ChevronDown, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SearchDialog } from "@/components/SearchDialog";
+import { NewsletterModal } from "@/components/NewsletterModal";
 
 const topicItems = [
   { label: "SEO Strategy", href: "/topics/seo-strategy" },
@@ -25,11 +26,15 @@ export const Header = () => {
   const [topicsOpen, setTopicsOpen] = useState(false);
   const [mobileTopicsOpen, setMobileTopicsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [newsletterOpen, setNewsletterOpen] = useState(false);
 
   // Close search on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSearchOpen(false);
+      if (e.key === "Escape") {
+        setSearchOpen(false);
+        setNewsletterOpen(false);
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -126,6 +131,7 @@ export const Header = () => {
               <Button 
                 size="sm" 
                 className="bg-gradient-to-r from-accent to-accent/90 text-white hover:from-accent/90 hover:to-accent shadow-lg shadow-accent/25 hover:shadow-accent/40 rounded-xl px-5 transition-all duration-300"
+                onClick={() => setNewsletterOpen(true)}
               >
                 <Mail className="w-4 h-4 mr-1.5" />
                 Newsletter
@@ -206,7 +212,13 @@ export const Header = () => {
                   )
                 ))}
                 <div className="pt-4 flex flex-col gap-2 border-t border-border/50 mt-2">
-                  <Button className="w-full bg-gradient-to-r from-accent to-accent/90 text-white rounded-xl shadow-lg shadow-accent/25">
+                  <Button 
+                    className="w-full bg-gradient-to-r from-accent to-accent/90 text-white rounded-xl shadow-lg shadow-accent/25"
+                    onClick={() => {
+                      setIsOpen(false);
+                      setNewsletterOpen(true);
+                    }}
+                  >
                     <Mail className="w-4 h-4 mr-1.5" />
                     Newsletter
                   </Button>
@@ -219,6 +231,9 @@ export const Header = () => {
 
       {/* Search Dialog */}
       <SearchDialog isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      
+      {/* Newsletter Modal */}
+      <NewsletterModal isOpen={newsletterOpen} onClose={() => setNewsletterOpen(false)} />
     </>
   );
 };
