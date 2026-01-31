@@ -4,7 +4,7 @@ import { Menu, X, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const topicItems = [
-  { label: "SEO Strategy", href: "#" },
+  { label: "SEO Strategy", href: "/topics/seo-strategy" },
   { label: "Keyword Research", href: "/topics/keyword-research" },
   { label: "AI & Automation", href: "#" },
   { label: "Content Marketing", href: "#" },
