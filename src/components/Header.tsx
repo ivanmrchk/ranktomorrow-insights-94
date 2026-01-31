@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const topicItems = [
   { label: "SEO Strategy", href: "/topics/seo-strategy" },
   { label: "Keyword Research", href: "/topics/keyword-research" },
-  { label: "AI & Automation", href: "#" },
+  { label: "AI & Automation", href: "/topics/ai-automation" },
   { label: "Content Marketing", href: "#" },
   { label: "Google Search", href: "#" },
 ];
