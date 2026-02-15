@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { TopicCTA } from "@/components/TopicCTA";
 import { useToast } from "@/hooks/use-toast";
 
 const automationFits = [
@@ -325,6 +326,16 @@ const AiAutomation = () => {
             </motion.div>
           </div>
         </section>
+
+        <TopicCTA
+          icon={Type}
+          headline="Automate Your First SEO Task"
+          description="See AI in action—generate SEO-optimized titles for any topic in seconds. No signup, no setup."
+          buttonText="Try the SEO Title Generator"
+          buttonHref="/tools/seo-title-generator"
+          secondaryText="Explore all SEO tools"
+          secondaryHref="/tools"
+        />
 
         {/* Featured Articles */}
         <section className="py-16 md:py-20 lg:py-24 bg-secondary/30">
