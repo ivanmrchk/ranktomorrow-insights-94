@@ -6,7 +6,7 @@ import {
   Layers, 
   FileJson,
   Network,
-  Link2,
+  Link2 as Link2Icon,
   ArrowRight,
   Sparkles,
   Zap,
@@ -64,7 +64,7 @@ const tools = [
     href: "/tools/keyword-seed-generator",
   },
   {
-    icon: Link2,
+    icon: Link2Icon,
     name: "SEO URL Slug Generator",
     description: "Generate clean, keyword-rich URL slugs optimized for search engines and click-through rates.",
     href: "/tools/seo-slug-generator",
