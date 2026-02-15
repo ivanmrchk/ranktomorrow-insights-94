@@ -18,6 +18,7 @@ import ContentOutlineGenerator from "./pages/ContentOutlineGenerator";
 import KeywordGroupingTool from "./pages/KeywordGroupingTool";
 import RichSnippetGenerator from "./pages/RichSnippetGenerator";
 import KeywordSeedGenerator from "./pages/KeywordSeedGenerator";
+import SeoSlugGenerator from "./pages/SeoSlugGenerator";
 import SearchResults from "./pages/SearchResults";
 import RecommendedTools from "./pages/RecommendedTools";
 import Blog from "./pages/Blog";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/tools/keyword-grouping" element={<KeywordGroupingTool />} />
           <Route path="/tools/rich-snippet-generator" element={<RichSnippetGenerator />} />
           <Route path="/tools/keyword-seed-generator" element={<KeywordSeedGenerator />} />
+          <Route path="/tools/seo-slug-generator" element={<SeoSlugGenerator />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/recommended-tools" element={<RecommendedTools />} />
           <Route path="/blog" element={<Blog />} />

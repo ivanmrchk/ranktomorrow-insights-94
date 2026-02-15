@@ -6,6 +6,7 @@ import {
   Layers, 
   FileJson,
   Network,
+  Link2,
   ArrowRight,
   Sparkles,
   Zap,
@@ -61,6 +62,12 @@ const tools = [
     name: "SEO Keyword Seed Generator",
     description: "Generate keyword seed ideas to kickstart your keyword research in tools like Google Keyword Planner.",
     href: "/tools/keyword-seed-generator",
+  },
+  {
+    icon: Link2,
+    name: "SEO URL Slug Generator",
+    description: "Generate clean, keyword-rich URL slugs optimized for search engines and click-through rates.",
+    href: "/tools/seo-slug-generator",
   },
 ];
 
