@@ -116,10 +116,13 @@ const ComingSoon = () => {
                 />
                 <Button type="submit" size="lg" className="w-full sm:w-auto whitespace-nowrap">
                   <Mail className="w-4 h-4 mr-2" />
-                  Join the Early Access List
+                  Get Early Access to the AI Tools
                 </Button>
               </form>
-              <p className="text-xs text-muted-foreground">Be the first to access new tools and updates.</p>
+              <p className="text-xs text-muted-foreground mb-4">Be the first to access new tools and updates.</p>
+              <p className="text-sm text-muted-foreground/70 max-w-lg mx-auto">
+                Join marketers, founders, and SEO professionals testing the next generation of AI-powered SEO tools.
+              </p>
             </motion.div>
           </div>
         </section>
