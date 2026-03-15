@@ -158,7 +158,7 @@ const ComingSoon = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
-                Tools Currently In Development
+                6 AI Tools Currently In Development
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
                 A preview of the AI-powered tools we're building to transform your SEO workflow.
