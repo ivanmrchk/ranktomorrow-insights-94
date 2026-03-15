@@ -1,168 +1,268 @@
 import { useState, FormEvent } from "react";
+import { motion } from "framer-motion";
+import {
+  Link2,
+  FileText,
+  Layers,
+  Map,
+  FileCheck,
+  Network,
+  Sparkles,
+  Zap,
+  Mail,
+  CheckCircle,
+} from "lucide-react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
-const ComingSoon = () => {
-  const [email, setEmail] = useState("");
+const upcomingTools = [
+  {
+    icon: Link2,
+    name: "URL Path Generator",
+    description: "Generate SEO-friendly URL structures automatically.",
+  },
+  {
+    icon: FileText,
+    name: "Meta Description Writer",
+    description: "Create optimized meta descriptions designed to increase click-through rates.",
+  },
+  {
+    icon: Layers,
+    name: "Keyword Cluster Generator",
+    description: "Group keywords into powerful topic clusters for scalable SEO.",
+  },
+  {
+    icon: Map,
+    name: "Topical Authority Builder",
+    description: "Generate structured topic maps for complete subject coverage.",
+  },
+  {
+    icon: FileCheck,
+    name: "SEO Content Brief Generator",
+    description: "Create structured outlines for high-ranking articles.",
+  },
+  {
+    icon: Network,
+    name: "Internal Linking Assistant",
+    description: "Automatically discover internal linking opportunities across your website.",
+  },
+];
 
-  const handleSubmit = (e: FormEvent) => {
+const ComingSoon = () => {
+  const [heroEmail, setHeroEmail] = useState("");
+  const [earlyEmail, setEarlyEmail] = useState("");
+
+  const handleHeroSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success("You're on the list! We'll be in touch soon.");
-    setEmail("");
+    if (!heroEmail) return;
+    toast.success("You're on the early access list!");
+    setHeroEmail("");
+  };
+
+  const handleEarlySubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!earlyEmail) return;
+    toast.success("You're on the early access list!");
+    setEarlyEmail("");
   };
 
   return (
-    <div
-      className="min-h-screen flex flex-col antialiased text-white relative"
-      style={{
-        background: "linear-gradient(145deg, #0a0e1a 0%, #111827 40%, #0f1629 70%, #0a0e1a 100%)",
-        backgroundImage: `linear-gradient(145deg, #0a0e1a 0%, #111827 40%, #0f1629 70%, #0a0e1a 100%), linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`,
-        backgroundSize: "100% 100%, 64px 64px, 64px 64px",
-        fontFamily: "'Inter', system-ui, sans-serif",
-      }}
-    >
-      {/* Ambient glow */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div
-          className="absolute rounded-full"
-          style={{
-            top: "-20%", right: "-10%", width: 600, height: 600,
-            background: "rgba(20,184,166,0.04)", filter: "blur(120px)",
-            animation: "subtle-shift 12s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute rounded-full"
-          style={{
-            bottom: "-15%", left: "-5%", width: 500, height: 500,
-            background: "rgba(45,212,191,0.03)", filter: "blur(100px)",
-            animation: "subtle-shift 12s ease-in-out infinite 4s",
-          }}
-        />
-      </div>
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Header />
 
-      {/* Main content */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        {/* Hero */}
-        <section className="w-full max-w-3xl mx-auto text-center pt-20 sm:pt-28 lg:pt-36 pb-16">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8" style={{ border: "1px solid rgba(20,184,166,0.2)", background: "rgba(20,184,166,0.06)" }}>
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#2dd4bf" }} />
-            <span className="text-xs font-medium tracking-wide uppercase" style={{ color: "#2dd4bf" }}>Coming Soon</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
-            <span className="text-white">RankTomorrow is</span><br />
-            <span style={{ background: "linear-gradient(to right, #2dd4bf, #14b8a6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Launching Soon.</span>
-          </h1>
-
-          <p className="text-lg sm:text-xl font-medium max-w-2xl mx-auto mb-4" style={{ color: "#d1d5db" }}>
-            AI-powered SEO automation built to engineer topical authority and scalable search growth.
-          </p>
-
-          <p className="text-sm sm:text-base max-w-xl mx-auto mb-12 leading-relaxed" style={{ color: "#6b7280" }}>
-            We're finalizing the automation engine that transforms keyword research into structured content systems.
-          </p>
-
-          {/* Waitlist form */}
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto mb-4">
-            <label htmlFor="email" className="sr-only">Email address</label>
-            <input
-              id="email"
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@company.com"
-              className="w-full sm:flex-1 h-12 px-4 rounded-lg text-white text-sm transition focus:outline-none"
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                color: "#fff",
-              }}
-              onFocus={(e) => { e.currentTarget.style.boxShadow = "0 0 0 2px rgba(20,184,166,0.4)"; e.currentTarget.style.borderColor = "rgba(20,184,166,0.4)"; }}
-              onBlur={(e) => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
-            />
-            <button
-              type="submit"
-              className="w-full sm:w-auto h-12 px-6 rounded-lg font-semibold text-sm transition-colors whitespace-nowrap cursor-pointer"
-              style={{ background: "#14b8a6", color: "#0a0e1a" }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "#2dd4bf"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "#14b8a6"; }}
+      <main className="flex-1 pt-24">
+        {/* Section 1 — Launch Announcement */}
+        <section className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
+          <div className="absolute inset-0 opacity-40" style={{ background: "var(--gradient-hero)" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]" style={{ background: "hsl(var(--accent) / 0.3)" }} />
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              Join the Waitlist
-            </button>
-          </form>
-          <p className="text-xs" style={{ color: "#4b5563" }}>No spam. Early access only.</p>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-8">
+                <Sparkles className="w-4 h-4 text-accent" />
+                <span className="text-xs font-medium tracking-wide uppercase text-accent">Coming Soon</span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 text-foreground">
+                AI Tools for Smarter SEO{" "}
+                <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-text)" }}>
+                  Are Coming Soon
+                </span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
+                We're building a new generation of AI-powered tools designed to automate research, content planning, and SEO workflows.
+              </p>
+              <p className="text-base text-muted-foreground max-w-xl mx-auto mb-10">
+                Join the early access list to be the first to try them when they launch.
+              </p>
+
+              <form onSubmit={handleHeroSubmit} className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto mb-3">
+                <Input
+                  type="email"
+                  required
+                  value={heroEmail}
+                  onChange={(e) => setHeroEmail(e.target.value)}
+                  placeholder="you@company.com"
+                  className="h-12 bg-card border-border"
+                />
+                <Button type="submit" size="lg" className="w-full sm:w-auto whitespace-nowrap">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Join the Early Access List
+                </Button>
+              </form>
+              <p className="text-xs text-muted-foreground">Be the first to access new tools and updates.</p>
+            </motion.div>
+          </div>
         </section>
 
-        {/* Feature cards */}
-        <section className="w-full max-w-4xl mx-auto pb-20 sm:pb-28">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-            {[
-              {
-                title: "AI Keyword Clustering",
-                desc: "Generate structured topical authority maps automatically.",
-                icon: (
-                  <svg className="w-5 h-5" style={{ color: "#2dd4bf" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Content Architecture Engine",
-                desc: "Create SEO-ready outlines and internal linking systems.",
-                icon: (
-                  <svg className="w-5 h-5" style={{ color: "#2dd4bf" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Automation Workflows",
-                desc: "Turn strategy into repeatable publishing systems.",
-                icon: (
-                  <svg className="w-5 h-5" style={{ color: "#2dd4bf" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182M2.985 19.644l3.181-3.182" />
-                  </svg>
-                ),
-              },
-            ].map((card) => (
-              <article
-                key={card.title}
-                className="rounded-2xl p-6 sm:p-7 transition-all duration-300"
-                style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  backdropFilter: "blur(12px)",
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "rgba(20,184,166,0.15)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.03)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; }}
-              >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(20,184,166,0.1)" }}>
-                  {card.icon}
-                </div>
-                <h3 className="text-white font-semibold text-sm mb-2">{card.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#6b7280" }}>{card.desc}</p>
-              </article>
-            ))}
+        {/* Section 2 — Product Vision */}
+        <section className="py-16 sm:py-24 bg-secondary/30">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="inline-flex items-center gap-2 mb-6">
+                <Zap className="w-5 h-5 text-accent" />
+                <span className="text-sm font-semibold text-accent uppercase tracking-wide">Our Vision</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-6">
+                A New Workflow for Modern SEO
+              </h2>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
+                Traditional SEO tools are built for manual work. Our goal is to build intelligent tools that automate repetitive tasks and help you move from research to execution faster.
+              </p>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                These tools are designed for marketers, founders, and creators who want to scale content, research keywords faster, and build topical authority more efficiently.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Section 3 — Upcoming AI Tools */}
+        <section className="py-16 sm:py-24">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
+                Tools Currently In Development
+              </h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                A preview of the AI-powered tools we're building to transform your SEO workflow.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {upcomingTools.map((tool, index) => (
+                <motion.div
+                  key={tool.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                >
+                  <Card className="h-full border-border/60 bg-card hover:shadow-lg transition-shadow duration-300 cursor-default">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                          <tool.icon className="w-5 h-5 text-accent" />
+                        </div>
+                        <Badge variant="secondary" className="text-xs font-medium">
+                          Coming Soon
+                        </Badge>
+                      </div>
+                      <h3 className="text-base font-semibold text-foreground mb-2">{tool.name}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{tool.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4 — Early Access Program */}
+        <section className="py-16 sm:py-24 bg-secondary/30">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
+                Become an Early Tester
+              </h2>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+                We're inviting a limited group of early users to help test the first versions of our AI tools before public release.
+              </p>
+
+              <div className="flex flex-col items-center gap-3 mb-10">
+                <p className="text-sm font-semibold text-foreground mb-2">Early access members will receive:</p>
+                {["Beta access to new tools", "Priority feature releases", "Early product updates"].map((benefit) => (
+                  <div key={benefit} className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    <span>{benefit}</span>
+                  </div>
+                ))}
+              </div>
+
+              <form onSubmit={handleEarlySubmit} className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto">
+                <Input
+                  type="email"
+                  required
+                  value={earlyEmail}
+                  onChange={(e) => setEarlyEmail(e.target.value)}
+                  placeholder="you@company.com"
+                  className="h-12 bg-card border-border"
+                />
+                <Button type="submit" size="lg" className="w-full sm:w-auto whitespace-nowrap">
+                  Get Early Access
+                </Button>
+              </form>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Section 5 — Development Status */}
+        <section className="py-16 sm:py-20">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="inline-flex items-center gap-2 mb-6">
+                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-sm font-semibold text-accent uppercase tracking-wide">Status</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-4">
+                Currently Under Development
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed mb-2">
+                Our AI tools are actively being designed and built. We're focusing on performance, usability, and real-world SEO workflows.
+              </p>
+              <p className="text-base text-muted-foreground font-medium">
+                The first tools will be launching soon.
+              </p>
+            </motion.div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="relative z-10 py-8 px-4" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <span className="text-sm font-semibold tracking-tight" style={{ color: "#9ca3af" }}>RankTomorrow</span>
-          <span className="text-xs" style={{ color: "#4b5563" }}>© {new Date().getFullYear()} RankTomorrow. All rights reserved.</span>
-        </div>
-      </footer>
-
-      <style>{`
-        @keyframes subtle-shift {
-          0%, 100% { opacity: 0.4; transform: translate(0, 0) scale(1); }
-          50% { opacity: 0.6; transform: translate(-10px, 10px) scale(1.05); }
-        }
-      `}</style>
+      <Footer />
     </div>
   );
 };
