@@ -116,10 +116,13 @@ const ComingSoon = () => {
                 />
                 <Button type="submit" size="lg" className="w-full sm:w-auto whitespace-nowrap">
                   <Mail className="w-4 h-4 mr-2" />
-                  Join the Early Access List
+                  Get Early Access to the AI Tools
                 </Button>
               </form>
-              <p className="text-xs text-muted-foreground">Be the first to access new tools and updates.</p>
+              <p className="text-xs text-muted-foreground mb-4">Be the first to access new tools and updates.</p>
+              <p className="text-sm text-muted-foreground/70 max-w-lg mx-auto">
+                Join marketers, founders, and SEO professionals testing the next generation of AI-powered SEO tools.
+              </p>
             </motion.div>
           </div>
         </section>
@@ -155,7 +158,7 @@ const ComingSoon = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
-                Tools Currently In Development
+                6 AI Tools Currently In Development
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
                 A preview of the AI-powered tools we're building to transform your SEO workflow.
@@ -189,6 +192,10 @@ const ComingSoon = () => {
                 </motion.div>
               ))}
             </div>
+
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center mt-10">
+              These AI SEO tools are designed to help automate keyword research, content planning, internal linking, and SEO workflow management. Our goal is to build tools that help marketers and creators move from research to execution faster.
+            </p>
           </div>
         </section>
 
