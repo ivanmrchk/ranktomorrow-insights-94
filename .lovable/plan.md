@@ -1,29 +1,29 @@
 
 
-## AI Tools Coming Soon Landing Page
+## Create a Previewable Coming Soon Page
 
-### Overview
-Create a new page at `/coming-soon` (replacing the existing standalone dark-themed version) that uses the site's existing `Header` and `Footer` components. The page announces upcoming AI tools with a modern SaaS launch aesthetic (light theme matching the rest of the site) and focuses on email signup collection.
+### Problem
+The `static/coming-soon.blade.php` file uses Laravel Blade syntax and cannot be rendered in Lovable's React-based preview.
 
-### File Changes
+### Solution
+Create a React version of the Coming Soon page at `/coming-soon` that mirrors the exact same design, so it can be previewed live in Lovable. The existing Blade file remains unchanged for Laravel deployment.
 
-**Replace: `src/pages/ComingSoon.tsx`**
+### New File: `src/pages/ComingSoon.tsx`
 
-Complete rewrite as a standard site page wrapping content in `Header` + `Footer`, with 5 sections:
+A standalone React component replicating the Blade template's design:
 
-1. **Launch Announcement Hero** — Large bold headline, subheadline, email signup form with toast confirmation, subtle gradient background accent
-2. **Product Vision** — "A New Workflow for Modern SEO" with two paragraphs, clean centered layout
-3. **Upcoming AI Tools Grid** — 6 non-clickable `Card` components in a responsive grid (2-3 cols), each with tool name, description, and a "Coming Soon" `Badge`. Tools: URL Path Generator, Meta Description Writer, Keyword Cluster Generator, Topical Authority Builder, SEO Content Brief Generator, Internal Linking Assistant
-4. **Early Access Program** — Benefits list (beta access, priority releases, early updates) + second email signup form
-5. **Development Status** — Short status message section
+- **Styling**: Dark gradient background (`#0a0e1a` to `#111827`), subtle grid overlay, ambient teal glow blobs, Inter font
+- **Hero section**: "RankTomorrow is Launching Soon." headline with teal gradient text, subheadline, supporting paragraph
+- **Waitlist form**: Email input + "Join the Waitlist" button (form submit shows a toast confirmation), "No spam. Early access only." microcopy
+- **Feature cards**: Three glass-morphism cards (AI Keyword Clustering, Content Architecture Engine, Automation Workflows) with teal icon containers and hover effects
+- **Footer**: "RankTomorrow" text logo + copyright with current year
+- **Full-page layout**: Uses `min-h-screen`, independent of the app's Header/Footer — completely self-contained
 
-**Tech approach:**
-- Uses existing components: `Header`, `Footer`, `Card`, `CardContent`, `Button`, `Input`, `Badge`, `motion` (framer-motion)
-- Icons from `lucide-react` (Link2, FileText, Layers, Map, FileCheck, Network, Sparkles, Zap, Mail)
-- `useState` + `toast` for email form handling
-- Consistent with existing page patterns (see `Tools.tsx`, `Index.tsx`)
-- Hover animations on cards via `motion.div` whileHover
-- No links on tool cards — purely presentational
+### Modified File: `src/App.tsx`
 
-**No changes needed to `src/App.tsx`** — the `/coming-soon` route already exists.
+- Import `ComingSoon` component
+- Add route: `<Route path="/coming-soon" element={<ComingSoon />} />`
+
+### After implementation
+Navigate to `/coming-soon` in the preview to see the live rendered page.
 
