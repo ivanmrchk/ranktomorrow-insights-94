@@ -192,6 +192,10 @@ const ComingSoon = () => {
                 </motion.div>
               ))}
             </div>
+
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center mt-10">
+              These AI SEO tools are designed to help automate keyword research, content planning, internal linking, and SEO workflow management. Our goal is to build tools that help marketers and creators move from research to execution faster.
+            </p>
           </div>
         </section>
 
